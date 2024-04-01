@@ -13,8 +13,8 @@ public class Queue<T> implements Serializable{
         listWithTail.popFront();
         return aux;
     }
-    public Boolean empty(){
-        return listWithTail.empty();
+    public Boolean isEmpty(){
+        return listWithTail.isEmpty();
     }
 
     public void print(){

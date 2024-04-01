@@ -6,6 +6,7 @@ package Classes.User;
 import Classes.Tarea;
 import structures.Queue;
 
+
 /**
  *
  * @author samue
@@ -25,7 +26,5 @@ public class Trabajador extends Usuario{
     public void setTareas(Queue<Tarea> tareas) {
         this.tareas = tareas;
     }
-    
-    
-    
+       
 }

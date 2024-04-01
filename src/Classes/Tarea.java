@@ -10,12 +10,12 @@ package Classes;
  */
 public class Tarea {
     private String id;
-    private String descrpicion;
+    private String descripcion;
     private boolean completada;
 
-    public Tarea(String id, String descrpicion, boolean completada) {
+    public Tarea(String id, String descripcion, boolean completada) {
         this.id = "T" + id;
-        this.descrpicion = descrpicion;
+        this.descripcion = descripcion;
         this.completada = completada;
     }
 
@@ -27,12 +27,12 @@ public class Tarea {
         this.id = id;
     }
 
-    public String getDescrpicion() {
-        return descrpicion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescrpicion(String descrpicion) {
-        this.descrpicion = descrpicion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public boolean isCompletada() {
