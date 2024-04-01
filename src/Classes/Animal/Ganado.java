@@ -5,7 +5,7 @@
 package Classes.Animal;
 
 import Classes.Tarea;
-import structures.DoublyLinkedList;
+import Structures.Doubly.DoublyLinkedList;
 import structures.DynamicArrayList;
 
 /**

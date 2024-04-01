@@ -10,7 +10,7 @@
 import java.util.Scanner;
 import Classes.User.Trabajador;
 import Classes.Tarea;
-import structures.Queue;
+import Structures.Doubly.DoublyQueue;
 
 public class ListaTrabajador {
     public static void main (String[] args){
@@ -18,7 +18,7 @@ public class ListaTrabajador {
         Trabajador trabajador = new Trabajador ("1", "Juan","j1", "Juan1");
         
         //creacion de la cola de tareas
-        Queue <Tarea> colaTareas = new Queue<>();
+        DoublyQueue <Tarea> colaTareas = new DoublyQueue<>();
         // Tareas 
         colaTareas.enqueue(new Tarea("1", "Dar de comer a las vacas", false));
         colaTareas.enqueue(new Tarea("2", "Limpiar las vacas", false));
@@ -33,7 +33,7 @@ public class ListaTrabajador {
         String ans= scanner.nextLine();
         
         if (ans.equalsIgnoreCase ("si")){
-            Queue<Tarea> tareasDelTrabajador =trabajador.getTareas();
+            DoublyQueue<Tarea> tareasDelTrabajador =trabajador.getTareas();
             
             System.out.println("Tareas de "+trabajador.getNombre()+ " son: ");
             while (!tareasDelTrabajador.isEmpty()) {

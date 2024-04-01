@@ -4,7 +4,7 @@
  */
 package Classes.User;
 import Classes.Tarea;
-import structures.Queue;
+import Structures.Queue;
 
 
 /**

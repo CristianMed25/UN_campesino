@@ -1,24 +1,24 @@
-package structures;
+package Structures.Doubly;
 
 import java.io.Serializable;
 
 public class DoublyLinkedList<T> implements Serializable {
-    public class Node<T> implements Serializable{
+    public class DoublyNode<T> implements Serializable{
         public T key;
-        public Node<T> next;
-        private Node<T> prev;
-        Node(T key){
+        public DoublyNode<T> next;
+        private DoublyNode<T> prev;
+        DoublyNode(T key){
             this.key = key;
             this.next = null;
             this.prev = null;
         }
-
+        
         public void setData(T t) {
             this.key = t;
         }
     }
-    public Node<T> head;
-    private Node<T> tail;
+    
+    private DoublyNode<T> head, tail;
     private int length;
 
     public DoublyLinkedList(){
@@ -26,7 +26,7 @@ public class DoublyLinkedList<T> implements Serializable {
     }
 
     public void pushFront(T key){
-        Node<T> node = new Node<>(key);
+        DoublyNode<T> node = new DoublyNode<>(key);
         if(head == null){
             head=tail= node;
         }else{
@@ -38,7 +38,7 @@ public class DoublyLinkedList<T> implements Serializable {
     }
 
     public void pushBack(T key){
-        Node<T> node = new Node<>(key);
+        DoublyNode<T> node = new DoublyNode<>(key);
         node.next=null;
         if(tail==null){
             head=tail=node;
@@ -96,8 +96,8 @@ public class DoublyLinkedList<T> implements Serializable {
         } else if (position==0) {
             pushFront(key);
         }else{
-            Node<T> node = new Node<>(key);
-            Node<T> aux = head;
+            DoublyNode<T> node = new DoublyNode<>(key);
+            DoublyNode<T> aux = head;
             for (int i=0; i<position-1; i++){
                 if(aux == null)
                     throw new IndexOutOfBoundsException();
@@ -114,8 +114,8 @@ public class DoublyLinkedList<T> implements Serializable {
             }
         }
     }
-    public void addBefore(Node<T> node, T key){
-        Node<T> node2 = new Node<>(key);
+    public void addBefore(DoublyNode<T> node, T key){
+        DoublyNode<T> node2 = new DoublyNode<>(key);
         node2.next = node;
         node2.prev = node.prev;
         node.prev = node2;
@@ -132,8 +132,8 @@ public class DoublyLinkedList<T> implements Serializable {
         } else if (position==0) {
             pushFront(key);
         }else{
-            Node<T> node = new Node<>(key);
-            Node<T> aux = head;
+            DoublyNode<T> node = new DoublyNode<>(key);
+            DoublyNode<T> aux = head;
             for (int i=0; i<position-1; i++){
                 if(aux == null)
                     throw new IndexOutOfBoundsException();
@@ -148,8 +148,8 @@ public class DoublyLinkedList<T> implements Serializable {
             }
         }
     }
-    public void addAfter(Node<T> node, T key){
-        Node<T> node2 = new Node<>(key);
+    public void addAfter(DoublyNode<T> node, T key){
+        DoublyNode<T> node2 = new DoublyNode<>(key);
         node2.key = key;
         node2.next = node.next;
         node2.prev = node;
@@ -169,7 +169,7 @@ public class DoublyLinkedList<T> implements Serializable {
         if(position == 0){
             popFront();
         }else{
-            Node<T> aux = head;
+            DoublyNode<T> aux = head;
             for (int i=0; i<position-1; i++){
                 if(aux == null)
                     throw new IndexOutOfBoundsException();
@@ -184,7 +184,7 @@ public class DoublyLinkedList<T> implements Serializable {
     }
     
     public void delete(T key) {
-    Node<T> nodeToDelete = search(key); // Utiliza el método search para encontrar el nodo
+    DoublyNode<T> nodeToDelete = search(key); // Utiliza el método search para encontrar el nodo
 
     if (nodeToDelete == null) { // Si el nodo no se encuentra, no hay nada que eliminar
         System.out.println("Element not found.");
@@ -216,7 +216,7 @@ public class DoublyLinkedList<T> implements Serializable {
 
     
     public int getPosition(T key){
-        Node<T> aux = head;
+        DoublyNode<T> aux = head;
         int pos=0;
         while(aux != null){
 
@@ -233,7 +233,7 @@ public class DoublyLinkedList<T> implements Serializable {
         if(position<0){
             throw new IndexOutOfBoundsException();
         }
-        Node<T> aux= head;
+        DoublyNode<T> aux= head;
         for(int i=0; i<position-1; i++){
             if(aux == null)
                 throw new IndexOutOfBoundsException();
@@ -242,7 +242,7 @@ public class DoublyLinkedList<T> implements Serializable {
         return aux.key;
     }
     public void print(){
-        Node<T> aux = head;
+        DoublyNode<T> aux = head;
         while(aux != null){
             System.out.print(aux.key + " ");
             aux = aux.next;
@@ -252,15 +252,15 @@ public class DoublyLinkedList<T> implements Serializable {
     public int size(){
         int n=0;
         for(
-                Node<T> aux = head;
+                DoublyNode<T> aux = head;
                 aux!=null;
                 aux=aux.next
         ){n++;}
         return n;
     }
     
-    public Node<T> search(T key) {
-    Node<T> aux = head;
+    public DoublyNode<T> search(T key) {
+    DoublyNode<T> aux = head;
     while (aux != null) {
         if (aux.key.equals(key)) {
             return aux; // Elemento encontrado
