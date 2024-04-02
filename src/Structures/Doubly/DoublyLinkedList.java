@@ -7,7 +7,10 @@ public class DoublyLinkedList<T> implements Serializable {
         public T key;
         public DoublyNode<T> next;
         private DoublyNode<T> prev;
-        DoublyNode(T key){
+        public DoublyNode(){
+            this(null);
+        }
+        public DoublyNode(T key){
             this.key = key;
             this.next = null;
             this.prev = null;
@@ -18,7 +21,8 @@ public class DoublyLinkedList<T> implements Serializable {
         }
     }
     
-    private DoublyNode<T> head, tail;
+    public DoublyNode<T> head;
+    private DoublyNode<T> tail;
     private int length;
 
     public DoublyLinkedList(){
@@ -268,5 +272,5 @@ public class DoublyLinkedList<T> implements Serializable {
         aux = aux .next;
     }
     return null; // Elemento no encontrado
-    }
+    }   
 }

@@ -15,7 +15,7 @@ public class Trabajador extends Usuario{
     private Queue<Tarea> tareas;
 
     public Trabajador(String id, String nombre, String user, String pasword) {
-        super(id, nombre, user, pasword);
+        super("T"+id, nombre, user, pasword);
         this.tareas = null;
     }
 
