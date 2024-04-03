@@ -56,7 +56,7 @@ public class GestorCultivos {
     }
 
     // Usar el método delete para eliminar el nodo encontrado
-    listaCereales.delete(nodo.key);
+//    listaCereales.delete(nodo.key);
     System.out.println("Cereal con ID " + id + " ha sido eliminado.");
 }
 

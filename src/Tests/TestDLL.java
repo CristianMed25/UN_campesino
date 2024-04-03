@@ -6,16 +6,18 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import structures.*;
+import Structures.Doubly.DoublyLinkedList;
 
 public class TestDLL implements Serializable {
-    private final String id;
+    private String id;
     private int data;
 
     public TestDLL(int id, int data) {
         this.id = 'X' + String.valueOf(id);
         this.data = data;
     }
+    
+    public TestDLL(){}
     
     public static void escribir(DoublyLinkedList<TestDLL> dato){
             try {

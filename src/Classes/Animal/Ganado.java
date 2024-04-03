@@ -6,6 +6,11 @@ package Classes.Animal;
 
 import Classes.Tarea;
 import Structures.Doubly.DoublyLinkedList;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import structures.DynamicArrayList;
 
 /**
@@ -23,6 +28,8 @@ public class Ganado {
         this.tipo = tipo;
         this.necesidades = necesidades;
     }
+    
+    public Ganado(){}
 
     public String getId() {
         return id;
@@ -56,7 +63,25 @@ public class Ganado {
         this.animales = animales;
     }
     
-    
-    
-    
+    public void escribir(DoublyLinkedList<Ganado> dato){
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("data/Ganado.dat"));
+            out.writeObject(dato);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }   
+
+    public DoublyLinkedList<Ganado> leer(){
+         try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("data/Ganado.dat"));
+            DoublyLinkedList<Ganado> datosRecuperados = (DoublyLinkedList<Ganado>) in.readObject();
+            in.close();
+            return datosRecuperados;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+        }   
 }

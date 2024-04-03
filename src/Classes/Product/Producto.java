@@ -61,7 +61,5 @@ public class Producto {
 
     public void setApartado(boolean apartado) {
         this.apartado = apartado;
-    }
-    
-    
+    }   
 }

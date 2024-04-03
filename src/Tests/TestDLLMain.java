@@ -1,6 +1,6 @@
 package Tests;
 
-import structures.DoublyLinkedList;
+import Structures.Doubly.DoublyLinkedList;
 
 public class TestDLLMain{
     
@@ -11,40 +11,50 @@ public static void agregarTestDLL(int id, int data){
              listaTestDLL.pushBack(testDLL);
          }
 
-public static TestDLL buscarIdTestDLL(String id){
-    for(int i=0; i <= listaTestDLL.size(); i++){
-	if(listaTestDLL.find(i).getId().equals(id)){
-                          return listaTestDLL.find(i);
+public static void agregarTestDLL(TestDLL testDLL){
+             listaTestDLL.pushBack(testDLL);
+         }
+
+public static int position = 0;
+public static TestDLL buscarIdTestDLL(String id){ 
+    for(int i=0; i <= listaTestDLL.length(); i++){
+                 TestDLL objetoEncontrado = listaTestDLL.find(i);
+//                 System.out.println("pos " + i);
+//                 System.out.println(objetoEncontrado);
+	if(objetoEncontrado.getId().equals(id)){
+                          position = i;
+//                          System.out.println(objetoEncontrado.toString());
+                          return objetoEncontrado;
                   }   
          }
     return null;
 }
 
 public static void actualizarTestDLLData(String id, int data){
-    TestDLL testDLL = new TestDLL(0, 0);
-    String idInt = "";
-    for(int i = 1; i < id.length(); i++){
-        idInt = idInt+id.charAt(i);
-    }
-    
-    for(int i=0; i <= listaTestDLL.size(); i++){
-	if(listaTestDLL.find(i).getId().equals(id)){
-                        System.out.println("\nElemento actualizado " + listaTestDLL.find(i).getId());
-                        testDLL = listaTestDLL.find(i);
-                        testDLL.setData(data);                        
-                        listaTestDLL.delete(listaTestDLL.find(i));
-                        agregarTestDLL(Integer.parseInt(idInt), testDLL.getData());                     
+    TestDLL testDLL = new TestDLL();
+
+//    for(int i=0; i <= listaTestDLL.length(); i++){
+                  TestDLL objetoEncontrado = buscarIdTestDLL(id);
+	if(objetoEncontrado.getId().equals(id)){
+                        System.out.println("\nElemento actualizado " + objetoEncontrado.getId());
+                        testDLL = objetoEncontrado;
+                        testDLL.setData(data);                          
+                        listaTestDLL.delete(position);
+                        listaTestDLL.addAfter(position-1, testDLL);
+//                        break;
                   }   
-         }
+//         }
 }
 
 public static void eliminarTestDLL(String id){
-    for(int i=0; i <= listaTestDLL.size(); i++){
-	if(listaTestDLL.find(i).getId().equals(id)){
-                        System.out.println("\nElemento borrado " + listaTestDLL.find(i).getId());
-                        listaTestDLL.delete(listaTestDLL.find(i));                    
+//    for(int i=0; i <= listaTestDLL.length(); i++){
+                  TestDLL objetoEncontrado = buscarIdTestDLL(id);
+	if(objetoEncontrado.getId().equals(id)){
+                        System.out.println("\nElemento borrado " + objetoEncontrado.getId());
+                        listaTestDLL.delete(position); 
+//                        break;
                   }   
-         } 
+//         } 
 }
 
 public static void testInsercionDatos(int n){
@@ -84,8 +94,25 @@ public static void testBorrarDatos(String n){
 
     public static void main(String[] args) {
         testInsercionDatos(10000);
+//        listaTestDLL.print();
         testBusquedaDatos("9999");
+        System.out.println(listaTestDLL.find(9999));
         testActualizacionDatos("9999", 500);
-        testBorrarDatos("9999");
+        System.out.println(listaTestDLL.find(9999));
+//        listaTestDLL.print();
+//        listaTestDLL.print();
+        testBorrarDatos("9999");    
+//        listaTestDLL.print();
+        System.out.println(listaTestDLL.find(9998));
+        testBusquedaDatos("9999");
+
+//        listaTestDLL.find(9999);
+//        long startTime = System.currentTimeMillis();   
+
+//        long endTime = System.currentTimeMillis(); 
+//        long duration = endTime - startTime;       
+//        System.out.println("La duracion de busqueda pos de dato en DLL fue de: " + duration + "ms");
+//        System.out.println(listaTestDLL.find(500000));
+//        System.out.println(listaTestDLL.getPosition(listaTestDLL.find(500000)));
     }
 }

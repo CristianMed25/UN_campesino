@@ -5,13 +5,14 @@
 package Classes.Cultivo;
 
 import Classes.Tarea;
+import java.io.Serializable;
 import structures.DynamicArrayList;
 
 /**
  *
  * @author samue
  */
-public abstract class Cultivo {
+public abstract class Cultivo implements Serializable{
     protected String id;
     protected String nombre;
     protected String tipo;
@@ -22,6 +23,8 @@ public abstract class Cultivo {
         this.nombre = nombre;
         this.necesidades = necesidades;
     }
+    
+    public Cultivo(){}
 
     public String getId() {
         return id;
