@@ -1,4 +1,4 @@
-/*
+2/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -329,5 +329,73 @@ public class GestorCultivos {
                  }else{
                      System.out.println("No se realizo actualización.");
                  }            
-    }    
+    }   
+    public static void actualizarLeguminosaNombre(String id, String nombre){
+        Leguminosa leguminosa = new Leguminosa();       
+                Leguminosa leguminosaEncontrado = buscarIdLeguminosa(id);
+                 if(leguminosaEncontrado != null){                    
+                     if(leguminosaEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + leguminosaEncontrado.getId());
+                            leguminosa = leguminosaEncontrado;
+                            leguminosa.setNombre(nombre);                        
+                            listaLeguminosa.delete(position);
+                            listaLeguminosa.pushBack(leguminosa);
+                            leguminosa.escribir(listaLeguminosa);                       
+                    } 
+                 }else{
+                     System.out.println("No se realizó actualización.");
+                 }  	  
+           
+    }
+    
+    public static void actualizarLeguminosaNecesidades(String id, DynamicArrayList<Tarea> necesidades){
+        Leguminosa leguminosa = new Leguminosa();       
+                Leguminosa leguminosaEncontrado = buscarIdLeguminosa(id);
+                 if(leguminosaEncontrado != null){                    
+                     if(leguminosaEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + leguminosaEncontrado.getId());
+                            leguminosa = leguminosaEncontrado;
+                            leguminosa.setNecesidades(necesidades);                        
+                            listaLeguminosa.delete(position);
+                            listaLeguminosa.pushBack(leguminosa);
+                            leguminosa.escribir(listaLeguminosa);                       
+                    }  
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }            
+    }  
+    public static void actualizarOleaginosaNombre(String id, String nombre){
+        Oleaginosa oleaginosa = new Oleaginosa();       
+                Oleaginosa oleaginosaEncontrado = buscarIdOleaginosa(id);
+                 if(oleaginosaEncontrado != null){                    
+                     if(oleaginosaEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + oleaginosaEncontrado.getId());
+                            oleaginosa = oleaginosaEncontrado;
+                            oleaginosa.setNombre(nombre);                        
+                            listaOleaginosa.delete(position);
+                            listaOleaginosa.pushBack(oleaginosa);
+                            oleaginosa.escribir(listaOleaginosa);                       
+                    } 
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }  	  
+           
+    }
+    
+    public static void actualizarOleaginosaNecesidades(String id, DynamicArrayList<Tarea> necesidades){
+        Oleaginosa oleaginosa = new Oleaginosa();       
+                Oleaginosa oleaginosaEncontrado = buscarIdOleaginosa(id);
+                 if(oleaginosaEncontrado != null){                    
+                     if(oleaginosaEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + oleaginosaEncontrado.getId());
+                            oleaginosa = hortalizaEncontrado;
+                            oleaginosa.setNecesidades(necesidades);                        
+                            listaOleaginosa.delete(position);
+                            listaOleaginosa.pushBack(oleaginosa);
+                            oleaginosa.escribir(listaOleaginosa);                       
+                    }  
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }            
+    }   
 }
