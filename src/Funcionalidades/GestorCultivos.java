@@ -30,32 +30,32 @@ public class GestorCultivos {
     public static final Raiz_y_Tuberculo raiz_y_tuberculo = new Raiz_y_Tuberculo();
 //    
 //    
-//    private static DoublyLinkedList<Cereal> listaCereal = cereal.leer();
-//    private static DoublyLinkedList<Frutal> listaFrutal= frutal.leer();
-//    private static DoublyLinkedList<Hortaliza> listaHortaliza = hortaliza.leer();
-//    private static DoublyLinkedList<Leguminosa> listaLeguminosa = leguminosa.leer();
-//    private static DoublyLinkedList<Oleaginosa> listaOleaginosa = oleaginosa.leer();
-//    private static DoublyLinkedList<Ornamental> listaOrnamental = ornamental.leer();
-//    private static DoublyLinkedList<Raiz_y_Tuberculo> listaRaiz_y_Tuberculo = raiz_y_tuberculo.leer();  
-    
-    //El gestor de cultivos posee una lista de cada clase de cultivo, donde se guerdarán las instancias poseean dichas clases.
-    private static DoublyLinkedList<Cereal> listaCereal;
-    private static DoublyLinkedList<Frutal> listaFrutal;
-    private static DoublyLinkedList<Hortaliza> listaHortaliza;
-    private static DoublyLinkedList<Leguminosa> listaLeguminosa;
-    private static DoublyLinkedList<Oleaginosa> listaOleaginosa;
-    private static DoublyLinkedList<Ornamental> listaOrnamental;
-    private static DoublyLinkedList<Raiz_y_Tuberculo> listaRaiz_y_Tuberculo;
-
-    public GestorCultivos() {
-        this.listaCereal          = new DoublyLinkedList<>();
-        this.listaFrutal         = new DoublyLinkedList<>();
-        this.listaHortaliza        = new DoublyLinkedList<>();
-        this.listaLeguminosa       = new DoublyLinkedList<>();
-        this.listaOleaginosa       = new DoublyLinkedList<>();
-        this.listaOrnamental      = new DoublyLinkedList<>();
-        this.listaRaiz_y_Tuberculo  = new DoublyLinkedList<>();
-    }
+    private static DoublyLinkedList<Cereal> listaCereal = cereal.leer();
+    private static DoublyLinkedList<Frutal> listaFrutal= frutal.leer();
+    private static DoublyLinkedList<Hortaliza> listaHortaliza = hortaliza.leer();
+    private static DoublyLinkedList<Leguminosa> listaLeguminosa = leguminosa.leer();
+    private static DoublyLinkedList<Oleaginosa> listaOleaginosa = oleaginosa.leer();
+    private static DoublyLinkedList<Ornamental> listaOrnamental = ornamental.leer();
+    private static DoublyLinkedList<Raiz_y_Tuberculo> listaRaiz_y_Tuberculo = raiz_y_tuberculo.leer();  
+      
+    //Para creación de archivos
+//    private static DoublyLinkedList<Cereal> listaCereal;
+//    private static DoublyLinkedList<Frutal> listaFrutal;
+//    private static DoublyLinkedList<Hortaliza> listaHortaliza;
+//    private static DoublyLinkedList<Leguminosa> listaLeguminosa;
+//    private static DoublyLinkedList<Oleaginosa> listaOleaginosa;
+//    private static DoublyLinkedList<Ornamental> listaOrnamental;
+//    private static DoublyLinkedList<Raiz_y_Tuberculo> listaRaiz_y_Tuberculo;
+//
+//    public GestorCultivos() {
+//        this.listaCereal          = new DoublyLinkedList<>();
+//        this.listaFrutal         = new DoublyLinkedList<>();
+//        this.listaHortaliza        = new DoublyLinkedList<>();
+//        this.listaLeguminosa       = new DoublyLinkedList<>();
+//        this.listaOleaginosa       = new DoublyLinkedList<>();
+//        this.listaOrnamental      = new DoublyLinkedList<>();
+//        this.listaRaiz_y_Tuberculo  = new DoublyLinkedList<>();
+//    }
     
     public static void agregarCereal(String id, String nombre, DynamicArrayList<Tarea> necesidades){
          Cereal cereal = new Cereal(id,nombre,necesidades);
@@ -81,7 +81,7 @@ public class GestorCultivos {
         frutal.escribir(listaFrutal);
      }  
 
-    public static void agregarHotaliza ( String id, String nombre, DynamicArrayList<Tarea> necesidades){
+    public static void agregarHortaliza ( String id, String nombre, DynamicArrayList<Tarea> necesidades){
         Hortaliza hortaliza = new Hortaliza(id,nombre,necesidades);
         listaHortaliza.pushBack(hortaliza);
          
@@ -105,14 +105,14 @@ public class GestorCultivos {
         leguminosa.escribir(listaLeguminosa);
     }
     
-     public static void Oleaginosa(String id, String nombre, DynamicArrayList<Tarea> necesidades) {
+     public static void agregarOleaginosa(String id, String nombre, DynamicArrayList<Tarea> necesidades) {
          Oleaginosa oleaginosa=new Oleaginosa(id, nombre, necesidades);
          listaOleaginosa.pushBack(oleaginosa);
          
          oleaginosa.escribir(listaOleaginosa);       
      }
     
-    public static void agregaOleaginosa(Oleaginosa oleaginosa){
+    public static void agregarOleaginosa(Oleaginosa oleaginosa){
          listaOleaginosa.pushBack(oleaginosa);
          oleaginosa.escribir(listaOleaginosa);
      }
@@ -131,6 +131,12 @@ public class GestorCultivos {
     
     public static void agregarRaiz_y_Tuberculo(String id, String nombre, DynamicArrayList<Tarea> necesidades){
         Raiz_y_Tuberculo raiz_y_tuberculo = new Raiz_y_Tuberculo(id, nombre, necesidades);
+        listaRaiz_y_Tuberculo.pushBack(raiz_y_tuberculo);
+         
+        raiz_y_tuberculo.escribir(listaRaiz_y_Tuberculo);       
+     } 
+    
+    public static void agregarRaiz_y_Tuberculo(Raiz_y_Tuberculo raiz_y_tuberculo){
         listaRaiz_y_Tuberculo.pushBack(raiz_y_tuberculo);
          
         raiz_y_tuberculo.escribir(listaRaiz_y_Tuberculo);       

@@ -58,5 +58,8 @@ public abstract class Cultivo implements Serializable{
         this.necesidades = necesidades;
     }
 
-
+    @Override
+    public String toString() {
+        return "\nCultivo{" + "id=" + id + ", nombre=" + nombre + ", tipo=" + tipo + ", necesidades=" + necesidades + '}';
+    }
 }

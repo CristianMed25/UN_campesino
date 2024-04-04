@@ -4,11 +4,13 @@
  */
 package Classes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author samue
  */
-public class Tarea {
+public class Tarea implements Serializable{
     private String id;
     private String descripcion;
     private boolean completada;
@@ -18,6 +20,8 @@ public class Tarea {
         this.descripcion = descripcion;
         this.completada = completada;
     }
+    
+    public Tarea(){}
 
     public String getId() {
         return id;

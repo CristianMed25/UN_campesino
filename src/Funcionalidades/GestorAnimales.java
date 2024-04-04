@@ -47,6 +47,15 @@ public class GestorAnimales {
     private static DoublyLinkedList<Ovino> listaOvino = ovino.leer();
     private static DoublyLinkedList<Pez> listaPez = pez.leer();
     private static DoublyLinkedList<Porcino> listaPorcino = porcino.leer();
+    
+//Para creación de archivos
+//    private static DoublyLinkedList<Ave> listaAve;
+//    private static DoublyLinkedList<Bovino> listaBovino;
+//    private static DoublyLinkedList<Caballo> listaCaballo;
+//    private static DoublyLinkedList<Ganado> listaGanado;
+//    private static DoublyLinkedList<Ovino> listaOvino;
+//    private static DoublyLinkedList<Pez> listaPez;
+//    private static DoublyLinkedList<Porcino> listaPorcino;
 
 //    public GestorAnimales() {
 //        this.listaAve          = new DoublyLinkedList<>();
