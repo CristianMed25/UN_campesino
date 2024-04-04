@@ -258,17 +258,17 @@ public class GestorCultivo {
      }  
 
     public static void agregarHotaliza ( String id, String nombre, DynamicArrayList<Tarea> necesidades){
-         Hortaliza hortaliza = new Hortaliza(id,nombre,necesidades));
+         Hortaliza hortaliza = new Hortaliza(id,nombre,necesidades);
          listaHortaliza.pushBack(Hortaliza);
          
          Hortaliza.escribir(listaHortaliza);       
      }
     
-    public static void agregarOvino(String id, int edad, String salud, double peso){
-         Ovino Ovino = new Ovino(id,edad,salud,peso);
-         listaOvino.pushBack(Ovino);
+    public static void agregarLeguminosa(String id, String nombre, DynamicArrayList<Tarea> necesidades){
+         Leguminosa leguminosa = new Leguminosa(id,nombre,necesidades);
+         listaLeguminosa.pushBack(Leguminosa);
          
-         Ovino.escribir(listaOvino);       
+         Leguminosa.escribir(listaLeguminos);       
      }
     
     public static void agregarPez(String id, int edad, String salud, double peso){
