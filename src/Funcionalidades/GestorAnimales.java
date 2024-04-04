@@ -13,6 +13,19 @@ import Classes.Animal.Ovino;
 import Classes.Animal.Pez;
 import Classes.Animal.Porcino;
 import Structures.Doubly.DoublyLinkedList;
+import Classes.Cultivo.Cereal;
+import Classes.Cultivo.Frutal;
+import Classes.Cultivo.Hortaliza;
+import Classes.Cultivo.Leguminosa;
+import Classes.Cultivo.Ornamental;
+import Classes.Cultivo.Oleaginosa;
+import Classes.Cultivo.Raiz_y_Tuberculo;
+import Classes.Tarea;
+import static Funcionalidades.GestorAnimales.ave;
+import structures.DynamicArrayList;
+        
+
+
 
 /**
  *
@@ -102,6 +115,7 @@ public class GestorAnimales {
          
          Porcino.escribir(listaPorcino);       
      }
+
     
     
     
@@ -197,4 +211,78 @@ public class GestorAnimales {
                      System.out.println("No se realizo la eliminación.");
                  }         
     }
+}
+
+public class GestorCultivo {
+    //El gestor de cultivos posee una lista de cada clase de cultivo, donde se guerdarán las instancias poseean dichas clases.   
+    
+    public static final Cereal cereal = new Cereal();
+    public static final Frutal frutal = new Frutal();
+    public static final Hortaliza hortaliza= new Hortaliza();
+    public static final Leguminosa leguminosa = new Leguminosa();
+    public static final Oleaginosa oleaginosa= new Oleaginosa();
+    public static final Ornamental ornamental= new Ornamental();
+    public static final Raiz_y_Tuberculo raiz_y_tuberculo = new Raiz_y_Tuberculo();
+    
+    
+    private static DoublyLinkedList<Cereal> listaCereal = cereal.leer();
+    private static DoublyLinkedList<Frutal> listaFrutal= frutal.leer();
+    private static DoublyLinkedList<Hortaliza> listaHortaliza = hortaliza.leer();
+    private static DoublyLinkedList<Leguminosa> listaLeguminosa = leguminosa.leer();
+    private static DoublyLinkedList<Oleaginosa> listaOleaginosa = oleaginosa.leer();
+    private static DoublyLinkedList<Ornamental> listaOrnamental = ornamental.leer();
+    private static DoublyLinkedList<Raiz_y_Tuberculo> listaRaiz_y_Tuberculo = raiz_y_tuberculo.leer();
+    
+    public static void agregarCereal(String id, String nombre, DynamicArrayList<Tarea> necesidades){
+         Cereal cereal = new Cereal(id,nombre,necesidades);
+         listaCereal.pushBack(cereal);
+         
+         cereal.escribir(listaCereal);       
+     }
+    
+    public static void agregarCereal(Cereal cereal){
+         listaCereal.pushBack(Cereal);
+         cereal.escribir(listaCereal);
+     }
+    
+    public static void agregarFrutal(String id, String nombre, DynamicArrayList<Tarea> necesidades){
+         Frutal frutal = new Frutal(id,nombre,necesidades);
+         listaFrutal.pushBack(frutal);
+         
+         frutal.escribir(listaFrutal);       
+     } 
+    
+    public static void agregarFrutal(Frutal frutal){
+         listaFrutal.pushBack(frutal);
+         frutal.escribir(listaFrutal);
+     }  
+
+    public static void agregarHotaliza ( String id, String nombre, DynamicArrayList<Tarea> necesidades){
+         Hortaliza hortaliza = new Hortaliza(id,nombre,necesidades));
+         listaHortaliza.pushBack(Hortaliza);
+         
+         Hortaliza.escribir(listaHortaliza);       
+     }
+    
+    public static void agregarOvino(String id, int edad, String salud, double peso){
+         Ovino Ovino = new Ovino(id,edad,salud,peso);
+         listaOvino.pushBack(Ovino);
+         
+         Ovino.escribir(listaOvino);       
+     }
+    
+    public static void agregarPez(String id, int edad, String salud, double peso){
+         Pez Pez = new Pez(id,edad,salud,peso);
+         listaPez.pushBack(Pez);
+         
+         Pez.escribir(listaPez);       
+     }
+    
+    public static void agregarPorcino(String id, int edad, String salud, double peso){
+         Porcino Porcino = new Porcino(id,edad,salud,peso);
+         listaPorcino.pushBack(Porcino);
+         
+         Porcino.escribir(listaPorcino);       
+     }
+    
 }
