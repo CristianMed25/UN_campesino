@@ -263,26 +263,48 @@ public class GestorCultivo {
          
          Hortaliza.escribir(listaHortaliza);       
      }
+    public static void agregarHortaliza (Hortaliza hortaliza){
+        listaHortaliza.pushBack(Hortaliza);
+                 
+        Hortaliza.escribir (listaHortaliza);
+        
+    }
     
     public static void agregarLeguminosa(String id, String nombre, DynamicArrayList<Tarea> necesidades){
          Leguminosa leguminosa = new Leguminosa(id,nombre,necesidades);
          listaLeguminosa.pushBack(Leguminosa);
          
-         Leguminosa.escribir(listaLeguminos);       
+         Leguminosa.escribir(listaLeguminosa);       
+     }
+    public static void agregarLeguminosa(Leguminosa leguminosa){
+        listaLeguminosa.pushBack(Leguminosa);
+                 
+        Leguminosa.escribir (listaLeguminosa);
+    }
+     public static void Oleaginosa(String id, String nombre, DynamicArrayList<Tarea> necesidades) {
+         Oleaginosa oleaginosa=new Oleagiinosa(id, nombre, necesidades)
+         listaOleaginosa.pushBack(oleaginosa);
+         
+         oleaginosa.escribir(listaOleaginosa);       
      }
     
-    public static void agregarPez(String id, int edad, String salud, double peso){
-         Pez Pez = new Pez(id,edad,salud,peso);
-         listaPez.pushBack(Pez);
-         
-         Pez.escribir(listaPez);       
+    public static void agregaOleaginosa(Oleaginosa oleaginosa){
+         listaOleaginosa.pushBack(Oleaginosa);
+         oleaginosa.escribir(listaOleaginosa);
      }
+        
+    public static void agregarOrnamental(String id, int edad, String salud, double peso){
+         Ornamental ornamental = new Ornamental(id,edad,salud,peso);
+         listaOrnamental.pushBack(ornamental);
+         
+         ornamental.escribir(listaOrnamental);       
+     } 
     
-    public static void agregarPorcino(String id, int edad, String salud, double peso){
-         Porcino Porcino = new Porcino(id,edad,salud,peso);
-         listaPorcino.pushBack(Porcino);
-         
-         Porcino.escribir(listaPorcino);       
-     }
+    public static void agregarOrnamental(Ornamental ornamental){
+         listaOrnamental.pushBack(ornamental);
+         ornamental.escribir(listaOrnamental);
+     }  
+    
+    
     
 }
