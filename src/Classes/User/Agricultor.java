@@ -4,6 +4,14 @@
  */
 package Classes.User;
 
+import Classes.Cultivo.Raiz_y_Tuberculo;
+import Structures.Doubly.DoublyLinkedList;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 /**
  *
  * @author samue
@@ -14,4 +22,28 @@ public class Agricultor extends Consultor{
         super("A" + id, nombre, user, pasword);
     }
     
+    
+    public Agricultor(){}
+    
+    public void escribir(DoublyLinkedList<Agricultor> dato){
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("data/Agricultor.dat"));
+            out.writeObject(dato);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }   
+
+    public DoublyLinkedList<Agricultor> leer(){
+         try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("data/Agricultor.dat"));
+            DoublyLinkedList<Agricultor> datosRecuperados = (DoublyLinkedList<Agricultor>) in.readObject();
+            in.close();
+            return datosRecuperados;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+        } 
 }

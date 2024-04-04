@@ -4,7 +4,14 @@
  */
 package Classes.Cultivo;
 
+import Classes.Animal.Bovino;
 import Classes.Tarea;
+import Structures.Doubly.DoublyLinkedList;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import structures.DynamicArrayList;
 
 /**
@@ -17,6 +24,32 @@ public class Frutal extends Cultivo{
         super("F" + id, nombre, necesidades);
         this.tipo = "Frutal";
     }
+        
+    public Frutal(){}
+    
+    public void escribir(DoublyLinkedList<Frutal> dato){
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("data/Frutal.dat"));
+            out.writeObject(dato);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }   
+
+    public DoublyLinkedList<Frutal> leer(){
+         try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("data/Frutal.dat"));
+            DoublyLinkedList<Frutal> datosRecuperados = (DoublyLinkedList<Frutal>) in.readObject();
+            in.close();
+            return datosRecuperados;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+        } 
+
+    
 
     
 }
