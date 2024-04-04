@@ -24,7 +24,7 @@ public class Consultor extends Usuario{
     
     public Consultor(){}
     
-    public void escribir(DoublyLinkedList<Consultor> dato){
+    public void escribirConsultor(DoublyLinkedList<Consultor> dato){
         try {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("data/Consultor.dat"));
             out.writeObject(dato);
@@ -34,7 +34,7 @@ public class Consultor extends Usuario{
         }
     }   
 
-    public DoublyLinkedList<Consultor> leer(){
+    public DoublyLinkedList<Consultor> leerConsultor(){
          try {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("data/Consultor.dat"));
             DoublyLinkedList<Consultor> datosRecuperados = (DoublyLinkedList<Consultor>) in.readObject();

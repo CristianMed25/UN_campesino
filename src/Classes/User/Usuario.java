@@ -20,7 +20,9 @@ public abstract class Usuario {
         this.user = user;
         this.pasword = pasword;
     }
-
+    
+    public Usuario(){}
+    
     public String getId() {
         return id;
     }
