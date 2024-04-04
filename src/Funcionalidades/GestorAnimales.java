@@ -22,6 +22,8 @@ import Classes.Cultivo.Oleaginosa;
 import Classes.Cultivo.Raiz_y_Tuberculo;
 import Classes.Tarea;
 import static Funcionalidades.GestorAnimales.ave;
+import static Funcionalidades.GestorAnimales.buscarIdBovino;
+import static Funcionalidades.GestorAnimales.position;
 import structures.DynamicArrayList;
         
 
@@ -253,15 +255,15 @@ public class GestorCultivo {
      } 
     
     public static void agregarFrutal(Frutal frutal){
-         listaFrutal.pushBack(frutal);
-         frutal.escribir(listaFrutal);
+        listaFrutal.pushBack(frutal);
+        frutal.escribir(listaFrutal);
      }  
 
     public static void agregarHotaliza ( String id, String nombre, DynamicArrayList<Tarea> necesidades){
-         Hortaliza hortaliza = new Hortaliza(id,nombre,necesidades);
-         listaHortaliza.pushBack(Hortaliza);
+        Hortaliza hortaliza = new Hortaliza(id,nombre,necesidades);
+        listaHortaliza.pushBack(Hortaliza);
          
-         Hortaliza.escribir(listaHortaliza);       
+        Hortaliza.escribir(listaHortaliza);       
      }
     public static void agregarHortaliza (Hortaliza hortaliza){
         listaHortaliza.pushBack(Hortaliza);
@@ -305,6 +307,201 @@ public class GestorCultivo {
          ornamental.escribir(listaOrnamental);
      }  
     
+    public static void agregarRaiz_y_Tuberculo(String id, String nombre, DynamicArrayList<Tarea> necesidades){
+        Raiz_y_Tuberculo raiz_y_tuberculo = new Raiz_y_Tuberculo(id,edad,salud,peso);
+        listaRaiz_y_Tuberculo.pushBack(raiz_y_tuberculo);
+         
+        raiz_y_tuberculo.escribir(listaRaiz_y_Tuberculo);       
+     } 
+    
+    public static int position = 0;
+    public static Cereal buscarIdCereal(String id){
+        for(int i=0; i <= listaCereal.length(); i++){
+                 Cereal objetoEncontrado = listaCereal.find(i);
+    	if(objetoEncontrado.getId().equals(id)){
+                              position = i;
+                              return objetoEncontrado;
+                  }   
+             }
+        System.out.println("No se encontro el elemento con id " + id);
+        return null;
+    }
+    
+    public static Frutal buscarIdFrutal(String id){
+        for(int i=0; i <= listaFrutal.length(); i++){
+                Frutal objetoEncontrado = listaFrutal.find(i);
+    	if(objetoEncontrado.getId().equals(id)){
+                              position = i;
+                              return objetoEncontrado;
+                  }   
+             }
+        System.out.println("No se encontro el elemento con id " + id);
+        return null;
+    }
+    
+    public static Hortaliza buscarIdHortaliza(String id){
+        for(int i=0; i <= listaHortaliza.length(); i++){
+                Hortaliza objetoEncontrado = listaHortaliza.find(i);
+    	if(objetoEncontrado.getId().equals(id)){
+                              position = i;
+                              return objetoEncontrado;
+                  }   
+             }
+        System.out.println("No se encontro el elemento con id " + id);
+        return null;
+    }
+        
+    public static Leguminosa buscarIdLeguminosa(String id){
+        for(int i=0; i <= listaLeguminosa.length(); i++){
+                Leguminosa objetoEncontrado = listaLeguminosa.find(i);
+    	if(objetoEncontrado.getId().equals(id)){
+                              position = i;
+                              return objetoEncontrado;
+                  }   
+             }
+        System.out.println("No se encontro el elemento con id " + id);
+        return null;
+    }
+    
+    public static Oleaginosa buscarIdOleaginosa(String id){
+        for(int i=0; i <= listaLeguminosa.length(); i++){
+                Oleaginosa objetoEncontrado = listaOleaginosa.find(i);
+    	if(objetoEncontrado.getId().equals(id)){
+                              position = i;
+                              return objetoEncontrado;
+                  }   
+             }
+        System.out.println("No se encontro el elemento con id " + id);
+        return null;
+    }
+    public static Ornamental buscarIdOrnamental(String id){
+        for(int i=0; i <= listaOrnamental.length(); i++){
+                Ornamental objetoEncontrado = listaOrnamental.find(i);
+    	if(objetoEncontrado.getId().equals(id)){
+                              position = i;
+                              return objetoEncontrado;
+                  }   
+             }
+        System.out.println("No se encontro el elemento con id " + id);
+        return null;
+    }
+    public static Raiz_y_Tuberculo buscarIdRaiz_y_Tuberculo(String id){
+        for(int i=0; i <= listaRaiz_y_Tuberculo.length(); i++){
+                Raiz_y_Tuberculo objetoEncontrado = listaRaiz_y_Tuberculo.find(i);
+    	if(objetoEncontrado.getId().equals(id)){
+                              position = i;
+                              return objetoEncontrado;
+                  }   
+             }
+        System.out.println("No se encontro el elemento con id " + id);
+        return null;
+    }
+    
+       //ACTUALIZAR CADA ATRIBUTO Cultivos
+    //cereal
+    public static void actualizarCerealNombre(String id, String nombre){
+        Cereal cereal = new Cereal();       
+                 Cereal cerealEncontrado = buscarIdCereal(id);
+                 if(cerealEncontrado != null){                    
+                     if(cerealEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + cerealEncontrado.getId());
+                            cereal = cerealEncontrado;
+                            cereal.setNombre(nombre);                        
+                            listaCereal.delete(position);
+                            listaCereal.pushBack(cereal);
+                            cereal.escribir(listaCereal);                       
+                    } 
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }  	  
+           
+    }
+    
+    public static void actualizarCerealNecesidades(String id, DynamicArrayList<Tarea> necesidades){
+        Cereal cereal = new Cereal();       
+                Cereal cerealEncontrado = buscarIdCereal(id);
+                 if(cerealEncontrado != null){                    
+                     if(cerealEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + cerealEncontrado.getId());
+                            cereal = cerealEncontrado;
+                            cereal.setNecesidades(necesidades);                        
+                            listaCereal.delete(position);
+                            listaCereal.pushBack(cereal);
+                            cereal.escribir(listaCereal);                       
+                    }  
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }            
+    }
+    public static void actualizarFrutalNombre(String id, String nombre){
+        Frutal frutal = new Frutal();       
+                Frutal frutalEncontrado = buscarIdFrutal(id);
+                 if(frutalEncontrado != null){                    
+                     if(frutalEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + frutalEncontrado.getId());
+                            frutal = frutalEncontrado;
+                            frutal.setNombre(nombre);                        
+                            listaFrutal.delete(position);
+                            listaFrutal.pushBack(frutal);
+                            frutal.escribir(listaFrutal);                       
+                    } 
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }  	  
+           
+    }
+    
+    public static void actualizarFrutalNecesidades(String id, DynamicArrayList<Tarea> necesidades){
+        Frutal frutal = new Frutal();       
+                Frutal cerealEncontrado = buscarIdFrutal(id);
+                 if(frutalEncontrado != null){                    
+                     if(frutalEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + frutalEncontrado.getId());
+                            cereal = cerealEncontrado;
+                            cereal.setNecesidades(necesidades);                        
+                            listaFrutal.delete(position);
+                            listaFrutal.pushBack(frutal);
+                            frutal.escribir(listaFrutal);                       
+                    }  
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }            
+    }
+    
+    public static void actualizarHortalizaNombre(String id, String nombre){
+        Hortaliza hortaliza = new Hortaliza();       
+                Hortaliza hortalizaEncontrado = buscarIdHortaliza(id);
+                 if(hortalizaEncontrado != null){                    
+                     if(hortalizaEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + hortalizaEncontrado.getId());
+                            hortaliza = hortalizaEncontrado;
+                            hortaliza.setNombre(nombre);                        
+                            listaHortaliza.delete(position);
+                            listaHortaliza.pushBack(hortaliza);
+                            hortaliza.escribir(listaHortaliza);                       
+                    } 
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }  	  
+           
+    }
+    
+    public static void actualizarHortalizaNecesidades(String id, DynamicArrayList<Tarea> necesidades){
+        Hortaliza hortaliza = new Hortaliza();       
+                Hortaliza hortalizaEncontrado = buscarIdHortaliza(id);
+                 if(hortalizaEncontrado != null){                    
+                     if(hortalizaEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + hortalizaEncontrado.getId());
+                            hortaliza = hortalizaEncontrado;
+                            hortaliza.setNecesidades(necesidades);                        
+                            listaHortaliza.delete(position);
+                            listaHortaliza.pushBack(hortaliza);
+                            hortaliza.escribir(listaHortaliza);                       
+                    }  
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }            
+    }
     
     
 }
