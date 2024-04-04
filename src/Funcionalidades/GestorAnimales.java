@@ -118,6 +118,7 @@ public class GestorAnimales {
                               return objetoEncontrado;
                   }   
              }
+        System.out.println("No se encontro el elemento con id " + id);
         return null;
     }
     
@@ -129,6 +130,7 @@ public class GestorAnimales {
                               return objetoEncontrado;
                   }   
              }
+        System.out.println("No se encontro el elemento con id " + id);
         return null;
     }
     
@@ -136,50 +138,63 @@ public class GestorAnimales {
     public static void actualizarBovinoEdad(String id, int edad){
         Bovino bovino = new Bovino();       
                  Bovino bovinoEncontrado = buscarIdBovino(id);
-    	if(bovinoEncontrado.getId().equals(id)){
-                            System.out.println("Elemento actualizado " + bovinoEncontrado.getId());
+                 if(bovinoEncontrado != null){                    
+                     if(bovinoEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + bovinoEncontrado.getId());
                             bovino = bovinoEncontrado;
                             bovino.setEdad(edad);                        
                             listaBovino.delete(position);
-                            listaBovino.addAfter(position-1, bovino);
+                            listaBovino.pushBack(bovino);
                             bovino.escribir(listaBovino);                       
-                  }   
-             
+                    } 
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }  	  
+           
     }
     
     public static void actualizarBovinoSalud(String id, String salud){
         Bovino bovino = new Bovino();       
                  Bovino bovinoEncontrado = buscarIdBovino(id);
-    	if(bovinoEncontrado.getId().equals(id)){
-                            System.out.println("Elemento actualizado " + bovinoEncontrado.getId());
+                 if(bovinoEncontrado != null){                    
+                     if(bovinoEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + bovinoEncontrado.getId());
                             bovino = bovinoEncontrado;
                             bovino.setSalud(salud);                        
                             listaBovino.delete(position);
-                            listaBovino.addAfter(position-1, bovino);
+                            listaBovino.pushBack(bovino);
                             bovino.escribir(listaBovino);                       
-                  }   
-             
+                    }  
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }            
     }
     //ELIMINAR ANIMALES:
     public static void eliminarBovino(String id){
         Bovino bovino = new Bovino();        
-                 Bovino bovinoEncontrado = buscarIdBovino(id);
-    	if(bovinoEncontrado.getId().equals(id)){
-                            System.out.println("Elemento borrado " + bovinoEncontrado.getId());
+                 Bovino bovinoEncontrado = buscarIdBovino(id);                
+                 if(bovinoEncontrado != null){                    
+                     if(bovinoEncontrado.getId().equals(id)){
+                            System.out.println("Id del elemento borrado " + bovinoEncontrado.getId());
                             listaBovino.delete(position);
                             bovino.escribir(listaBovino);
-                      }   
-             
+                      }                                       
+                 }else{
+                     System.out.println("No se realizo la eliminación.");
+                 }    
     }
     
     public static void eliminarAve(String id){
         Ave Ave = new Ave();        
                  Ave AveEncontrado = buscarIdAve(id);
-    	if(AveEncontrado.getId().equals(id)){
-                            System.out.println("Elemento borrado " + AveEncontrado.getId());
+                 if(AveEncontrado != null){                    
+                     if(AveEncontrado.getId().equals(id)){
+                            System.out.println("Id del elemento borrado " + AveEncontrado.getId());
                             listaAve.delete(position);
                             Ave.escribir(listaAve);
-                      }   
-             
+                      }                                       
+                 }else{
+                     System.out.println("No se realizo la eliminación.");
+                 }         
     }
 }

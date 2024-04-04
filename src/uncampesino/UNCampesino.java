@@ -22,7 +22,7 @@ public class UNCampesino {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
+
         
 //        String id = sc.nextLine();
 //        String salud = sc.nextLine();
@@ -38,7 +38,7 @@ public class UNCampesino {
 //        
 //        id = sc.nextLine();     
 //        
-//          gestorAnimales.agregarBovino("20", 0, "a", 1);
+//          gestorAnimales.agregarBovino("40", 0, "a", 1);
 //          gestorAnimales.agregarAve("20", 0, "a", 1);
 //          gestorAnimales.agregarCaballo("20", 0, "a", 1);
 //          gestorAnimales.agregarOvino("20", 0, "a", 1);
@@ -49,7 +49,7 @@ public class UNCampesino {
 //     
 //        String id = sc.nextLine();
 //        System.out.println(gestorAnimales.buscarIdBovino(id));
-        System.out.println(gestorAnimales.buscarIdAve("AA20"));
+//        System.out.println(gestorAnimales.buscarIdAve("AA20"));
 //            bovino.leer().print();
 //            ave.leer().print(); 
 //            caballo.leer().print();
@@ -65,7 +65,7 @@ public class UNCampesino {
         
 //        id = sc.nextLine();
 //        gestorAnimales.eliminarBovino(id);
-//        System.out.println(bovino.leer().find(2));
+//        System.out.println(bovino.leer().size());
 //        bovino.leer().print();
     }
     
