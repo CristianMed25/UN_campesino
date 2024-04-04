@@ -37,10 +37,10 @@ public class UNCampesino {
 //        gestorAnimales.agregarBovino(id, edad, salud, peso);
 //        
 //        id = sc.nextLine();     
-//        
+        caballo.leer().print();
 //          gestorAnimales.agregarBovino("40", 0, "a", 1);
 //          gestorAnimales.agregarAve("20", 0, "a", 1);
-//          gestorAnimales.agregarCaballo("20", 0, "a", 1);
+          gestorAnimales.agregarCaballo("20", 0, "a", 1);
 //          gestorAnimales.agregarOvino("20", 0, "a", 1);
 //          gestorAnimales.agregarPez("20", 0, "a", 1);
 //          gestorAnimales.agregarPorcino("20", 0, "a", 1);
@@ -52,7 +52,7 @@ public class UNCampesino {
 //        System.out.println(gestorAnimales.buscarIdAve("AA20"));
 //            bovino.leer().print();
 //            ave.leer().print(); 
-//            caballo.leer().print();
+            caballo.leer().print();
 //            ovino.leer().print();
 //            pez.leer().print();
 //            porcino.leer().print();
@@ -63,10 +63,10 @@ public class UNCampesino {
 //        bovino.leer().print();
 //        sc.nextLine();
         
-//        id = sc.nextLine();
-//        gestorAnimales.eliminarBovino(id);
-//        System.out.println(bovino.leer().size());
-//        bovino.leer().print();
+//        String id = sc.nextLine();
+//        gestorAnimales.eliminarCaballo(id);
+        System.out.println(caballo.leer().size());
+//        caballo.leer().print();
     }
     
 }
