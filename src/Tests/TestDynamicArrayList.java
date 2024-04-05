@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Tests;
-import structures.DynamicArrayList;
+import Structures.DynamicArrayList;
 /**
  *
  * @author CristianM

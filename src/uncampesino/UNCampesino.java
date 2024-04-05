@@ -20,7 +20,7 @@ import Funcionalidades.GestorProductos;
 import Funcionalidades.GestorTareas;
 import Funcionalidades.GestorCultivos;
 import java.util.InputMismatchException;
-import structures.DynamicArrayList;
+import Structures.DynamicArrayList;
 import java.util.Scanner;
 
 public class UNCampesino {
@@ -75,24 +75,24 @@ public class UNCampesino {
 //         System.out.println(ganado.leerNecesidad().length());
 //         System.out.println(tarea.leerNecesidad().length());
 //
-//        tarea.leer().output();
-//        ganado.leerNecesidad().print();
-//        tarea.leerNecesidad().print();
+        tarea.leer().output();
+        ganado.leerNecesidad().print();
+        tarea.leerNecesidad().print();
 
-//        cereal.leer().print();
-//        frutal.leer().print();
-//        hortaliza.leer().print();
-//        leguminosa.leer().print();
-//        ornamental.leer().print();
-//        oleaginosa.leer().print();
-//        raiz_y_tuberculo.leer().print();
+        cereal.leer().print();
+        frutal.leer().print();
+        hortaliza.leer().print();
+        leguminosa.leer().print();
+        ornamental.leer().print();
+        oleaginosa.leer().print();
+        raiz_y_tuberculo.leer().print();
 
-//            bovino.leer().print();
-//            ave.leer().print(); 
-//            caballo.leer().print();
-//            ovino.leer().print();
-//            pez.leer().print();
-//            porcino.leer().print();
+            bovino.leer().print();
+            ave.leer().print(); 
+            caballo.leer().print();
+            ovino.leer().print();
+            pez.leer().print();
+            porcino.leer().print();
         
 //        necesidades.print();
 //        gestorProductos.agregarProducto("1", "prueba", 250, 1000);
@@ -120,7 +120,7 @@ public class UNCampesino {
 //        
 //        System.out.println("");
 //        System.out.println("Lista productos");
-//        producto.leer().print();
+        producto.leer().print();
 //        
         
 //        producto.leer().print();

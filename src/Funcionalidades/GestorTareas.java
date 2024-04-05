@@ -11,7 +11,7 @@ import Classes.Tarea;
 import Classes.User.Trabajador;
 import Structures.Queue;
 import java.util.Scanner;
-import structures.DynamicArrayList;
+import Structures.DynamicArrayList;
 
 /**
  *
@@ -29,7 +29,7 @@ public class GestorTareas {
 //    private static Queue <Tarea> colaTareas;
 //    private static DynamicArrayList<Tarea>  necesidadesAnimales;
 //    private static DynamicArrayList<Tarea>  necesidadesCultivos;
-
+//
 //    public GestorTareas() {
 //        this.colaTareas          = new Queue<>();
 //        this.necesidadesAnimales = new DynamicArrayList<>();

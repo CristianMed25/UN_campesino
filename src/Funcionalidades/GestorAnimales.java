@@ -19,7 +19,7 @@ import Classes.Tarea;
 import static Funcionalidades.GestorAnimales.ave;
 import static Funcionalidades.GestorAnimales.buscarIdBovino;
 import static Funcionalidades.GestorAnimales.position;
-import structures.DynamicArrayList;
+import Structures.DynamicArrayList;
         
 
 

@@ -7,7 +7,7 @@ package Funcionalidades;
 import Classes.Cultivo.*;
 import Classes.Tarea;
 import Structures.Doubly.DoublyLinkedList;
-import structures.DynamicArrayList;
+import Structures.DynamicArrayList;
 import Classes.Cultivo.Cereal;
 import Classes.Cultivo.Frutal;
 import Classes.Cultivo.Hortaliza;

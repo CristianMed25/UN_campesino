@@ -1,0 +1,2 @@
+direccion: cd \Hub\Descargas\tareas estructuras\UNCampesino\dist
+ejecucion: java -jar UNCampesino.jar
