@@ -397,5 +397,165 @@ public class GestorCultivos {
                  }else{
                      System.out.println("No se realizo actualización.");
                  }            
-    }   
+    } 
+    public static void actualizarOrnamentalNombre(String id, String nombre){
+        Ornamental ornamental = new Ornamentall();       
+                Ornamental ornamentalEncontrado = buscarIdOrnamental(id);
+                 if(ornamentalEncontrado != null){                    
+                     if(ornamentalEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + ornamentalEncontrado.getId());
+                            ornamental = ornamentalEncontrado;
+                            ornamental.setNombre(nombre);                        
+                            listaOrnamental.delete(position);
+                            listaOrnamental.pushBack(ornamental);
+                            ornamental.escribir(listaOrnamental);                       
+                    } 
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }  	  
+           
+    }
+    
+    public static void actualizarOrnamentalNecesidades(String id, DynamicArrayList<Tarea> necesidades){
+        Ornamental ornamental = new Ornamental();       
+                Ornamental ornamentalEncontrado = buscarIdOrnamental(id);
+                 if(ornamentalEncontrado != null){                    
+                     if(ornamentalEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + ornamentalEncontrado.getId());
+                            ornamental = ornamentalEncontrado;
+                            ornamental.setNecesidades(necesidades);                        
+                            listaOrnamental.delete(position);
+                            listaOrnamental.pushBack(cereal);
+                            ornamental.escribir(listaOrnamental);                       
+                    }  
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }            
+    }
+    public static void actualizarRaiz_y_TuberculoNombre(String id, String nombre){
+        Raiz_y_Tuberculo raiz_y_tuberculo = new Raiz_y_Tuberculo();       
+                Raiz_y_Tuberculo raiz_y_tuberculoEncontrado = buscarIdRaiz_y_Tuberculo(id);
+                 if(raiz_y_tuberculoEncontrado != null){                    
+                     if(raiz_y_tuberculoEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + raiz_y_tuberculoEncontrado.getId());
+                            raiz_y_tuberculo= raiz_y_tuberculoEncontrado;
+                            raiz_y_tuberculo.setNombre(nombre);                        
+                            listaRaiz_y_Tuberculo.delete(position);
+                            listaRaiz_y_Tuberculo.pushBack(raiz_y_tuberculo);
+                            leguminosa.escribir(listaRaiz_y_Tuberculo);                       
+                    } 
+                 }else{
+                     System.out.println("No se realizó actualización.");
+                 }  	  
+           
+    }
+    
+    public static void actualizarRaiz_y_TuberculoNecesidades(String id, DynamicArrayList<Tarea> necesidades){
+        Raiz_y_Tuberculo raiz_y_tuberculo = new Leguminosa();       
+                Raiz_y_Tuberculo raiz_y_tuberculoEncontrado = buscarIdRaiz_y_Tuberculo(id);
+                 if(raiz_y_tuberculoEncontrado != null){                    
+                     if(raiz_y_tuberculoEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + raiz_y_tuberculoEncontrado.getId());
+                            raiz_y_tuberculo = raiz_y_tuberculoEncontrado;
+                            raiz_y_tuberculo.setNecesidades(necesidades);                        
+                            listaRaiz_y_Tuberculo.delete(position);
+                            listaRaiz_y_Tuberculo.pushBack(raiz_y_tuberculo);
+                            raiz_y_tuberculo.escribir(listaRaiz_y_Tuberculo);                       
+                    }  
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }            
+    }  
+    public static void eliminarCereal(String id){
+        Cereal cereal = new Cereal();        
+                Cereal cerealEncontrado = buscarIdCereal(id);                
+                 if(cerealEncontrado != null){                    
+                     if(cerealEncontrado.getId().equals(id)){
+                            System.out.println("Id del elemento borrado " + cerealEncontrado.getId());
+                            listaCereal.delete(position);
+                            cereal.escribir(listaCereal);
+                      }                                       
+                 }else{
+                     System.out.println("No se realizó la eliminación.");
+                 }    
+    }
+    public static void eliminarFrutal(String id){
+        Frutal frutal = new Frutal();        
+                Frutal frutalEncontrado = buscarIdFrutal(id);                
+                 if(frutalEncontrado != null){                    
+                     if(frutalEncontrado.getId().equals(id)){
+                            System.out.println("Id del elemento borrado " + frutalEncontrado.getId());
+                            listaFrutal.delete(position);
+                            frutal.escribir(listaFrutal);
+                      }                                       
+                 }else{
+                     System.out.println("No se realizó la eliminación.");
+                 }    
+    }
+    public static void eliminarHortaliza(String id){
+        Hortaliza hortaliza = new Hortaliza();        
+                Hortaliza hortalizaEncontrado = buscarIdHortaliza(id);                
+                if(hortalizaEncontrado != null){                    
+                    if(hortalizaEncontrado.getId().equals(id)){
+                            System.out.println("Id del elemento borrado " + hortalizaEncontrado.getId());
+                            listaHortaliza.delete(position);
+                            hortaliza.escribir(listaHortaliza);
+                      }                                       
+                 }else{
+                     System.out.println("No se realizó la eliminación.");
+                 }    
+    }
+    public static void eliminarLeguminosa(String id){
+        Leguminosa leguminosa = new Leguminosa();        
+                Leguminosa leguminosaEncontrado = buscarIdLeguminosa(id);                
+                if(leguminosaEncontrado != null){                    
+                    if(leguminosaEncontrado.getId().equals(id)){
+                            System.out.println("Id del elemento borrado " + leguminosaEncontrado.getId());
+                            listaLeguminosa.delete(position);
+                            leguminosa.escribir(listaLeguminosa);
+                      }                                       
+                 }else{
+                     System.out.println("No se realizó la eliminación.");
+                 }    
+    }
+    public static void eliminarOleaginosa(String id){
+        Oleaginosa oleaginosa = new Oleaginosa();        
+                Oleaginosa oleaginosaEncontrado = buscarIdOleaginosa(id);                
+                 if(oleaginosaEncontrado != null){                    
+                    if(oleaginosaEncontrado.getId().equals(id)){
+                            System.out.println("Id del elemento borrado " + oleaginosaEncontrado.getId());
+                            listaOleaginosa.delete(position);
+                            oleaginosa.escribir(listaOleaginosa);
+                    }                                       
+                }else{
+                     System.out.println("No se realizó la eliminación.");
+                }    
+    }
+    public static void eliminarOrnamental(String id){
+        Ornamental ornamental = new Ornamental();        
+                Ornamental ornamentalEncontrado = buscarIdOrnamental(id);                
+                 if(ornamentalEncontrado != null){                    
+                    if(ornamentalEncontrado.getId().equals(id)){
+                            System.out.println("Id del elemento borrado " + ornamentalEncontrado.getId());
+                            listaOrnamental.delete(position);
+                            ornamental.escribir(listaOrnamental);
+                    }                                       
+                }else{
+                     System.out.println("No se realizó la eliminación.");
+                }    
+        }
+    }
+    public static void eliminarRaiz_y_Tuberculo(String id){
+        Raiz_y_Tuberculo raiz_y_tuberculo = new Raiz_y_Tuberculo();        
+                Raiz_y_Tuberculo raiz_y_tuberculoEncontrado = buscarIdRaiz_y_Tuberculo(id);                
+                 if(raiz_y_tuberculoEncontrado != null){                    
+                    if(raiz_y_tuberculoEncontrado.getId().equals(id)){
+                        System.out.println("Id del elemento borrado " + raiz_y_tuberculoEncontrado.getId());
+                        listaRaiz_y_Tuberculo.delete(position);
+                        raiz_y_tuberculo.escribir(listaRaiz_y_Tuberculo);
+                    }                                       
+                }else{
+                     System.out.println("No se realizó la eliminación.");
+                }    
+    }
 }
