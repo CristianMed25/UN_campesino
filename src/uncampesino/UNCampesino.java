@@ -228,6 +228,7 @@ public class UNCampesino {
                     mainMenu(scanner);
             }
         }
+        
         public static void menuAnimales(Scanner scanner){
             System.out.println("\n Animales || Elija una opción:");
             System.out.println("1) Ave");
@@ -408,14 +409,470 @@ public class UNCampesino {
             }
         }
         
-        
         public static void menuCultivos(Scanner scanner){
-
+            System.out.println("\n Cultivos || Elija una opción:");
+            System.out.println("1) Cereal");
+            System.out.println("2) Frutal");
+            System.out.println("3) Hortaliza");
+            System.out.println("4) Leguminosa");
+            System.out.println("5) Oleaginosa");
+            System.out.println("6) Ornamental");
+            System.out.println("7) Raíces y Tuberculos");
+            System.out.println("8) Regresar al menú principal");
+            System.out.println("9) Salir");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1: CRUDcultivo("Cereal", scanner);             break;
+                case 2: CRUDcultivo("Frutal", scanner);             break;
+                case 3: CRUDcultivo("Hortaliza", scanner);          break;
+                case 4: CRUDcultivo("Leguminosa", scanner);         break;
+                case 5: CRUDcultivo("Oleaginosa", scanner);         break;
+                case 6: CRUDcultivo("Ornamental", scanner);         break;
+                case 7: CRUDcultivo("Raiz y Tuberculo", scanner);   break;
+                case 8: mainMenu(scanner);                          break;
+                case 9: return;
+                default:
+                    System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                    menuCultivos(scanner);
+            }
+            
+            
         }
+        public static void CRUDcultivo(String cultivo, Scanner scanner){
+            String id, nombre;
+            Tarea tarea = new Tarea(null,null);
+            DynamicArrayList<Tarea> necesidades = new DynamicArrayList<>();
+            
+            System.out.println("\n CRUD " + cultivo +" || Elija una opción:");
+            System.out.println("1) Agregar");
+            System.out.println("2) Buscar");
+            System.out.println("3) Actualizar");
+            System.out.println("4) Eliminar");
+            System.out.println("5) Regresar al menú anterior");
+            System.out.println("6) Salir");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:  //Agregar
+                    System.out.println("\n  Ingrese los datos del cultivo:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    System.out.print("    nombre:");
+                        nombre = scanner.next();
+                    System.out.print("    lista de necesidades:");
+                        necesidades = tarea.leerNecesidad();
+                        
+                    switch (cultivo){
+                        case "Cereal":
+                                gestorCultivos.agregarCereal(id,nombre,necesidades);
+                                System.out.println("Se agrego correctamente: ");
+                                System.out.println(gestorCultivos.buscarIdCereal("CC" + id));
+                            break;
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            CRUDcultivo(cultivo,scanner);
+                    }
+                break;
+                    
+                case 2: //Buscar
+                    System.out.println("\n  Ingrese los datos del cultivo:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    
+                    switch (cultivo){
+                        case "Cereal":
+                                System.out.println(gestorCultivos.buscarIdCereal(id));
+                            break;
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            CRUDcultivo(cultivo,scanner);
+                    }
+                        
+                break;
+                    
+                case 3: //Actualizar
+                    System.out.println("\n  Ingrese los datos del cultivo:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    CRUDcultivoActualizar(cultivo,scanner, id);
+                break;
+                    
+                case 4:  //Eliminar
+                    System.out.println("\n  Ingrese los datos del cultivo:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    
+                    switch (cultivo){
+                        case "Cereal":
+                                gestorCultivos.eliminarCereal(id);
+                            break;
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            menuCultivos(scanner);
+                    }
+                break;
+                    
+                case 5: menuCultivos(scanner);          break;
+                case 6: return;
+                default:
+                    System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                    CRUDcultivo(cultivo,scanner);
+            }
+        }
+        public static void CRUDcultivoActualizar(String cultivo,Scanner scanner, String id){
+            System.out.println("\n CRUD " + cultivo +" ACTUALIZAR || Elija una opción:");
+            System.out.println("1) Nombre");
+            System.out.println("2) Necesidades");
+            System.out.println("3) Regresar al menú anterior");
+            System.out.println("4) Salir");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1: //nombre
+                    System.out.println("    nuevo nombre:");
+                        String nombre = scanner.next();                        
+                        
+                    switch (cultivo){
+                        case "Cereal":
+                                gestorCultivos.actualizarCerealNombre(id, nombre);
+                                System.out.println(gestorCultivos.buscarIdCereal(id));
+                            break;
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            CRUDcultivo(cultivo,scanner);
+                    }
+                break;
+                case 2: //necesidades
+                    System.out.println("    nuevas necesidades:");
+                    DynamicArrayList<Tarea> necesidades = tarea.leerNecesidad();
+                    switch (cultivo){
+                        case "Cereal":
+                                gestorCultivos.actualizarCerealNecesidades(id, necesidades);
+                                System.out.println(gestorCultivos.buscarIdCereal(id));
+                            break;
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            CRUDcultivo(cultivo,scanner);
+                    }
+                break;
+
+                
+                case 3: CRUDcultivo(cultivo,scanner);          break;
+                case 4: return;
+                default:
+                    System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                    CRUDcultivoActualizar(cultivo,scanner,id);
+            }
+        }
+        
         public static void menuTareas(Scanner scanner){
-
+            System.out.println("\n Tareas Varias || Elija una opción:");
+            System.out.println("1) Tareas");
+            System.out.println("2) Necesidades Cultivos");
+            System.out.println("3) Necesidades Ganado");
+            System.out.println("4) Regresar al menú principal");
+            System.out.println("5) Salir");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1: CRUDtarea("Gestión Tareas", scanner);                   break;
+                case 2: CRUDnecesidad("Cultivo", scanner);         break;
+                case 3: CRUDnecesidad("Ganado", scanner);           break;
+                case 4: mainMenu(scanner);                                      break;
+                case 5: return;
+                default:
+                    System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                    menuTareas(scanner);
+            }
+            
+            
         }
+        public static void CRUDtarea(String tarea, Scanner scanner){            
+            Tarea curr = new Tarea(null,null);
+            String id, descripcion;
+             
+            System.out.println("\n CRUD " + tarea +" || Elija una opción:");
+            System.out.println("1) Encolar");
+            System.out.println("2) Desencolar");
+            System.out.println("3) Editar Descripción");
+            System.out.println("4) Regresar al menú anterior");
+            System.out.println("5) Salir");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:  //Encolar
+                    System.out.println("\n  Ingrese los datos de la tarea:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                        curr.setId(id);
+                    System.out.print("    descripción:");
+                        descripcion = scanner.next();
+                        curr.setDescripcion(descripcion);
+                        
+                    gestorTareas.encolarTarea(curr);
+                break;
+                    
+                case 2: //Desencolar
+                    gestorTareas.verTarea();
+                    gestorTareas.desencolarTarea();  
+                break;
+                    
+                case 3: //Editar Descripción
+                    System.out.println("\n  Ingrese los datos del tarea:\n   Recuerde que se editará la primera tarea en cola");
+                    
+                    //Datos:
+                    System.out.println("    descripción:");
+                        descripcion = scanner.next();
+                    gestorTareas.editarDescripcion(descripcion);
+                break;
+                    
+                case 4: menuTareas(scanner);          break;
+                case 5: return;
+                default:
+                    System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                    CRUDtarea(tarea,scanner);
+            }
+        }
+        public static void CRUDnecesidad(String necesidad, Scanner scanner){            
+            Tarea curr = new Tarea(null,null);
+            String id, descripcion;
+             
+            System.out.println("\n CRUD " + necesidad +" || Elija una opción:");
+            System.out.println("1) Agregar");
+            System.out.println("2) Eliminar más reciente");
+            System.out.println("3) Buscar");
+            System.out.println("4) Regresar al menú anterior");
+            System.out.println("5) Salir");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:  //Agregar
+                     System.out.println("\n  Ingrese los datos de la necesidad:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                        curr.setId(id);
+                    System.out.print("    descripción:");
+                        descripcion = scanner.next();
+                        curr.setDescripcion(descripcion);
+                        
+                    switch (necesidad) {
+                        case "Cultivo":
+                            gestorTareas.agregarNecesidadCultivo(curr);
+                        break;
+                        case "Ganado":
+                            gestorTareas.agregarNecesidadAnimal(curr);
+                        break;
+                        
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            CRUDnecesidad(necesidad,scanner);
+                    }
+                break;
+                    
+                case 2: //Eliminar más reciente
+                    switch (necesidad) {
+                        case "Cultivo":
+                            gestorTareas.eliminarNecesidadCultivoReciente();
+                        break;
+                        case "Ganado":
+                            gestorTareas.eliminarNecesidadAnimalReciente();
+                        break;
+                        
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            CRUDnecesidad(necesidad,scanner);
+                    }
+                break;
+                    
+                case 3: //Buscar    
+                    System.out.println("\n  Ingrese los datos del necesidad:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    switch (necesidad) {
+                        case "Cultivo":
+                            gestorTareas.buscarNecesidadCultivo(id);
+                        break;
+                        case "Ganado":
+                            gestorTareas.buscarNecesidadAnimal(id);
+                        break;
+                        
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            CRUDnecesidad(necesidad,scanner);
+                    }
+                break;
+                    
+                case 4: menuTareas(scanner);          break;
+                case 5: return;
+                default:
+                    System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                    CRUDnecesidad(necesidad,scanner);
+            }
+        }
+        
         public static void menuProductos(Scanner scanner){
-
+            String id, nombre;
+            double precio;
+            int cantidad;
+            Producto curr = new Producto();
+            
+            System.out.println("\n Productos || Elija una opción:");
+            System.out.println("1) Agregar");
+            System.out.println("2) Buscar");
+            System.out.println("3) Actualizar");
+            System.out.println("4) Eliminar");
+            System.out.println("5) Ver producto apartado");
+            System.out.println("6) Apartar");
+            System.out.println("7) Cancelar apartado de producto");
+            System.out.println("8) Editar cantidad apartada");
+            System.out.println("9) Regresar al menú principal");
+            System.out.println("10) Salir");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:  //Agregar
+                    System.out.println("\n  Ingrese los datos del producto:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    System.out.print("    nombre:");
+                        nombre = scanner.next();
+                    System.out.print("    precio:");
+                        precio = scanner.nextDouble();
+                    System.out.print("    Cantidad:");
+                        cantidad = scanner.nextInt();
+                        
+                    gestorProductos.agregarProducto(id,nombre,precio,cantidad);
+                break;
+                    
+                case 2: //Buscar
+                    System.out.println("\n  Ingrese los datos del producto:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    
+                    gestorProductos.buscarIdProducto(id);
+                        
+                break;
+                    
+                case 3: //Actualizar
+                    System.out.println("\n  Ingrese los datos del Producto:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    CRUDproductoActualizar(scanner, id);
+                break;
+                    
+                case 4:  //Eliminar
+                    System.out.println("\n  Ingrese los datos del Producto:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    
+                    gestorProductos.eliminarProducto(id);
+                break;
+                
+                case 5: 
+                    System.out.println("\n A continuación el primer producto apartado:");
+                    gestorProductos.verProductoApartado();
+                break;
+                
+                case 6:
+                    System.out.println("\n  Ingrese los datos del Producto:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    System.out.println("    cantidad a apartar:");
+                        cantidad = scanner.nextInt();
+                    
+                    curr = gestorProductos.buscarIdProducto(id);
+                    gestorProductos.apartarProducto(curr, cantidad);
+                break;
+                
+                case 7:
+                    gestorProductos.desapartarProducto();
+                break;
+                
+                case 8:
+                    System.out.println("       Recuerde que la cantidad se cambiará al último apartado");
+                    System.out.println("\n  Ingrese los datos del Producto:");
+                    
+                    //Datos:
+                    System.out.println("    cantidad a apartar:");
+                        cantidad = scanner.nextInt();
+                        
+                    gestorProductos.editarCantidadUltimoApartado(cantidad);
+                break;
+                
+                case 9: mainMenu(scanner);                          break;
+                case 10: return;
+                default:
+                    System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                    menuProductos(scanner);
+            }
+            
+            
         }
+        
+        public static void CRUDproductoActualizar(Scanner scanner, String id){
+            System.out.println("\n CRUD Producto ACTUALIZAR || Elija una opción:");
+            System.out.println("1) Nombre");
+            System.out.println("2) Precio");
+            System.out.println("3) Cantidad");
+            System.out.println("3) Regresar al menú anterior");
+            System.out.println("4) Salir");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1: //nombre
+                    System.out.println("    nuevo nombre:");
+                        String nombre = scanner.next();                        
+                            
+                    gestorProductos.actualizarProductoNombre(id,nombre);
+                    
+                break;
+                
+                case 2: //precio
+                    System.out.println("    nuevo precio:");
+                        double precio = scanner.nextDouble();                        
+                            
+                    gestorProductos.actualizarProductoPrecio(id,precio);
+                break;
+                
+                case 3: //cantidad
+                    System.out.println("    nueva cantidad:");
+                        int cantidad = scanner.nextInt();                        
+                            
+                    gestorProductos.actualizarProductoCantidad(id,cantidad);
+                break;
+
+                
+                case 4:menuProductos(scanner);          break;
+                case 5: return;
+                default:
+                    System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                    CRUDproductoActualizar(scanner,id);
+            }
+        }
+    
 }
