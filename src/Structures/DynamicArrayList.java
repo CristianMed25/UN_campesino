@@ -17,7 +17,9 @@ public class DynamicArrayList<T> implements Serializable{
 
     public void print(){
         for(int i = 0; i<capacity; i++){
-            System.out.print(list[i] + " ");
+            if(list[i] != null){
+                System.out.print(list[i] + " ");
+            }  
         }
         System.out.println();
     }

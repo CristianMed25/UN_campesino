@@ -58,7 +58,7 @@ public class GestorAnimales {
 //    private static DoublyLinkedList<Pez> listaPez;
 //    private static DoublyLinkedList<Porcino> listaPorcino;
 
-    public GestorAnimales() {
+//    public GestorAnimales() {
 //        this.listaAve          = new DoublyLinkedList<>();
 //        this.listaBovino = new DoublyLinkedList<>();
 //        this.listaCaballo      = new DoublyLinkedList<>();
@@ -66,7 +66,7 @@ public class GestorAnimales {
 //        this.listaOvino       = new DoublyLinkedList<>();
 //        this.listaPez      = new DoublyLinkedList<>();
 //        this.listaPorcino  = new DoublyLinkedList<>();
-    }
+//    }
     
    //AGREGAR ANIMALES
     
@@ -156,13 +156,16 @@ public class GestorAnimales {
     public static int position = 0;
     public static Ganado buscarIdGanado(String id){
         for(int i=0; i <= listaGanado.length(); i++){
+            try{
                  Ganado objetoEncontrado = listaGanado.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  } 
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }                
+         }
         return null;
     }
     
@@ -185,61 +188,76 @@ public class GestorAnimales {
     
     public static Ave buscarIdAve(String id){
         for(int i=0; i <= listaAve.length(); i++){
+            try{
                  Ave objetoEncontrado = listaAve.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  }  
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }      
+         }
         return null;
     }
     
     public static Caballo buscarIdCaballo(String id){
         for(int i=0; i <= listaCaballo.length(); i++){
+            try{
                  Caballo objetoEncontrado = listaCaballo.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  } 
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }         
+        }
         return null;
     }
     
     public static Ovino buscarIdOvino(String id){
         for(int i=0; i <= listaOvino.length(); i++){
+            try{
                  Ovino objetoEncontrado = listaOvino.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  } 
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }        
+         }
         return null;
     }
     
     public static Pez buscarIdPez(String id){
         for(int i=0; i <= listaPez.length(); i++){
+            try{
                  Pez objetoEncontrado = listaPez.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  }  
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }         
+         }
         return null;
     }
     
     public static Porcino buscarIdPorcino(String id){
         for(int i=0; i <= listaPorcino.length(); i++){
+            try{
                  Porcino objetoEncontrado = listaPorcino.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  } 
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }      
+         }
         return null;
     }
     

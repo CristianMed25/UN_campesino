@@ -142,86 +142,108 @@ public class GestorCultivos {
         raiz_y_tuberculo.escribir(listaRaiz_y_Tuberculo);       
      } 
     
+    //Buscar por id
     public static int position = 0;
     public static Cereal buscarIdCereal(String id){
         for(int i=0; i <= listaCereal.length(); i++){
+            try{
                  Cereal objetoEncontrado = listaCereal.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  } 
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }       
+         }
         return null;
     }
     
     public static Frutal buscarIdFrutal(String id){
         for(int i=0; i <= listaFrutal.length(); i++){
-                Frutal objetoEncontrado = listaFrutal.find(i);
+            try{
+                 Frutal objetoEncontrado = listaFrutal.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  } 
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }      
+         }
         return null;
     }
     
     public static Hortaliza buscarIdHortaliza(String id){
         for(int i=0; i <= listaHortaliza.length(); i++){
-                Hortaliza objetoEncontrado = listaHortaliza.find(i);
+            try{
+                 Hortaliza objetoEncontrado = listaHortaliza.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  }  
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }       
+         }
         return null;
     }
         
     public static Leguminosa buscarIdLeguminosa(String id){
         for(int i=0; i <= listaLeguminosa.length(); i++){
-                Leguminosa objetoEncontrado = listaLeguminosa.find(i);
+            try{
+                 Leguminosa objetoEncontrado = listaLeguminosa.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  }  
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }    
+         }
         return null;
     }
     
     public static Oleaginosa buscarIdOleaginosa(String id){
         for(int i=0; i <= listaLeguminosa.length(); i++){
-                Oleaginosa objetoEncontrado = listaOleaginosa.find(i);
+            try{
+                 Oleaginosa objetoEncontrado = listaOleaginosa.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  }  
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }     
+         }
         return null;
     }
     public static Ornamental buscarIdOrnamental(String id){
         for(int i=0; i <= listaOrnamental.length(); i++){
-                Ornamental objetoEncontrado = listaOrnamental.find(i);
+            try{
+                 Ornamental objetoEncontrado = listaOrnamental.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  }
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }       
+         }
         return null;
     }
     public static Raiz_y_Tuberculo buscarIdRaiz_y_Tuberculo(String id){
         for(int i=0; i <= listaRaiz_y_Tuberculo.length(); i++){
-                Raiz_y_Tuberculo objetoEncontrado = listaRaiz_y_Tuberculo.find(i);
+            try{
+                 Raiz_y_Tuberculo objetoEncontrado = listaRaiz_y_Tuberculo.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
-             }
-        System.out.println("No se encontro el elemento con id " + id);
+                  } 
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }     
+        }
         return null;
     }
     

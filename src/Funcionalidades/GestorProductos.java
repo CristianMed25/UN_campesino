@@ -42,13 +42,16 @@ public class GestorProductos {
     public static int position = 0;
     public static Producto buscarIdProducto(String id){
         for(int i=0; i <= listaProducto.length(); i++){
+            try{
                  Producto objetoEncontrado = listaProducto.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
-                  }   
+                  } 
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }         
          }
-        System.out.println("No se encontro el elemento con id " + id);
         return null;
     }
         

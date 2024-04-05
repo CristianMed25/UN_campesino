@@ -32,7 +32,6 @@ public class UNCampesino {
     public static final Ovino ovino = new Ovino();
     public static final Pez pez = new Pez();
     public static final Porcino porcino = new Porcino();  
-    public static Producto producto = new Producto();
     
     public static final Cereal cereal = new Cereal();
     public static final Frutal frutal = new Frutal();
@@ -42,15 +41,44 @@ public class UNCampesino {
     public static final Ornamental ornamental= new Ornamental();
     public static final Raiz_y_Tuberculo raiz_y_tuberculo = new Raiz_y_Tuberculo();
     
+    public static final Producto producto = new Producto();
+    
+    public static final Tarea tarea = new Tarea();   
+    
+    
     public static GestorAnimales gestorAnimales = new GestorAnimales();
     public static GestorCultivos gestorCultivos = new GestorCultivos();
     public static GestorProductos gestorProductos = new GestorProductos();
+    public static GestorTareas gestorTareas = new GestorTareas();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Tarea tarea = new Tarea("45", "a");
+        Tarea tarea = new Tarea("25", "t");
         DynamicArrayList<Tarea> necesidades = new DynamicArrayList<>();
         necesidades.pushBack(tarea);
+        
+        
+//        gestorTareas.encolarTarea(tarea);
+//        gestorTareas.agregarNecesidadAnimal(tarea);
+//        gestorTareas.agregarNecesidadCultivo(tarea);
+        
+//        System.out.println(gestorTareas.verTarea());
+//        System.out.println(gestorTareas.buscarNecesidadAnimal("T25"));
+//        System.out.println(gestorTareas.buscarNecesidadCultivo("T25"));
+    
+//        gestorTareas.desencolarTarea();
+//        gestorTareas.eliminarNecesidadAnimalReciente();
+//        gestorTareas.eliminarNecesidadCultivoReciente();
+
+//        gestorTareas.editarDescripcion("auauaua");
+        
+//         System.out.println(ganado.leerNecesidad().length());
+//         System.out.println(tarea.leerNecesidad().length());
+//
+//        tarea.leer().output();
+//        ganado.leerNecesidad().print();
+//        tarea.leerNecesidad().print();
+
 //        cereal.leer().print();
 //        frutal.leer().print();
 //        hortaliza.leer().print();
@@ -68,7 +96,7 @@ public class UNCampesino {
         
 //        necesidades.print();
 //        gestorProductos.agregarProducto("1", "prueba", 250, 1000);
-        producto.leer().print();
+//        producto.leer().print();
         
 //        String id = sc.nextLine();
 //        System.out.println(gestorProductos.buscarIdProducto(id));
@@ -77,22 +105,22 @@ public class UNCampesino {
 //        gestorProductos.desapartarProducto();
 //        gestorProductos.actualizarProductoNombre(id, id);
 //        gestorProductos.eliminarProducto("P1");
-        System.out.println("\nPeek");
-        System.out.println(gestorProductos.verProductoApartado());
-        System.out.println("");
+//        System.out.println("\nPeek");
+//        System.out.println(gestorProductos.verProductoApartado());
+//        System.out.println("");
+////        
+//        gestorProductos.editarCantidadUltimoApartado(250);
+////        
+//        System.out.println("\nPeek luego de editar");
+//        System.out.println(gestorProductos.verProductoApartado());
+//        System.out.println("");
 //        
-        gestorProductos.editarCantidadUltimoApartado(250);
+//        System.out.println("Output");
+//        producto.leerApartado().output();
 //        
-        System.out.println("\nPeek luego de editar");
-        System.out.println(gestorProductos.verProductoApartado());
-        System.out.println("");
-        
-        System.out.println("Output");
-        producto.leerApartado().output();
-        
-        System.out.println("");
-        System.out.println("Lista productos");
-        producto.leer().print();
+//        System.out.println("");
+//        System.out.println("Lista productos");
+//        producto.leer().print();
 //        
         
 //        producto.leer().print();

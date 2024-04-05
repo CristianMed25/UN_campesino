@@ -1,6 +1,6 @@
 package Structures;
 
-public class Stack<T> extends UnLinkedList<T> {
+public class Stack<T> extends UnLinkedList<T>{
     
     // Añadir un elemento al tope de la pila
     public void push(T item) {

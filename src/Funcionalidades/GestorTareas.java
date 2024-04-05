@@ -22,16 +22,20 @@ public class GestorTareas {
     public static final Ganado ganado= new Ganado(); 
     
     private static Queue <Tarea> colaTareas = tarea.leer();
-    private static DynamicArrayList<Tarea>  necesidadesAnimales = new DynamicArrayList<>();
-    private static DynamicArrayList<Tarea>  necesidadesCultivos = new DynamicArrayList<>();
+    private static DynamicArrayList<Tarea>  necesidadesAnimales = ganado.leerNecesidad();
+    private static DynamicArrayList<Tarea>  necesidadesCultivos = tarea.leerNecesidad();
     
 //Para creación de archivos
-//    private static Queue <Tarea> colaTareas; 
+//    private static Queue <Tarea> colaTareas;
+//    private static DynamicArrayList<Tarea>  necesidadesAnimales;
+//    private static DynamicArrayList<Tarea>  necesidadesCultivos;
 
 //    public GestorTareas() {
 //        this.colaTareas          = new Queue<>();
+//        this.necesidadesAnimales = new DynamicArrayList<>();
+//        this.necesidadesCultivos = new DynamicArrayList<>();
 //    }
-    //crearemos el trabajador
+
     public static Tarea verTarea(){
         return colaTareas.peek();
     }
@@ -77,12 +81,15 @@ public class GestorTareas {
     
     public static Tarea buscarNecesidadAnimal(String id){
         for(int i = 0; i < necesidadesAnimales.length();i++){
-            Tarea TareaEncontrado = necesidadesAnimales.find(i);
-            if(TareaEncontrado.getId().equals(id)){
-                return TareaEncontrado;
-            }
+            try{
+                 Tarea TareaEncontrado = necesidadesAnimales.find(i);
+                 if(TareaEncontrado.getId().equals(id)){
+                     return TareaEncontrado;
+                 }
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }     
         }   
-        System.out.println("No se encontro el elemento con id " + id);
         return null;
     }
     
@@ -106,12 +113,15 @@ public class GestorTareas {
     
     public static Tarea buscarNecesidadCultivo(String id){
         for(int i = 0; i < necesidadesCultivos.length();i++){
-            Tarea TareaEncontrado = necesidadesCultivos.find(i);
-            if(TareaEncontrado.getId().equals(id)){
-                return TareaEncontrado;
-            }
+            try{
+                 Tarea TareaEncontrado = necesidadesCultivos.find(i);
+                 if(TareaEncontrado.getId().equals(id)){
+                     return TareaEncontrado;
+                 }
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }       
         }   
-        System.out.println("No se encontro el elemento con id " + id);
         return null;
     }
 }

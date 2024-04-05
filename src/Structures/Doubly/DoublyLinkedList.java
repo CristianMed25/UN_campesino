@@ -130,28 +130,7 @@ public class DoublyLinkedList<T> implements Serializable {
             head=node2;
         }
     }
-//    public void addAfter(int position, T key){
-//        if(position<0){
-//            throw new IndexOutOfBoundsException();
-//        } else if (position==0) {
-//            pushFront(key);
-//        }else{
-//            DoublyNode<T> node = new DoublyNode<>(key);
-//            DoublyNode<T> aux = head;
-//            for (int i=0; i<position-1; i++){
-//                if(aux == null)
-//                    throw new IndexOutOfBoundsException();
-//                aux = aux.next;
-//            }
-//            if(aux.next == null){
-//                pushBack(key);
-//            }else{
-//                node.next = aux.next;
-//                node.prev = aux;
-//                aux.next = node;
-//            }
-//        }
-//    }
+    
     public void addAfter(DoublyNode<T> node, T key){
         DoublyNode<T> node2 = new DoublyNode<>(key);
         node2.key = key;
@@ -199,7 +178,6 @@ public class DoublyLinkedList<T> implements Serializable {
         }
         if(tail == node){
             tail = node2;
-//             length++;
         }
     }
 
@@ -257,54 +235,29 @@ public class DoublyLinkedList<T> implements Serializable {
         }
         DoublyNode<T> aux= head;    
         
-//        if (position <= length / 2) {
-        // Comenzar desde la cabeza
         aux = head;
         for (int i = 1; i <= position; i++) {
             if(aux == null)
                 throw new IndexOutOfBoundsException();
             aux = aux.next;
         }
-//    } else {
-//         Comenzar desde la cola
-//        aux = tail;
-//        for (int i = length; i > position; i--) {
-//            if(aux == null)
-//                throw new IndexOutOfBoundsException();
-//            aux = aux.prev;
-//        }
-//    }
         return aux.key;
     }
     
     public DoublyNode<T> findNode(int position){
-//        if(position == -1){
-//            position+=1;
-//        }
         if(position<0){
             throw new IndexOutOfBoundsException();
         }else if(position>length){
             throw new IndexOutOfBoundsException();
         }
         DoublyNode<T> aux= head;    
-        
-//        if (position <= length / 2) {
-        // Comenzar desde la cabeza
+
         aux = head;
         for (int i = 1; i <= position; i++) {
             if(aux == null)
                 throw new IndexOutOfBoundsException();
             aux = aux.next;
         }
-//    } else {
-        // Comenzar desde la cola
-//        aux = tail;
-//        for (int i = length; i > position; i--) {
-//            if(aux == null)
-//                System.out.println("b");
-//            aux = aux.prev;
-//        }
-//    }
         return aux;
     }
     
