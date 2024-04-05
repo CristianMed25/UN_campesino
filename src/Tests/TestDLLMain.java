@@ -31,7 +31,6 @@ public static void actualizarTestDLLData(String id, int data){
     TestDLL testDLL = new TestDLL();
                   TestDLL objetoEncontrado = buscarIdTestDLL(id);
 	if(objetoEncontrado.getId().equals(id)){
-                        System.out.println("\nElemento actualizado " + objetoEncontrado.getId());
                         testDLL = objetoEncontrado;
                         testDLL.setData(data);                          
                         listaTestDLL.delete(position);
@@ -42,7 +41,6 @@ public static void actualizarTestDLLData(String id, int data){
 public static void eliminarTestDLL(String id){
                   TestDLL objetoEncontrado = buscarIdTestDLL(id);
 	if(objetoEncontrado.getId().equals(id)){
-                        System.out.println("\nElemento borrado " + objetoEncontrado.getId());
                         listaTestDLL.delete(position); 
                   }   
 }
@@ -54,7 +52,7 @@ public static void testInsercionDatos(int n){
         }       
         long endTime = System.currentTimeMillis(); 
         long duration = endTime - startTime;
-        System.out.println("La duracion de inserción de datos en DLL fue de: " + duration + "ms");
+        System.out.println("\nLa duracion de inserción de datos en DLL fue de: " + duration + "ms");
 }
 
 public static void testBusquedaDatos(String n){
@@ -62,7 +60,7 @@ public static void testBusquedaDatos(String n){
         buscarIdTestDLL("X" + n);      
         long endTime = System.currentTimeMillis(); 
         long duration = endTime - startTime;       
-        System.out.println("\nLa duracion de busqueda de datos en DLL fue de: " + duration + "ms");
+        System.out.println("La duracion de busqueda de datos en DLL fue de: " + duration + "ms");
 }
 
 public static void testActualizacionDatos(String n, int data){
@@ -83,26 +81,13 @@ public static void testBorrarDatos(String n){
 
 
     public static void main(String[] args) {
-        testInsercionDatos(50000);
-//        listaTestDLL.print();
-        testBusquedaDatos("9999");
-//        System.out.println(listaTestDLL.find(9999));
-        testActualizacionDatos("9999", 500);
-//        System.out.println(listaTestDLL.find(2));
-//        listaTestDLL.print();
-//        listaTestDLL.print();
-        testBorrarDatos("9999");    
-//        listaTestDLL.print();
-//        System.out.println(listaTestDLL.find(9998));
-//        testBusquedaDatos("50000");
-
-//        listaTestDLL.find(9999);
-//        long startTime = System.currentTimeMillis();   
-
-//        long endTime = System.currentTimeMillis(); 
-//        long duration = endTime - startTime;       
-//        System.out.println("La duracion de busqueda pos de dato en DLL fue de: " + duration + "ms");
-//        System.out.println(listaTestDLL.find(500000));
-//        System.out.println(listaTestDLL.getPosition(listaTestDLL.find(500000)));
-    }
+        int n = 10000;
+        String dato = "9999";
+        
+        System.out.println("\nNumero de datos " + n);
+        testInsercionDatos(n);
+        testBusquedaDatos(dato);
+        testActualizacionDatos(dato, 500);
+        testBorrarDatos(dato);    
+    }        
 }

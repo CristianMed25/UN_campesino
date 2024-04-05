@@ -35,13 +35,16 @@ public class TestDynamicArrayList {
     }
     
     public static void testInsercionDatos(int n){
-        long startTime = System.currentTimeMillis(); 
-        for (int i = 0; i < n; i++) {
-            agregarDato(i, "data");
-        }       
-        long endTime = System.currentTimeMillis(); 
+        Test testDAL = new Test(0, "data");           
+        
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < n; i++) {       
+            agregarDato(testDAL);     
+        }    
+        long endTime = System.currentTimeMillis();
+        
         long duration = endTime - startTime;
-        System.out.println("La duracion de inserción de datos en DAL fue de: " + duration + "ms");
+        System.out.println("\nLa duracion de inserción de datos en DAL fue de: " + duration + "ms");
 }
 
 public static void testBusquedaDatos(String n){
@@ -49,7 +52,7 @@ public static void testBusquedaDatos(String n){
         buscarDatoId("T" + n);      
         long endTime = System.currentTimeMillis(); 
         long duration = endTime - startTime;       
-        System.out.println("\nLa duracion de busqueda de datos en DAL fue de: " + duration + "ms");
+        System.out.println("La duracion de busqueda de datos en DAL fue de: " + duration + "ms");
 }
 
 public static void testBorrarDatos(){
@@ -62,8 +65,12 @@ public static void testBorrarDatos(){
         System.out.println("La duracion de eliminacion de todos los datos en DAL fue de: " + duration + "ms");
 }
     public static void main(String[] args) {
-        testInsercionDatos(100000);
-        testBusquedaDatos("9999");
+        int n = 10000;
+        String dato = "9999";
+        
+        System.out.println("\nNumero de datos " + n);
+        testInsercionDatos(n);
+        testBusquedaDatos(dato);
         testBorrarDatos();
     } 
 }

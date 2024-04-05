@@ -25,25 +25,6 @@ public class TestQueue {
         return colaTest.dequeue();
     }    
     
-//    public static void buscarTarea(String id){
-//        Test testQueue = new Test(Integer.parseInt(id), "data");
-//        boolean flag = colaTest.find(testQueue);
-//        if(flag){
-//            System.out.println("La tarea " + testQueue.toString() +"se encuentra en la cola");
-//        }else{
-//            System.out.println("La tarea no se encuentra en la cola");
-//        }
-//    } 
-//    
-//    public static void buscarTarea(Test testQueue){
-//        boolean flag = colaTest.find(testQueue);
-//        if(flag){
-//            System.out.println("La tarea " + testQueue.toString() +"se encuentra en la cola");
-//        }else{
-//            System.out.println("La tarea no se encuentra en la cola");
-//        }
-//    } 
-    
     public static void editarDato(String data){
         Test datoEditar = verDato();
         datoEditar.setData(data);
@@ -59,24 +40,8 @@ public class TestQueue {
         }       
         long endTime = System.currentTimeMillis(); 
         long duration = endTime - startTime;
-        System.out.println("La duracion de inserción de datos en Queue fue de: " + duration + "ms");
+        System.out.println("\nLa duracion de inserción de datos en Queue fue de: " + duration + "ms");
 }
-
-//public static void testBuscarDato(String id){
-//        long startTime = System.currentTimeMillis();   
-//        buscarTarea(id);      
-//        long endTime = System.currentTimeMillis(); 
-//        long duration = endTime - startTime;       
-//        System.out.println("\nLa duracion de busqueda de dato en DLL fue de: " + duration + "ms");
-//}
-//
-//public static void testBuscarDato(TestQueue testQueue){
-//        long startTime = System.currentTimeMillis();   
-//        buscarTarea(testQueue);      
-//        long endTime = System.currentTimeMillis(); 
-//        long duration = endTime - startTime;       
-//        System.out.println("\nLa duracion de busqueda de dato en DLL fue de: " + duration + "ms");
-//}
 
 public static void testEditarDato(String data){
         long startTime = System.currentTimeMillis();   
@@ -96,10 +61,10 @@ public static void testDesencolarDatos(){
         System.out.println("La duracion de desencolar todos los datos en Queue fue de: " + duration + "ms");
 }
     public static void main(String[] args) {
-        Test dato = new Test(9999, "data");
-        testEncolarDatos(1000000);
-//        testBuscarDato("19");
-//        testBuscarDato(dato);
+        int n = 10000;
+        
+        System.out.println("\nNumero de datos " + n);
+        testEncolarDatos(n);
         testEditarDato("data edit");
         testDesencolarDatos();      
     }

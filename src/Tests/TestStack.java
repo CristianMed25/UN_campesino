@@ -39,7 +39,7 @@ public class TestStack {
         }       
         long endTime = System.currentTimeMillis(); 
         long duration = endTime - startTime;
-        System.out.println("La duracion de inserción de datos en Stack fue de: " + duration + "ms");
+        System.out.println("\nLa duracion de inserción de datos en Stack fue de: " + duration + "ms");
 }
 
 public static void testEditarDato(String data){
@@ -60,8 +60,11 @@ public static void testDesapilarDatos(){
         System.out.println("La duracion de desapilar todos los datos en Stack fue de: " + duration + "ms");
 }
     public static void main(String[] args) {
-        testApilarDatos(1000000);
+        int n = 10000;
+               
+        System.out.println("\nNumero de datos " + n);
+        testApilarDatos(n);
         testEditarDato("data edit");
-        testDesapilarDatos();      
+        testDesapilarDatos();           
     }
 }
