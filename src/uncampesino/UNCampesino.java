@@ -288,6 +288,8 @@ public class UNCampesino {
                     switch (animal){
                         case "Ave":
                                 gestorAnimales.agregarAve(id,edad,salud,peso);
+                                System.out.println("Se agrego correctamente: ");
+                                System.out.println(gestorAnimales.buscarIdAve("AA" + id));
                             break;
                         default:
                             System.out.println("\n---   Opción no disponible por el momento...   ---");
@@ -304,7 +306,7 @@ public class UNCampesino {
                     
                     switch (animal){
                         case "Ave":
-                                gestorAnimales.buscarIdAve(id);
+                                System.out.println(gestorAnimales.buscarIdAve(id));
                             break;
                         default:
                             System.out.println("\n---   Opción no disponible por el momento...   ---");
@@ -363,6 +365,7 @@ public class UNCampesino {
                     switch (animal){
                         case "Ave":
                                 gestorAnimales.actualizarAveEdad(id, edad);
+                                System.out.println(gestorAnimales.buscarIdAve(id));
                             break;
                         default:
                             System.out.println("\n---   Opción no disponible por el momento...   ---");
@@ -375,6 +378,7 @@ public class UNCampesino {
                     switch (animal){
                         case "Ave":
                                 gestorAnimales.actualizarAveSalud(id, salud);
+                                System.out.println(gestorAnimales.buscarIdAve(id));
                             break;
                         default:
                             System.out.println("\n---   Opción no disponible por el momento...   ---");
@@ -387,6 +391,7 @@ public class UNCampesino {
                     switch (animal){
                         case "Ave":
                                 gestorAnimales.actualizarAvePeso(id, peso);
+                                System.out.println(gestorAnimales.buscarIdAve(id));
                             break;
                         default:
                             System.out.println("\n---   Opción no disponible por el momento...   ---");

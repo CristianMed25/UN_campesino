@@ -65,6 +65,6 @@ public static void testDesapilarDatos(){
         System.out.println("\nNumero de datos " + n);
         testApilarDatos(n);
         testEditarDato("data edit");
-        testDesapilarDatos();           
-    }
+        testDesapilarDatos();     
+    }  
 }
