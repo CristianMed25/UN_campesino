@@ -1,4 +1,4 @@
-2/*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -388,7 +388,7 @@ public class GestorCultivos {
                  if(oleaginosaEncontrado != null){                    
                      if(oleaginosaEncontrado.getId().equals(id)){
                             System.out.println("Id elemento actualizado " + oleaginosaEncontrado.getId());
-                            oleaginosa = hortalizaEncontrado;
+                            oleaginosa = oleaginosaEncontrado;
                             oleaginosa.setNecesidades(necesidades);                        
                             listaOleaginosa.delete(position);
                             listaOleaginosa.pushBack(oleaginosa);
@@ -399,7 +399,7 @@ public class GestorCultivos {
                  }            
     } 
     public static void actualizarOrnamentalNombre(String id, String nombre){
-        Ornamental ornamental = new Ornamentall();       
+        Ornamental ornamental = new Ornamental();       
                 Ornamental ornamentalEncontrado = buscarIdOrnamental(id);
                  if(ornamentalEncontrado != null){                    
                      if(ornamentalEncontrado.getId().equals(id)){
@@ -425,7 +425,7 @@ public class GestorCultivos {
                             ornamental = ornamentalEncontrado;
                             ornamental.setNecesidades(necesidades);                        
                             listaOrnamental.delete(position);
-                            listaOrnamental.pushBack(cereal);
+                            listaOrnamental.pushBack(ornamental);
                             ornamental.escribir(listaOrnamental);                       
                     }  
                  }else{
@@ -442,7 +442,7 @@ public class GestorCultivos {
                             raiz_y_tuberculo.setNombre(nombre);                        
                             listaRaiz_y_Tuberculo.delete(position);
                             listaRaiz_y_Tuberculo.pushBack(raiz_y_tuberculo);
-                            leguminosa.escribir(listaRaiz_y_Tuberculo);                       
+                            raiz_y_tuberculo.escribir(listaRaiz_y_Tuberculo);                       
                     } 
                  }else{
                      System.out.println("No se realizó actualización.");
@@ -451,7 +451,7 @@ public class GestorCultivos {
     }
     
     public static void actualizarRaiz_y_TuberculoNecesidades(String id, DynamicArrayList<Tarea> necesidades){
-        Raiz_y_Tuberculo raiz_y_tuberculo = new Leguminosa();       
+        Raiz_y_Tuberculo raiz_y_tuberculo = new Raiz_y_Tuberculo();       
                 Raiz_y_Tuberculo raiz_y_tuberculoEncontrado = buscarIdRaiz_y_Tuberculo(id);
                  if(raiz_y_tuberculoEncontrado != null){                    
                      if(raiz_y_tuberculoEncontrado.getId().equals(id)){
@@ -543,8 +543,7 @@ public class GestorCultivos {
                 }else{
                      System.out.println("No se realizó la eliminación.");
                 }    
-        }
-    }
+        }   
     public static void eliminarRaiz_y_Tuberculo(String id){
         Raiz_y_Tuberculo raiz_y_tuberculo = new Raiz_y_Tuberculo();        
                 Raiz_y_Tuberculo raiz_y_tuberculoEncontrado = buscarIdRaiz_y_Tuberculo(id);                
