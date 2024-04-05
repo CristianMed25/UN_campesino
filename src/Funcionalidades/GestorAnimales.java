@@ -5,6 +5,7 @@
  */
 package Funcionalidades;
 
+import Classes.Animal.Animal;
 import Classes.Animal.Ave;
 import Classes.Animal.Bovino;
 import Classes.Animal.Caballo;
@@ -43,7 +44,7 @@ public class GestorAnimales {
     private static DoublyLinkedList<Ave> listaAve = ave.leer();
     private static DoublyLinkedList<Bovino> listaBovino = bovino.leer();
     private static DoublyLinkedList<Caballo> listaCaballo = caballo.leer();
-    private static DoublyLinkedList<Ganado> listaGanado;
+    private static DoublyLinkedList<Ganado> listaGanado = ganado.leer();
     private static DoublyLinkedList<Ovino> listaOvino = ovino.leer();
     private static DoublyLinkedList<Pez> listaPez = pez.leer();
     private static DoublyLinkedList<Porcino> listaPorcino = porcino.leer();
@@ -57,7 +58,7 @@ public class GestorAnimales {
 //    private static DoublyLinkedList<Pez> listaPez;
 //    private static DoublyLinkedList<Porcino> listaPorcino;
 
-//    public GestorAnimales() {
+    public GestorAnimales() {
 //        this.listaAve          = new DoublyLinkedList<>();
 //        this.listaBovino = new DoublyLinkedList<>();
 //        this.listaCaballo      = new DoublyLinkedList<>();
@@ -65,9 +66,21 @@ public class GestorAnimales {
 //        this.listaOvino       = new DoublyLinkedList<>();
 //        this.listaPez      = new DoublyLinkedList<>();
 //        this.listaPorcino  = new DoublyLinkedList<>();
-//    }
+    }
     
    //AGREGAR ANIMALES
+    
+    public static void agregarGanado(String id, Animal animal, DynamicArrayList<Tarea> necesidades){
+         Ganado Ganado = new Ganado(id,animal,necesidades);
+         listaGanado.pushBack(Ganado);
+         
+         Ganado.escribir(listaGanado);       
+     }
+    
+    public static void agregarAve(Ganado Ganado){
+         listaGanado.pushBack(Ganado);
+         Ganado.escribir(listaGanado);
+     }
     
     public static void agregarAve(String id, int edad, String salud, double peso){
          Ave ave = new Ave(id,edad,salud,peso);
@@ -141,15 +154,32 @@ public class GestorAnimales {
     
     //BUSCAR ANIMALES POR ID
     public static int position = 0;
-    public static Bovino buscarIdBovino(String id){
-        for(int i=0; i <= listaBovino.length(); i++){
-                 Bovino objetoEncontrado = listaBovino.find(i);
+    public static Ganado buscarIdGanado(String id){
+        for(int i=0; i <= listaGanado.length(); i++){
+                 Ganado objetoEncontrado = listaGanado.find(i);
     	if(objetoEncontrado.getId().equals(id)){
                               position = i;
                               return objetoEncontrado;
                   }   
              }
         System.out.println("No se encontro el elemento con id " + id);
+        return null;
+    }
+    
+    public static Bovino buscarIdBovino(String id){
+        for(int i=0; i <= listaBovino.length(); i++){
+            try{
+                Bovino objetoEncontrado = listaBovino.find(i);
+                 if(objetoEncontrado != null){
+                     if(objetoEncontrado.getId().equals(id)){
+                              position = i;
+                              return objetoEncontrado;
+                     } 
+                 }  
+            }catch(NullPointerException e){
+                System.out.println("No se encontro el elemento con id " + id);
+            }           
+         }    
         return null;
     }
     
@@ -214,6 +244,24 @@ public class GestorAnimales {
     }
     
     //ACTUALIZAR CADA ATRIBUTO ANIMALES
+    public static void actualizarGanadoNecesidades(String id, DynamicArrayList<Tarea> necesidades){
+        Ganado Ganado = new Ganado();       
+                 Ganado GanadoEncontrado = buscarIdGanado(id);
+                 if(GanadoEncontrado != null){                    
+                     if(GanadoEncontrado.getId().equals(id)){
+                            System.out.println("Id elemento actualizado " + GanadoEncontrado.getId());
+                            Ganado = GanadoEncontrado;
+                            Ganado.setNecesidades(necesidades);                        
+                            listaGanado.delete(position);
+                            listaGanado.pushBack(Ganado);
+                            Ganado.escribir(listaGanado);                       
+                    } 
+                 }else{
+                     System.out.println("No se realizo actualización.");
+                 }  	  
+           
+    }
+    
     public static void actualizarBovinoEdad(String id, int edad){
         Bovino bovino = new Bovino();       
                  Bovino bovinoEncontrado = buscarIdBovino(id);
@@ -495,6 +543,21 @@ public class GestorAnimales {
     }
     
     //ELIMINAR ANIMALES:
+    
+    public static void eliminarGanado(String id){
+        Ganado Ganado = new Ganado();        
+                 Ganado GanadoEncontrado = buscarIdGanado(id);                
+                 if(GanadoEncontrado != null){                    
+                     if(GanadoEncontrado.getId().equals(id)){
+                            System.out.println("Id del elemento borrado " + GanadoEncontrado.getId());
+                            listaGanado.delete(position);
+                            Ganado.escribir(listaGanado);
+                      }                                       
+                 }else{
+                     System.out.println("No se realizo la eliminación.");
+                 }    
+    }
+    
     public static void eliminarBovino(String id){
         Bovino bovino = new Bovino();        
                  Bovino bovinoEncontrado = buscarIdBovino(id);                

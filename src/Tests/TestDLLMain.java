@@ -19,11 +19,8 @@ public static int position = 0;
 public static TestDLL buscarIdTestDLL(String id){ 
     for(int i=0; i <= listaTestDLL.length(); i++){
                  TestDLL objetoEncontrado = listaTestDLL.find(i);
-//                 System.out.println("pos " + i);
-//                 System.out.println(objetoEncontrado);
 	if(objetoEncontrado.getId().equals(id)){
                           position = i;
-//                          System.out.println(objetoEncontrado.toString());
                           return objetoEncontrado;
                   }   
          }
@@ -32,8 +29,6 @@ public static TestDLL buscarIdTestDLL(String id){
 
 public static void actualizarTestDLLData(String id, int data){
     TestDLL testDLL = new TestDLL();
-
-//    for(int i=0; i <= listaTestDLL.length(); i++){
                   TestDLL objetoEncontrado = buscarIdTestDLL(id);
 	if(objetoEncontrado.getId().equals(id)){
                         System.out.println("\nElemento actualizado " + objetoEncontrado.getId());
@@ -41,20 +36,15 @@ public static void actualizarTestDLLData(String id, int data){
                         testDLL.setData(data);                          
                         listaTestDLL.delete(position);
                         listaTestDLL.addAfter(position-1, testDLL);
-//                        break;
                   }   
-//         }
 }
 
 public static void eliminarTestDLL(String id){
-//    for(int i=0; i <= listaTestDLL.length(); i++){
                   TestDLL objetoEncontrado = buscarIdTestDLL(id);
 	if(objetoEncontrado.getId().equals(id)){
                         System.out.println("\nElemento borrado " + objetoEncontrado.getId());
                         listaTestDLL.delete(position); 
-//                        break;
                   }   
-//         } 
 }
 
 public static void testInsercionDatos(int n){
@@ -93,18 +83,18 @@ public static void testBorrarDatos(String n){
 
 
     public static void main(String[] args) {
-        testInsercionDatos(10000);
+        testInsercionDatos(50000);
 //        listaTestDLL.print();
         testBusquedaDatos("9999");
-        System.out.println(listaTestDLL.find(9999));
+//        System.out.println(listaTestDLL.find(9999));
         testActualizacionDatos("9999", 500);
-        System.out.println(listaTestDLL.find(9999));
+//        System.out.println(listaTestDLL.find(2));
 //        listaTestDLL.print();
 //        listaTestDLL.print();
         testBorrarDatos("9999");    
 //        listaTestDLL.print();
-        System.out.println(listaTestDLL.find(9998));
-        testBusquedaDatos("9999");
+//        System.out.println(listaTestDLL.find(9998));
+//        testBusquedaDatos("50000");
 
 //        listaTestDLL.find(9999);
 //        long startTime = System.currentTimeMillis();   

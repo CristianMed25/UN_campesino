@@ -30,7 +30,7 @@ public abstract class Animal implements Serializable{
         this.peso = peso;
     }
     
-    public Animal(){} 
+    public Animal(){}
     
     public String getId() {
         return id;

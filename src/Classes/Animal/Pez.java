@@ -22,7 +22,9 @@ public class Pez extends Animal{
         this.tipo = "Pez";
     }
     
-    public Pez(){}
+    public Pez(){
+        this.tipo = "Pez";
+    }
 
     public void escribir(DoublyLinkedList<Pez> dato){
         try {

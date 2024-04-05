@@ -96,5 +96,5 @@ public class DynamicArrayList<T> implements Serializable{
 
     public T find(int idx){
         return list[idx];
-    }
+    }   
 }

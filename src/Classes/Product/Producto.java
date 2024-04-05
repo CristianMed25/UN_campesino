@@ -4,24 +4,35 @@
  */
 package Classes.Product;
 
+import Structures.Doubly.DoublyLinkedList;
+import Structures.Queue;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 /**
  *
  * @author samue
  */
-public class Producto {
+public class Producto implements Serializable{
     protected String id;
+    protected String idNum;
     protected String nombre;
     protected double precio;
     protected int cantidad;
-    protected boolean apartado;
 
     public Producto(String id, String nombre, double precio, int cantidad) {
         this.id = "P" + id;
+        idNum = id;
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
-        this.apartado = false;
     }
+    
+    public Producto(){}
 
     public String getId() {
         return id;
@@ -33,6 +44,10 @@ public class Producto {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public String getIdNum() {
+        return idNum;
     }
 
     public void setNombre(String nombre) {
@@ -54,12 +69,53 @@ public class Producto {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-
-    public boolean isApartado() {
-        return apartado;
-    }
-
-    public void setApartado(boolean apartado) {
-        this.apartado = apartado;
+    
+    public void escribir(DoublyLinkedList<Producto> dato){
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("data/Productos/Producto.dat"));
+            out.writeObject(dato);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }   
+
+    public DoublyLinkedList<Producto> leer(){
+         try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("data/Productos/Producto.dat"));
+            DoublyLinkedList<Producto> datosRecuperados = (DoublyLinkedList<Producto>) in.readObject();
+            in.close();
+            return datosRecuperados;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+        } 
+    
+    public void escribirApartado(Queue<Producto> dato){
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("data/Productos/ProductoApartado.dat"));
+            out.writeObject(dato);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }   
+
+    public Queue<Producto> leerApartado(){
+         try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("data/Productos/ProductoApartado.dat"));
+            Queue<Producto> datosRecuperados = (Queue<Producto>) in.readObject();
+            in.close();
+            return datosRecuperados;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+        } 
+
+    @Override
+    public String toString() {
+        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", cantidad=" + cantidad + '}';
+    }
 }

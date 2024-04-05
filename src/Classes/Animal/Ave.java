@@ -23,6 +23,7 @@ public class Ave extends Animal{
     }
 
     public Ave() {
+         this.tipo = "Ave";
     }
     
     public void escribir(DoublyLinkedList<Ave> dato){

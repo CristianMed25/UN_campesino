@@ -4,7 +4,9 @@
  */
 package Structures;
 
-public class Queue<T> extends UnLinkedList<T> {
+import java.io.Serializable;
+
+public class Queue<T> extends UnLinkedList<T> implements Serializable{
     
     // Encolar un elemento al final de la cola
     public void enqueue(T item) {

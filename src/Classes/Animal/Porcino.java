@@ -21,7 +21,9 @@ public class Porcino extends Animal{
         this.tipo = "Porcino";
     }
     
-    public Porcino(){}
+    public Porcino(){
+        this.tipo = "Porcino";
+    }
     
      public void escribir(DoublyLinkedList<Porcino> dato){
         try {

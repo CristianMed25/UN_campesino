@@ -22,7 +22,9 @@ public class Ovino extends Animal{
         this.tipo = "Ovino";
     }   
     
-    public Ovino(){}
+    public Ovino(){
+        this.tipo = "Ovino";
+    }
     
    public void escribir(DoublyLinkedList<Ovino> dato){
         try {

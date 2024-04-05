@@ -282,7 +282,6 @@ public class DoublyLinkedList<T> implements Serializable {
 //            position+=1;
 //        }
         if(position<0){
-            System.out.println(position);
             throw new IndexOutOfBoundsException();
         }else if(position>length){
             throw new IndexOutOfBoundsException();

@@ -11,21 +11,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import structures.DynamicArrayList;
 
 /**
  *
  * @author samue
  */
-public class Ganado {
+public class Ganado implements Serializable{
     protected String id;
-    protected String tipo;
+    private String animal;
     protected DynamicArrayList<Tarea> necesidades;
-    protected DoublyLinkedList<Animal> animales;
 
-    public Ganado(String id, String tipo, DynamicArrayList<Tarea> necesidades) {
+    public Ganado(String id, Animal animal, DynamicArrayList<Tarea> necesidades) {
         this.id = "G" + id;
-        this.tipo = tipo;
+        this.animal = animal.getTipo();
         this.necesidades = necesidades;
     }
     
@@ -39,12 +39,12 @@ public class Ganado {
         this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getAnimal() {
+        return animal;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setAnimal(String animal) {
+        this.animal = animal;
     }
 
     public DynamicArrayList<Tarea> getNecesidades() {
@@ -53,14 +53,6 @@ public class Ganado {
 
     public void setNecesidades(DynamicArrayList<Tarea> necesidades) {
         this.necesidades = necesidades;
-    }
-
-    public DoublyLinkedList<Animal> getAnimales() {
-        return animales;
-    }
-
-    public void setAnimales(DoublyLinkedList<Animal> animales) {
-        this.animales = animales;
     }
     
     public void escribir(DoublyLinkedList<Ganado> dato){
@@ -84,4 +76,36 @@ public class Ganado {
         }
         return null;
         }   
+    
+        public void escribirNecesidad(DynamicArrayList<Tarea> dato){
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("data/Tareas/necesidadesGanado.dat"));
+            out.writeObject(dato);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }   
+
+    public DynamicArrayList<Tarea> leerNecesidad(){
+         try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("data/Tareas/necesidadesGanado.dat"));
+            DynamicArrayList<Tarea> datosRecuperados = (DynamicArrayList<Tarea>) in.readObject();
+            in.close();
+            return datosRecuperados;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+        }   
+    
+    public String printNecesidades(DynamicArrayList<Tarea> necesidades){
+        necesidades.print();
+        return "a";
+    }
+
+    @Override
+    public String toString() {
+        return "\nGanado{" + "id=" + id + ", animal=" + animal + ", necesidades=" + printNecesidades(necesidades) + '}';
+    }  
 }

@@ -1,7 +1,9 @@
 package Structures;
 
-public class UnLinkedList<T> {
-    public class Node<T>{
+import java.io.Serializable;
+
+public class UnLinkedList<T> implements Serializable{
+    public class Node<T> implements Serializable{
     
     private T data;
     private Node<T> next;

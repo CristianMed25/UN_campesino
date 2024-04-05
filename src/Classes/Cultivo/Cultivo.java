@@ -5,6 +5,11 @@
 package Classes.Cultivo;
 
 import Classes.Tarea;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import structures.DynamicArrayList;
 
@@ -56,10 +61,15 @@ public abstract class Cultivo implements Serializable{
 
     public void setNecesidades(DynamicArrayList<Tarea> necesidades) {
         this.necesidades = necesidades;
+    } 
+    
+    public String printNecesidades(DynamicArrayList<Tarea> necesidades){
+        necesidades.print();
+        return "a";
     }
 
     @Override
     public String toString() {
-        return "\nCultivo{" + "id=" + id + ", nombre=" + nombre + ", tipo=" + tipo + ", necesidades=" + necesidades + '}';
+        return "\nCultivo{" + "id=" + id + ", nombre=" + nombre + ", tipo=" + tipo + "\nnecesidades= {" + printNecesidades(necesidades) + '}';
     }
 }
