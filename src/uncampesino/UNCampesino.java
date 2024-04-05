@@ -21,6 +21,7 @@ import Funcionalidades.GestorTareas;
 import Funcionalidades.GestorCultivos;
 import java.util.InputMismatchException;
 import Structures.DynamicArrayList;
+import Structures.Stack;
 import java.util.Scanner;
 
 public class UNCampesino {
@@ -50,9 +51,13 @@ public class UNCampesino {
     public static GestorCultivos gestorCultivos = new GestorCultivos();
     public static GestorProductos gestorProductos = new GestorProductos();
     public static GestorTareas gestorTareas = new GestorTareas();
+    
+    public UNCampesino(){}
+    public static UNCampesino UNCampesino = new UNCampesino();
+    
 
     public static void main(String[] args) {
-          Scanner sc = new Scanner(System.in);
+//          Scanner sc = new Scanner(System.in);
 //        Tarea tarea = new Tarea("25", "t");
 //        DynamicArrayList<Tarea> necesidades = new DynamicArrayList<>();
 //        necesidades.pushBack(tarea);
@@ -193,60 +198,219 @@ public class UNCampesino {
 //        gestorAnimales.eliminarCaballo(id);
 //        System.out.println(caballo.leer().size());
 //        caballo.leer().print();
-//    System.out.println("\n¡¡Bienvenido a Agri-UN!!\n A continuación seleccione una opicón de nuestro menú:\n");
-//    Menu();
-//    
-//    }
-//    public void Menu(){
-//        private Scanner scanner = new Scanner(System.in);
-//        private Stack<String> historial = new Stack<>();
-//        private int opcion;
-//        mainMenu();
-//        
-//        public void mainMenu(){
-//            System.out.println("1) Animales");
-//            System.out.println("2) Cultivos");
-//            System.out.println("3) Productos");
-//            System.out.println("4) Tareas");
-//            System.out.println("5) Salir");
-//            
-//            System.out.println("\n Ejemplo: para seleccionar 1) Animales --> Escrbia '1' \n");
-//            opcion = scanner.nextInt();
-//            
-//            switch (opcion) {
-//                case 1:
-//                    historial.push("Animales");
-//                    menuAnimales();
-//                    break;
-//                case 2:
-//                    historial.push("Cultivos");
-//                    menuCultivos();
-//                    break;
-//                case 3:
-//                    historial.push("Productos");
-//                    menuProductos();
-//                    break;
-//                case 4:
-//                    historial.push("Tareas");
-//                    menuTareas();
-//                    break;
-//                case 5:
-//                    return;
-//                    break;
-//                default:
-//                    throw new AssertionError();
-//            }
-//            
-//            public void menuAnimales(){
-//                
-//            }
-//            public void menuCultivos(){
-//                
-//            }
-//            public void menuTareas(){
-//                
-//            }
-//        }
-//    }
-//    
+    System.out.println("\n¡¡Bienvenido a Agri-UN!!\n A continuación seleccione una opicón de nuestro menú:\n");
+    UNCampesino.Menu();
+    
     }
+    public static void Menu(){
+        Scanner scanner = new Scanner(System.in);
+        mainMenu(scanner);
+    }
+    public static void mainMenu(Scanner scanner){
+            System.out.println("\n Menú Principal:");
+            System.out.println("1) Animales");
+            System.out.println("2) Cultivos");
+            System.out.println("3) Productos");
+            System.out.println("4) Tareas");
+            System.out.println("5) Salir");
+            
+            System.out.println("\n   Ejemplo: para seleccionar 1) Animales --> Escriba '1' \n");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1: menuAnimales(scanner);  break;
+                case 2: menuCultivos(scanner);  break;
+                case 3: menuProductos(scanner); break;
+                case 4: menuTareas(scanner);    break;
+                case 5: return;
+                default:
+                    System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                    mainMenu(scanner);
+            }
+        }
+        public static void menuAnimales(Scanner scanner){
+            System.out.println("\n Animales || Elija una opción:");
+            System.out.println("1) Ave");
+            System.out.println("2) Bovino");
+            System.out.println("3) Caballo");
+            System.out.println("4) Ovino");
+            System.out.println("5) Pez");
+            System.out.println("6) Porcino");
+            System.out.println("7) Regresar al menú principal");
+            System.out.println("8) Salir");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1: CRUDanimal("Ave", scanner);     break;
+                case 2: CRUDanimal("Bovino", scanner);  break;
+                case 3: CRUDanimal("Caballo", scanner); break;
+                case 4: CRUDanimal("Ovino", scanner);   break;
+                case 5: CRUDanimal("Pez", scanner);     break;
+                case 6: CRUDanimal("Porcino", scanner); break;
+                case 7: mainMenu(scanner);          break;
+                case 8: return;
+                default:
+                    System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                    menuAnimales(scanner);
+            }
+            
+            
+        }
+        public static void CRUDanimal(String animal, Scanner scanner){
+            String id, salud;
+            int edad;
+            double peso;
+            
+            System.out.println("\n CRUD " + animal +" || Elija una opción:");
+            System.out.println("1) Agregar");
+            System.out.println("2) Buscar");
+            System.out.println("3) Actualizar");
+            System.out.println("4) Eliminar");
+            System.out.println("5) Regresar al menú anterior");
+            System.out.println("6) Salir");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:  //Agregar
+                    System.out.println("\n  Ingrese los datos del animal:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    System.out.print("    edad:");
+                        edad = scanner.nextInt();
+                    System.out.print("    salud:");
+                        salud = scanner.next();
+                    System.out.print("    peso:");
+                        peso = scanner.nextDouble();
+                        
+                        
+                    switch (animal){
+                        case "Ave":
+                                gestorAnimales.agregarAve(id,edad,salud,peso);
+                            break;
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            CRUDanimal(animal,scanner);
+                    }
+                break;
+                    
+                case 2: //Buscar
+                    System.out.println("\n  Ingrese los datos del animal:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    
+                    switch (animal){
+                        case "Ave":
+                                gestorAnimales.buscarIdAve(id);
+                            break;
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            CRUDanimal(animal,scanner);
+                    }
+                        
+                break;
+                    
+                case 3: //Actualizar
+                    System.out.println("\n  Ingrese los datos del animal:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    CRUDanimalActualizar(animal,scanner, id);
+                break;
+                    
+                case 4:  //Eliminar
+                    System.out.println("\n  Ingrese los datos del animal:");
+                    
+                    //Datos:
+                    System.out.println("    id:");
+                        id = scanner.next();
+                    
+                    switch (animal){
+                        case "Ave":
+                                gestorAnimales.eliminarAve(id);
+                            break;
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            menuAnimales(scanner);
+                    }
+                break;
+                    
+                case 5: menuAnimales(scanner);          break;
+                case 6: return;
+                default:
+                    System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                    CRUDanimal(animal,scanner);
+            }
+        }
+        public static void CRUDanimalActualizar(String animal,Scanner scanner, String id){
+            System.out.println("\n CRUD " + animal +" ACTUALIZAR || Elija una opción:");
+            System.out.println("1) Edad");
+            System.out.println("2) Salud");
+            System.out.println("3) Peso");
+            System.out.println("4) Regresar al menú anterior");
+            System.out.println("5) Salir");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1: //edad
+                    System.out.println("    nueva edad:");
+                        int edad = scanner.nextInt();                        
+                        
+                    switch (animal){
+                        case "Ave":
+                                gestorAnimales.actualizarAveEdad(id, edad);
+                            break;
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            CRUDanimal(animal,scanner);
+                    }
+                break;
+                case 2: //salud
+                    System.out.println("    nueva salud:");
+                        String salud = scanner.next();
+                    switch (animal){
+                        case "Ave":
+                                gestorAnimales.actualizarAveSalud(id, salud);
+                            break;
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            CRUDanimal(animal,scanner);
+                    }
+                break;
+                case 3: //peso
+                    System.out.println("    nuevo peso:");
+                        double peso = scanner.nextDouble();
+                    switch (animal){
+                        case "Ave":
+                                gestorAnimales.actualizarAvePeso(id, peso);
+                            break;
+                        default:
+                            System.out.println("\n---   Opción no disponible por el momento...   ---");
+                            CRUDanimal(animal,scanner);
+                    }
+                break;
+                
+                
+                case 4: CRUDanimal(animal,scanner);          break;
+                case 5: return;
+                default:
+                    System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                    CRUDanimalActualizar(animal,scanner,id);
+            }
+        }
+        
+        
+        public static void menuCultivos(Scanner scanner){
+
+        }
+        public static void menuTareas(Scanner scanner){
+
+        }
+        public static void menuProductos(Scanner scanner){
+
+        }
+}
