@@ -4,8 +4,6 @@
  */
 package Classes;
 
-import Classes.Animal.Ave;
-import Structures.Doubly.DoublyLinkedList;
 import Structures.Queue;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -52,10 +52,10 @@ public class UNCampesino {
     public static GestorTareas gestorTareas = new GestorTareas();
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Tarea tarea = new Tarea("25", "t");
-        DynamicArrayList<Tarea> necesidades = new DynamicArrayList<>();
-        necesidades.pushBack(tarea);
+          Scanner sc = new Scanner(System.in);
+//        Tarea tarea = new Tarea("25", "t");
+//        DynamicArrayList<Tarea> necesidades = new DynamicArrayList<>();
+//        necesidades.pushBack(tarea);
         
         
 //        gestorTareas.encolarTarea(tarea);
@@ -75,24 +75,24 @@ public class UNCampesino {
 //         System.out.println(ganado.leerNecesidad().length());
 //         System.out.println(tarea.leerNecesidad().length());
 //
-        tarea.leer().output();
-        ganado.leerNecesidad().print();
-        tarea.leerNecesidad().print();
-
-        cereal.leer().print();
-        frutal.leer().print();
-        hortaliza.leer().print();
-        leguminosa.leer().print();
-        ornamental.leer().print();
-        oleaginosa.leer().print();
-        raiz_y_tuberculo.leer().print();
-
-            bovino.leer().print();
-            ave.leer().print(); 
-            caballo.leer().print();
-            ovino.leer().print();
-            pez.leer().print();
-            porcino.leer().print();
+//        tarea.leer().output();
+//        ganado.leerNecesidad().print();
+//        tarea.leerNecesidad().print();
+//
+//        cereal.leer().print();
+//        frutal.leer().print();
+//        hortaliza.leer().print();
+//        leguminosa.leer().print();
+//        ornamental.leer().print();
+//        oleaginosa.leer().print();
+//        raiz_y_tuberculo.leer().print();
+//
+//            bovino.leer().print();
+//            ave.leer().print(); 
+//            caballo.leer().print();
+//            ovino.leer().print();
+//            pez.leer().print();
+//            porcino.leer().print();
         
 //        necesidades.print();
 //        gestorProductos.agregarProducto("1", "prueba", 250, 1000);
@@ -120,7 +120,7 @@ public class UNCampesino {
 //        
 //        System.out.println("");
 //        System.out.println("Lista productos");
-        producto.leer().print();
+//        producto.leer().print();
 //        
         
 //        producto.leer().print();
@@ -193,5 +193,60 @@ public class UNCampesino {
 //        gestorAnimales.eliminarCaballo(id);
 //        System.out.println(caballo.leer().size());
 //        caballo.leer().print();
-    } 
-}
+//    System.out.println("\n¡¡Bienvenido a Agri-UN!!\n A continuación seleccione una opicón de nuestro menú:\n");
+//    Menu();
+//    
+//    }
+//    public void Menu(){
+//        private Scanner scanner = new Scanner(System.in);
+//        private Stack<String> historial = new Stack<>();
+//        private int opcion;
+//        mainMenu();
+//        
+//        public void mainMenu(){
+//            System.out.println("1) Animales");
+//            System.out.println("2) Cultivos");
+//            System.out.println("3) Productos");
+//            System.out.println("4) Tareas");
+//            System.out.println("5) Salir");
+//            
+//            System.out.println("\n Ejemplo: para seleccionar 1) Animales --> Escrbia '1' \n");
+//            opcion = scanner.nextInt();
+//            
+//            switch (opcion) {
+//                case 1:
+//                    historial.push("Animales");
+//                    menuAnimales();
+//                    break;
+//                case 2:
+//                    historial.push("Cultivos");
+//                    menuCultivos();
+//                    break;
+//                case 3:
+//                    historial.push("Productos");
+//                    menuProductos();
+//                    break;
+//                case 4:
+//                    historial.push("Tareas");
+//                    menuTareas();
+//                    break;
+//                case 5:
+//                    return;
+//                    break;
+//                default:
+//                    throw new AssertionError();
+//            }
+//            
+//            public void menuAnimales(){
+//                
+//            }
+//            public void menuCultivos(){
+//                
+//            }
+//            public void menuTareas(){
+//                
+//            }
+//        }
+//    }
+//    
+    }

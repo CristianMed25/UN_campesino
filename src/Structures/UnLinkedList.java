@@ -4,36 +4,36 @@ import java.io.Serializable;
 
 public class UnLinkedList<T> implements Serializable{
     public class Node<T> implements Serializable{
-    
-    private T data;
-    private Node<T> next;
 
-    //CONSTRUCTOR METHODS
-    public Node(){
-        this(null);
-    }
-    public Node(T data){
-        this.data=data;
-        next=null;
-    }
+        private T data;
+        private Node<T> next;
 
-    //GETTERS AND SETTERS
-    public T getData() {
-        return this.data;
-    }
+        //CONSTRUCTOR METHODS
+        public Node(){
+            this(null);
+        }
+        public Node(T data){
+            this.data=data;
+            next=null;
+        }
 
-    public void setData(T data) {
-        this.data = data;
-    }
+        //GETTERS AND SETTERS
+        public T getData() {
+            return this.data;
+        }
 
-    public Node<T> getNext() {
-        return this.next;
-    }
+        public void setData(T data) {
+            this.data = data;
+        }
 
-    public void setNext(Node<T> next) {
-        this.next = next;
+        public Node<T> getNext() {
+            return this.next;
+        }
+
+        public void setNext(Node<T> next) {
+            this.next = next;
+        }
     }
-}
 
     private Node<T> head, tail, ref;
     private int count;
