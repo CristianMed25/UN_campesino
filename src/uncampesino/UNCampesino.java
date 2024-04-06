@@ -296,6 +296,7 @@ public class UNCampesino {
                             System.out.println("\n---   Opción no disponible por el momento...   ---");
                             CRUDanimal(animal,scanner);
                     }
+                    mainMenu(scanner);
                 break;
                     
                 case 2: //Buscar
@@ -313,7 +314,7 @@ public class UNCampesino {
                             System.out.println("\n---   Opción no disponible por el momento...   ---");
                             CRUDanimal(animal,scanner);
                     }
-                        
+                     mainMenu(scanner);   
                 break;
                     
                 case 3: //Actualizar
@@ -323,6 +324,7 @@ public class UNCampesino {
                     System.out.println("    id:");
                         id = scanner.next();
                     CRUDanimalActualizar(animal,scanner, id);
+                    mainMenu(scanner);
                 break;
                     
                 case 4:  //Eliminar
@@ -340,6 +342,7 @@ public class UNCampesino {
                             System.out.println("\n---   Opción no disponible por el momento...   ---");
                             menuAnimales(scanner);
                     }
+                    mainMenu(scanner);
                 break;
                     
                 case 5: menuAnimales(scanner);          break;
@@ -475,6 +478,7 @@ public class UNCampesino {
                             System.out.println("\n---   Opción no disponible por el momento...   ---");
                             CRUDcultivo(cultivo,scanner);
                     }
+                    mainMenu(scanner);
                 break;
                     
                 case 2: //Buscar
@@ -492,7 +496,7 @@ public class UNCampesino {
                             System.out.println("\n---   Opción no disponible por el momento...   ---");
                             CRUDcultivo(cultivo,scanner);
                     }
-                        
+                    mainMenu(scanner);
                 break;
                     
                 case 3: //Actualizar
@@ -502,6 +506,8 @@ public class UNCampesino {
                     System.out.println("    id:");
                         id = scanner.next();
                     CRUDcultivoActualizar(cultivo,scanner, id);
+                    
+                    mainMenu(scanner);
                 break;
                     
                 case 4:  //Eliminar
@@ -519,6 +525,7 @@ public class UNCampesino {
                             System.out.println("\n---   Opción no disponible por el momento...   ---");
                             menuCultivos(scanner);
                     }
+                    mainMenu(scanner);
                 break;
                     
                 case 5: menuCultivos(scanner);          break;
@@ -621,11 +628,15 @@ public class UNCampesino {
                         curr.setDescripcion(descripcion);
                         
                     gestorTareas.encolarTarea(curr);
+                    
+                    mainMenu(scanner);
                 break;
                     
                 case 2: //Desencolar
                     gestorTareas.verTarea();
-                    gestorTareas.desencolarTarea();  
+                    gestorTareas.desencolarTarea(); 
+                    
+                    mainMenu(scanner);
                 break;
                     
                 case 3: //Editar Descripción
@@ -635,6 +646,8 @@ public class UNCampesino {
                     System.out.println("    descripción:");
                         descripcion = scanner.next();
                     gestorTareas.editarDescripcion(descripcion);
+                    
+                    mainMenu(scanner);
                 break;
                     
                 case 4: menuTareas(scanner);          break;
@@ -850,6 +863,7 @@ public class UNCampesino {
                             
                     gestorProductos.actualizarProductoNombre(id,nombre);
                     
+                    mainMenu(scanner);
                 break;
                 
                 case 2: //precio
@@ -857,6 +871,8 @@ public class UNCampesino {
                         double precio = scanner.nextDouble();                        
                             
                     gestorProductos.actualizarProductoPrecio(id,precio);
+                    
+                    mainMenu(scanner);
                 break;
                 
                 case 3: //cantidad
@@ -864,6 +880,8 @@ public class UNCampesino {
                         int cantidad = scanner.nextInt();                        
                             
                     gestorProductos.actualizarProductoCantidad(id,cantidad);
+                    
+                    mainMenu(scanner);
                 break;
 
                 

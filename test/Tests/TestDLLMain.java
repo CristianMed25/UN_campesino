@@ -81,8 +81,8 @@ public static void testBorrarDatos(String n){
 
 
     public static void main(String[] args) {
-        int n = 10000;
-        String dato = "9999";
+        int n =10000000;
+        String dato = "999999";
         
         System.out.println("\nNumero de datos " + n);
         testInsercionDatos(n);
