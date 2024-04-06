@@ -198,7 +198,7 @@ public class UNCampesino {
 //        gestorAnimales.eliminarCaballo(id);
 //        System.out.println(caballo.leer().size());
 //        caballo.leer().print();
-    System.out.println("\n¡¡Bienvenido a Agri-UN!!\n A continuación seleccione una opicón de nuestro menú:\n");
+    System.out.println("\n¡¡Bienvenido a UN Campesino!!\n A continuación seleccione una opicón de nuestro menú:\n");
     UNCampesino.Menu();
     
     }
