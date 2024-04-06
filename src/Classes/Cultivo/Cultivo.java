@@ -65,11 +65,11 @@ public abstract class Cultivo implements Serializable{
     
     public String printNecesidades(DynamicArrayList<Tarea> necesidades){
         necesidades.print();
-        return "a";
+        return "";
     }
 
     @Override
     public String toString() {
-        return "\nCultivo{" + "id=" + id + ", nombre=" + nombre + ", tipo=" + tipo + "\nnecesidades= {" + printNecesidades(necesidades) + '}';
+        return "\nCultivo{" + "\nid: " + id + "\nnombre: " + nombre + "\ntipo=" + tipo + "\nnecesidades: {" + printNecesidades(necesidades) + '}';
     }
 }

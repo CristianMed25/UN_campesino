@@ -116,6 +116,6 @@ public class Producto implements Serializable{
 
     @Override
     public String toString() {
-        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", cantidad=" + cantidad + '}';
+        return "Producto{" + "\nid: " + id + "\nnombre:" + nombre + "\nprecio: " + precio + "\ncantidad: " + cantidad + '}';
     }
 }

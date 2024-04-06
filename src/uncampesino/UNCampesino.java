@@ -633,10 +633,10 @@ public class UNCampesino {
                 break;
                     
                 case 2: //Desencolar
-                    gestorTareas.verTarea();
-                    gestorTareas.desencolarTarea(); 
+                    System.out.println(gestorTareas.verTarea());
+                    gestorTareas.desencolarTarea();  
                     
-                    mainMenu(scanner);
+                    mainMenu(scanner);                   
                 break;
                     
                 case 3: //Editar Descripción
@@ -718,7 +718,7 @@ public class UNCampesino {
                         id = scanner.next();
                     switch (necesidad) {
                         case "Cultivo":
-                            gestorTareas.buscarNecesidadCultivo(id);
+                            System.out.println(gestorTareas.buscarNecesidadCultivo(id));
                         break;
                         case "Ganado":
                             gestorTareas.buscarNecesidadAnimal(id);
@@ -772,6 +772,7 @@ public class UNCampesino {
                         cantidad = scanner.nextInt();
                         
                     gestorProductos.agregarProducto(id,nombre,precio,cantidad);
+                    System.out.println(gestorProductos.buscarIdProducto("P" + id));
                 break;
                     
                 case 2: //Buscar
@@ -781,7 +782,7 @@ public class UNCampesino {
                     System.out.println("    id:");
                         id = scanner.next();
                     
-                    gestorProductos.buscarIdProducto(id);
+                    System.out.println(gestorProductos.buscarIdProducto(id));
                         
                 break;
                     
@@ -806,7 +807,7 @@ public class UNCampesino {
                 
                 case 5: 
                     System.out.println("\n A continuación el primer producto apartado:");
-                    gestorProductos.verProductoApartado();
+                    System.out.println(gestorProductos.verProductoApartado());
                 break;
                 
                 case 6:
@@ -820,10 +821,12 @@ public class UNCampesino {
                     
                     curr = gestorProductos.buscarIdProducto(id);
                     gestorProductos.apartarProducto(curr, cantidad);
+                    System.out.println(gestorProductos.buscarIdProducto(id));
                 break;
                 
                 case 7:
-                    gestorProductos.desapartarProducto();
+                    Producto pro  = gestorProductos.desapartarProducto();
+                    System.out.println(gestorProductos.buscarIdProducto(pro.getId()));
                 break;
                 
                 case 8:
@@ -862,6 +865,7 @@ public class UNCampesino {
                         String nombre = scanner.next();                        
                             
                     gestorProductos.actualizarProductoNombre(id,nombre);
+                    System.out.println(gestorProductos.buscarIdProducto(id));
                     
                     mainMenu(scanner);
                 break;

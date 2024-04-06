@@ -100,6 +100,6 @@ public class Tarea implements Serializable{
 
     @Override
     public String toString() {
-        return "\nTarea{" + "id=" + id + ", descripcion=" + descripcion + ", completada=" + completada + '}';
+        return "\nTarea{" + "\nid: " + id + "\ndescripcion: " + descripcion + "\ncompletada: " + completada + '}';
     }
 }

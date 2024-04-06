@@ -92,6 +92,6 @@ public abstract class Animal implements Serializable{
 
     @Override
     public String toString() {
-        return "\nAnimal{" + "id=" + id + ", edad=" + edad + ", salud=" + salud + ", peso=" + peso + ", tipo=" + tipo + '}';
+        return "\nAnimal{" + "\nid: " + id + "\nedad: " + edad + "\nsalud: " + salud + "\npeso: " + peso + "\ntipo: " + tipo + '}';
     }     
 }
