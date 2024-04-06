@@ -20,8 +20,7 @@ public class GestorProductos {
 //Para creación de archivos
 //    private static DoublyLinkedList<Producto> listaProducto;
 //    private static Queue<Producto> colaProducto;
-
-
+//
 //    public GestorProductos() {
 //        this.listaProducto          = new DoublyLinkedList<>();
 //        this.colaProducto          = new Queue<>();       

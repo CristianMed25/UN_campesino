@@ -57,7 +57,7 @@ public class GestorAnimales {
 //    private static DoublyLinkedList<Ovino> listaOvino;
 //    private static DoublyLinkedList<Pez> listaPez;
 //    private static DoublyLinkedList<Porcino> listaPorcino;
-
+//
 //    public GestorAnimales() {
 //        this.listaAve          = new DoublyLinkedList<>();
 //        this.listaBovino = new DoublyLinkedList<>();
