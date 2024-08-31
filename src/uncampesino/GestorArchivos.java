@@ -115,6 +115,14 @@ public class GestorArchivos {
 //        gestorTareas.eliminarNecesidadAnimalReciente();
 //        gestorTareas.eliminarNecesidadCultivoReciente();
 
+// CASO APARTE
+//        gestorAnimales.eliminarGanado("G1");
+//        gestorAnimales.eliminarGanado("G2");
+//        gestorAnimales.eliminarGanado("G3");
+//        gestorAnimales.eliminarGanado("G4");
+//        gestorAnimales.eliminarGanado("G5");
+//        gestorAnimales.eliminarGanado("G6");
+
 // COMPROBAR ARCHIVOS
         ganado.leer().print();
         bovino.leer().print();
