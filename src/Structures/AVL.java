@@ -10,6 +10,176 @@ package Structures;
  */
     // Implementation of AVLTree in Java
 
+
+
+
+class Node {
+    Task task;
+    Node left, right;
+    int height;
+
+    Node(Task task) {
+        this.task = task;
+        this.height = 1;
+    }
+}
+
+class AVL {
+    Node root;
+
+    int height(Node N) {
+        if (N == null)
+            return 0;
+        return N.height;
+    }
+
+    Node rightRotate(Node y) {
+        Node x = y.left;
+        Node T2 = x.right;
+
+        x.right = y;
+        y.left = T2;
+
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
+
+        return x;
+    }
+
+    Node leftRotate(Node x) {
+        Node y = x.right;
+        Node T2 = y.left;
+
+        y.left = x;
+        x.right = T2;
+
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+
+        return y;
+    }
+
+    int getBalance(Node N) {
+        if (N == null)
+            return 0;
+        return height(N.left) - height(N.right);
+    }
+
+    Node insert(Node node, Task task) {
+        if (node == null)
+            return new Node(task);
+
+        if (task.priority < node.task.priority) {
+            node.left = insert(node.left, task);
+        } else {
+            node.right = insert(node.right, task);
+        }
+
+        node.height = Math.max(height(node.left), height(node.right)) + 1;
+
+        int balance = getBalance(node);
+
+        // Casos de rotación
+        if (balance > 1 && task.priority < node.left.task.priority)
+            return rightRotate(node);
+
+        if (balance < -1 && task.priority > node.right.task.priority)
+            return leftRotate(node);
+
+        if (balance > 1 && task.priority > node.left.task.priority) {
+            node.left = leftRotate(node.left);
+            return rightRotate(node);
+        }
+
+        if (balance < -1 && task.priority < node.right.task.priority) {
+            node.right = rightRotate(node.right);
+            return leftRotate(node);
+        }
+
+        return node;
+    }
+
+    Node findMin(Node node) {
+        while (node.left != null)
+            node = node.left;
+        return node;
+    }
+
+    Node deleteNode(Node root, int priority) {
+        if (root == null)
+            return root;
+
+        if (priority < root.task.priority)
+            root.left = deleteNode(root.left, priority);
+        else if (priority > root.task.priority)
+            root.right = deleteNode(root.right, priority);
+        else {
+            // Nodo con un solo hijo o sin hijos
+            if ((root.left == null) || (root.right == null)) {
+                Node temp = null;
+                if (temp == root.left)
+                    temp = root.right;
+                else
+                    temp = root.left;
+
+                // No tiene hijos
+                if (temp == null) {
+                    temp = root;
+                    root = null;
+                } else   // Un solo hijo
+                    root = temp;
+            } else {
+                // Nodo con dos hijos: Obtén el sucesor en orden (menor en el subárbol derecho)
+                Node temp = findMin(root.right);
+
+                root.task = temp.task;
+
+                root.right = deleteNode(root.right, temp.task.priority);
+            }
+        }
+
+        if (root == null)
+            return root;
+
+        root.height = Math.max(height(root.left), height(root.right)) + 1;
+
+        int balance = getBalance(root);
+
+        // Reequilibrar el árbol AVL
+        if (balance > 1 && getBalance(root.left) >= 0)
+            return rightRotate(root);
+
+        if (balance > 1 && getBalance(root.left) < 0) {
+            root.left = leftRotate(root.left);
+            return rightRotate(root);
+        }
+
+        if (balance < -1 && getBalance(root.right) <= 0)
+            return leftRotate(root);
+
+        if (balance < -1 && getBalance(root.right) > 0) {
+            root.right = rightRotate(root.right);
+            return leftRotate(root);
+        }
+
+        return root;
+    }
+
+    void inOrderTraversal(Node node, List<Task> tasks) {
+        if (node != null) {
+            inOrderTraversal(node.left, tasks);
+            tasks.add(node.task);
+            inOrderTraversal(node.right, tasks);
+        }
+    }
+}
+
+
+
+
+
+
+
 // T needs to have > and < comparator operations
 class Node<T extends Comparable<T>> {
     T value;

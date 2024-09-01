@@ -13,10 +13,12 @@ import Structures.Queue;
  */
 public class Trabajador extends Usuario{
     private Queue<Tarea> tareas;
+    private AVL<ListaTareas> daily;
 
     public Trabajador(String id, String nombre, String user, String pasword) {
         super("T"+id, nombre, user, pasword);
         this.tareas = null;
+        this.daily = null;
     }
 
     public Queue<Tarea> getTareas() {
@@ -25,6 +27,14 @@ public class Trabajador extends Usuario{
 
     public void setTareas(Queue<Tarea> tareas) {
         this.tareas = tareas;
+    }
+    
+    public AVL<ListaTareas> getDaily(){
+        return Daily;
+    }
+    
+    public void setDaily (AVL<ListaTareas> daily){
+        this.daily = daily;
     }
        
 }

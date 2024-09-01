@@ -19,12 +19,12 @@ import Structures.DynamicArrayList;
  */
 public class GestorTareas {
     public static final Tarea tarea = new Tarea();   
-    public static final Ganado ganado= new Ganado(); 
+    public static final Ganado ganado= new Ganado();
+    
     
     private static Queue <Tarea> colaTareas = tarea.leer();
     private static DynamicArrayList<Tarea>  necesidadesAnimales = ganado.leerNecesidad();
     private static DynamicArrayList<Tarea>  necesidadesCultivos = tarea.leerNecesidad();
-    
 //Para creación de archivos
 //    private static Queue <Tarea> colaTareas;
 //    private static DynamicArrayList<Tarea>  necesidadesAnimales;
