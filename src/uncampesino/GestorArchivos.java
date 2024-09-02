@@ -25,14 +25,20 @@ import Classes.Cultivo.Oleaginosa;
 import Classes.Cultivo.Raiz_y_Tuberculo;
 import Classes.Product.Producto;
 import Classes.Tarea;
+import Classes.User.Campesino;
+import Classes.User.ControlDeAccesoVerDos;
+import Classes.User.Rol;
+import Classes.User.Usuario;
 import Funcionalidades.GestorAnimales;
 import Funcionalidades.GestorProductos;
 import Funcionalidades.GestorTareas;
 import Funcionalidades.GestorCultivos;
+import Funcionalidades.GestorRoles;
+import Funcionalidades.GestorUsuarios;
 import Structures.DynamicArrayList;
 
 public class GestorArchivos {
-        public static final Ave ave = new Ave();
+    public static final Ave ave = new Ave();
     public static final Bovino bovino = new Bovino();
     public static final Caballo caballo= new Caballo();
     public static final Ganado ganado = new Ganado();
@@ -51,17 +57,32 @@ public class GestorArchivos {
     public static final Producto producto = new Producto();
     
     public static final Tarea tarea = new Tarea();   
-      
+    
+    public static final Rol rol = new Rol();
+    public static final Usuario usuario = new Campesino();
+ 
     public static GestorAnimales gestorAnimales = new GestorAnimales();
     public static GestorCultivos gestorCultivos = new GestorCultivos();
     public static GestorProductos gestorProductos = new GestorProductos();
     public static GestorTareas gestorTareas = new GestorTareas();
+    public static GestorRoles gestorRoles = new GestorRoles();
+    public static GestorUsuarios gestorUsuarios = new GestorUsuarios(); 
+    
     
     public static void main(String[] args) {
 // CREAR ARCHIVOS
 //        Tarea tarea = new Tarea("1", "A");
 //        DynamicArrayList<Tarea> necesidades = new DynamicArrayList<>();
 //        necesidades.pushBack(tarea);
+//        
+//        gestorRoles.guardarRol(1, "Admin", "ADM", "A");
+//        gestorRoles.guardarRol(2, "Trabajador", "TRA", "T");
+//        gestorRoles.guardarRol(3, "Consultor", "CON", "C");
+//        
+//        gestorUsuarios.crearUsuarioCampesino("PruebaCAM", "Admin", "Admin");
+//        gestorUsuarios.crearUsuarioConsultor("PruebaCON2", "Consultor", "Consultor");
+
+//        
 //
 //        gestorAnimales.agregarGanado("1", ave, necesidades);
 //        gestorAnimales.agregarGanado("2", bovino, necesidades);
@@ -124,27 +145,47 @@ public class GestorArchivos {
 //        gestorAnimales.eliminarGanado("G6");
 
 // COMPROBAR ARCHIVOS
-        ganado.leer().print();
-        bovino.leer().print();
-        ave.leer().print(); 
-        caballo.leer().print();
-        ovino.leer().print();
-        pez.leer().print();
-        porcino.leer().print();
+//        ganado.leer().print();
+//        bovino.leer().print();
+//        ave.leer().print(); 
+//        caballo.leer().print();
+//        ovino.leer().print();
+//        pez.leer().print();
+//        porcino.leer().print();
+//
+//        cereal.leer().print();
+//        frutal.leer().print();
+//        hortaliza.leer().print();
+//        leguminosa.leer().print();
+//        ornamental.leer().print();
+//        oleaginosa.leer().print();
+//        raiz_y_tuberculo.leer().print();
+//
+//        producto.leerApartado().output();
+//        producto.leer().print();
+//
+//        tarea.leer().output();
+//        ganado.leerNecesidad().print();
+//        tarea.leerNecesidad().print();
 
-        cereal.leer().print();
-        frutal.leer().print();
-        hortaliza.leer().print();
-        leguminosa.leer().print();
-        ornamental.leer().print();
-        oleaginosa.leer().print();
-        raiz_y_tuberculo.leer().print();
+        System.out.println(usuario.leerSetH().isConnected(4, 1)); //true
+        System.out.println(usuario.leerSetH().isConnected(4, 2));
+        System.out.println(usuario.leerSetH().isConnected(4, 3));
+        System.out.println(usuario.leerSetH().isConnected(5, 1));
+        System.out.println(usuario.leerSetH().isConnected(5, 2));
+        System.out.println(usuario.leerSetH().isConnected(5, 3)); //true
+        System.out.println(usuario.leerSetH().isConnected(6, 1)); 
+        System.out.println(usuario.leerSetH().isConnected(6, 2)); 
+        System.out.println(usuario.leerSetH().isConnected(6, 3)); //true
 
-        producto.leerApartado().output();
-        producto.leer().print();
-
-        tarea.leer().output();
-        ganado.leerNecesidad().print();
-        tarea.leerNecesidad().print();
+        
+//        for (int i = 0; i < rol.leer().size(); i++){
+//            System.out.println(rol.leer().get(i));
+//        }
+//        
+//        for (int i = 0; i < usuario.leer().size(); i++){
+//            System.out.println(usuario.leer().get(i));
+//        }
+//        usuario.leerSetH().printSets();
     }
 }

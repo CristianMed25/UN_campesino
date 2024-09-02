@@ -4,12 +4,12 @@
  */
 package Classes.User;
 
-import Structures.Doubly.DoublyLinkedList;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.List;
 
 /**
  *
@@ -17,33 +17,9 @@ import java.io.ObjectOutputStream;
  */
 public class Campesino extends Usuario{
     
-    public Campesino(String id, String nombre, String user, String pasword) {
-        super("CAMPESINO" + id, nombre, user, pasword);
-    }
-        
+    public Campesino(int id, String nombre, String user, String pasword) {
+        super(id, nombre, user, pasword);
+    } 
     
-    public Campesino(){}
-    
-    public void escribir(DoublyLinkedList<Campesino> dato){
-        try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("data/Campesino.dat"));
-            out.writeObject(dato);
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }   
-
-    public DoublyLinkedList<Campesino> leer(){
-         try {
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream("data/Campesino.dat"));
-            DoublyLinkedList<Campesino> datosRecuperados = (DoublyLinkedList<Campesino>) in.readObject();
-            in.close();
-            return datosRecuperados;
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-        } 
-    
+    public Campesino(){}  
 }

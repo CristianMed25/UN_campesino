@@ -45,7 +45,5 @@ public class Ornamental extends Cultivo{
             e.printStackTrace();
         }
         return null;
-        } 
-    
-    
+        }    
 }
