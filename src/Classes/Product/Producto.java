@@ -31,6 +31,9 @@ public class Producto implements Serializable{
         this.precio = precio;
         this.cantidad = cantidad;
     }
+    public Producto(String nombre, double precio){
+        this("N/A",nombre,precio,0);
+    }
     
     public Producto(){}
 
