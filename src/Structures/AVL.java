@@ -1,202 +1,41 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Structures;
+import Classes.Pendientes;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
- * @author Valentina
+ * @author 57315
+ * @param <T>
  */
     // Implementation of AVLTree in Java
 
+public class AVL<T extends Comparable<T>> {
+    Node<T> root;
+    int _size;
 
-
-
-class Node {
-    Task task;
-    Node left, right;
-    int height;
-
-    Node(Task task) {
-        this.task = task;
-        this.height = 1;
-    }
-}
-
-class AVL {
-    Node root;
-
-    int height(Node N) {
-        if (N == null)
-            return 0;
-        return N.height;
+    public AVL() {
+        this.root = null;
+        this._size = 0;
     }
 
-    Node rightRotate(Node y) {
-        Node x = y.left;
-        Node T2 = x.right;
-
-        x.right = y;
-        y.left = T2;
-
-        y.height = Math.max(height(y.left), height(y.right)) + 1;
-        x.height = Math.max(height(x.left), height(x.right)) + 1;
-
-        return x;
-    }
-
-    Node leftRotate(Node x) {
-        Node y = x.right;
-        Node T2 = y.left;
-
-        y.left = x;
-        x.right = T2;
-
-        x.height = Math.max(height(x.left), height(x.right)) + 1;
-        y.height = Math.max(height(y.left), height(y.right)) + 1;
-
-        return y;
-    }
-
-    int getBalance(Node N) {
-        if (N == null)
-            return 0;
-        return height(N.left) - height(N.right);
-    }
-
-    Node insert(Node node, Task task) {
-        if (node == null)
-            return new Node(task);
-
-        if (task.priority < node.task.priority) {
-            node.left = insert(node.left, task);
-        } else {
-            node.right = insert(node.right, task);
-        }
-
-        node.height = Math.max(height(node.left), height(node.right)) + 1;
-
-        int balance = getBalance(node);
-
-        // Casos de rotación
-        if (balance > 1 && task.priority < node.left.task.priority)
-            return rightRotate(node);
-
-        if (balance < -1 && task.priority > node.right.task.priority)
-            return leftRotate(node);
-
-        if (balance > 1 && task.priority > node.left.task.priority) {
-            node.left = leftRotate(node.left);
-            return rightRotate(node);
-        }
-
-        if (balance < -1 && task.priority < node.right.task.priority) {
-            node.right = rightRotate(node.right);
-            return leftRotate(node);
-        }
-
-        return node;
-    }
-
-    Node findMin(Node node) {
-        while (node.left != null)
-            node = node.left;
-        return node;
-    }
-
-    Node deleteNode(Node root, int priority) {
-        if (root == null)
-            return root;
-
-        if (priority < root.task.priority)
-            root.left = deleteNode(root.left, priority);
-        else if (priority > root.task.priority)
-            root.right = deleteNode(root.right, priority);
-        else {
-            // Nodo con un solo hijo o sin hijos
-            if ((root.left == null) || (root.right == null)) {
-                Node temp = null;
-                if (temp == root.left)
-                    temp = root.right;
-                else
-                    temp = root.left;
-
-                // No tiene hijos
-                if (temp == null) {
-                    temp = root;
-                    root = null;
-                } else   // Un solo hijo
-                    root = temp;
-            } else {
-                // Nodo con dos hijos: Obtén el sucesor en orden (menor en el subárbol derecho)
-                Node temp = findMin(root.right);
-
-                root.task = temp.task;
-
-                root.right = deleteNode(root.right, temp.task.priority);
-            }
-        }
-
-        if (root == null)
-            return root;
-
-        root.height = Math.max(height(root.left), height(root.right)) + 1;
-
-        int balance = getBalance(root);
-
-        // Reequilibrar el árbol AVL
-        if (balance > 1 && getBalance(root.left) >= 0)
-            return rightRotate(root);
-
-        if (balance > 1 && getBalance(root.left) < 0) {
-            root.left = leftRotate(root.left);
-            return rightRotate(root);
-        }
-
-        if (balance < -1 && getBalance(root.right) <= 0)
-            return leftRotate(root);
-
-        if (balance < -1 && getBalance(root.right) > 0) {
-            root.right = rightRotate(root.right);
-            return leftRotate(root);
-        }
-
-        return root;
-    }
-
-    void inOrderTraversal(Node node, List<Task> tasks) {
-        if (node != null) {
-            inOrderTraversal(node.left, tasks);
-            tasks.add(node.task);
-            inOrderTraversal(node.right, tasks);
-        }
-    }
-}
+    
 
 
-
-
-
-
-
-// T needs to have > and < comparator operations
 class Node<T extends Comparable<T>> {
-    T value;
+    T value;         // Valor del nodo
+    int bf;          // Factor de balance (balance factor)
+    int height;      // Altura del nodo
+    int frequency;   // Frecuencia del valor en el nodo
+    Node<T> left;    // Hijo izquierdo
+    Node<T> right;   // Hijo derecho
 
-    // Balance factor
-    int bf;
-
-    // Height of the node, if leaf 1
-    int height;
-
-    // Frequency of the value
-    int frequency;
-
-    Node<T> left;
-    Node<T> right;
-
-    // Initially a leaf
+    // Constructor por defecto
     Node() {
         left = right = null;
         bf = 0;
@@ -204,6 +43,7 @@ class Node<T extends Comparable<T>> {
         frequency = 1;
     }
 
+    // Constructor con valor
     Node(T el) {
         left = right = null;
         bf = 0;
@@ -213,26 +53,20 @@ class Node<T extends Comparable<T>> {
     }
 }
 
-public class AVL<T extends Comparable<T>> {
-    Node<T> root;
-    int _size;
-
-    AVL() {
-        _size = 0;
-        root = null;
-    }
+    
+   
 
     // Height of rooted tree
-    int height() {
+    public int height() {
         if (root == null) return 0;
         return root.height;
     }
 
-    int size() {
+    public int size() {
         return _size;
     }
 
-    boolean empty() {
+    public boolean empty() {
         return size() == 0;
     }
 
@@ -254,17 +88,17 @@ public class AVL<T extends Comparable<T>> {
         return u;
     }
 
-    boolean count(T value) {
+    public boolean count(T value) {
         Node<T> u = find(root, value);
         if (u == null) return false;
         return u.frequency > 0;
     }
 
-    boolean contains(T value) {
+    public boolean contains(T value) {
         return count(value);
     }
 
-    void update(Node<T> u) {
+    public void update(Node<T> u) {
         int leftNodeHeight = (u.left == null) ? 0 : u.left.height;
         int rightNodeHeight = (u.right == null) ? 0 : u.right.height;
 
@@ -349,7 +183,7 @@ public class AVL<T extends Comparable<T>> {
 
     // Insert value to the tree
     // Returns true if inserted in new leaf
-    boolean insert(T value) {
+    public boolean insert(T value) {
         Node<T> u = find(root, value);
         _size++;
         if (u == null) {
@@ -438,33 +272,33 @@ public class AVL<T extends Comparable<T>> {
         return getMax(root);
     }
 
-    void preOrder(Node<T> u) {
+    public void preOrder(Node<T> u) {
         if (u == null) return;
         System.out.print(u.value + " ");
         preOrder(u.left);
         preOrder(u.right);
     }
 
-    void inOrder(Node<T> u) {
+    public void inOrder(Node<T> u) {
         if (u == null) return;
         inOrder(u.left);
         System.out.print(u.value + " ");
         inOrder(u.right);
     }
 
-    void postOrder(Node<T> u) {
+    public void postOrder(Node<T> u) {
         if (u == null) return;
         postOrder(u.left);
         postOrder(u.right);
         System.out.print(u.value + " ");
     }
 
-    void printSorted() {
+    public void printSorted() {
         inOrder(root);
         System.out.println();
     }
 
-    void printOrders() {
+    public void printOrders() {
         preOrder(root);
         System.out.println();
         inOrder(root);
@@ -472,5 +306,68 @@ public class AVL<T extends Comparable<T>> {
         postOrder(root);
         System.out.println();
     }
-}
+    
+    
+    
+//    public List<T> buscarPorPrioridad(Node<T> node, int prioridad) {
+//        List<T> result = new ArrayList<>();
+//        if (node == null) return result;
+//
+//        // Si la prioridad del nodo es mayor o igual a la buscada, explorar el subárbol izquierdo
+//        if (((Pendientes) node.value).getPriority() >= prioridad) {
+//            result.addAll(buscarPorPrioridad(node.left, prioridad));
+//            result.add(node.value);
+//        }
+//
+//        // Siempre explorar el subárbol derecho
+//        result.addAll(buscarPorPrioridad(node.right, prioridad));
+//
+//        return result;
+//    }
+//
+//    public List<T> buscarPorPrioridad(int prioridad) {
+//        return buscarPorPrioridad(root, prioridad);
+//    }
+    
+    
+    public List<T> buscarPorPrioridad(int prioridad) {
+        return buscarPorPrioridad(root, prioridad);
+    }
 
+    // Método privado que recorre el árbol a partir de un nodo dado
+    private List<T> buscarPorPrioridad(Node<T> node, int prioridad) {
+        List<T> result = new ArrayList<>();
+        if (node == null) return result;
+
+        // Si la prioridad del nodo es mayor o igual a la buscada, explorar el subárbol izquierdo
+        if (((Pendientes) node.value).getPriority() >= prioridad) {
+            result.addAll(buscarPorPrioridad(node.left, prioridad));
+            result.add(node.value);
+        }
+
+        // Siempre explorar el subárbol derecho
+        result.addAll(buscarPorPrioridad(node.right, prioridad));
+
+        return result;
+    }
+    public List<T> buscarPorPrioridadExacta(int prioridad) {
+        List<T> resultado = new ArrayList<>();
+        buscarPorPrioridadExacta(root, prioridad, resultado);
+        return resultado;
+    }
+
+    private void buscarPorPrioridadExacta(Node<T> nodo, int prioridad, List<T> resultado) {
+        if (nodo == null) {
+            return;
+        }
+
+        // Suponiendo que T es Pendientes o tiene un método getPriority
+        Pendientes tarea = (Pendientes) nodo.value;
+        if (tarea.getPriority() == prioridad) {
+            resultado.add(nodo.value);
+        }
+
+        buscarPorPrioridadExacta(nodo.left, prioridad, resultado);
+        buscarPorPrioridadExacta(nodo.right, prioridad, resultado);
+    }
+}

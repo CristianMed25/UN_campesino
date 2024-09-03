@@ -20,17 +20,17 @@ import Structures.AVL;
  */
 
 
-public class ListaTareas implements Serializable{
+public class Tarea implements Serializable{
     private int priority; 
     private String descripcion;
     private boolean completada;
     
-    public ListaTareas (int priority, String descripcion, boolean completada){
+    public Tarea (int priority, String descripcion, boolean completada){
         this.priority = priority;
         this.descripcion = descripcion;
         this.completada = false;
     }
-    public ListaTareas(){}
+    public Tarea(){}
     
     public int getPriority(){
         return priority;
@@ -58,8 +58,7 @@ public class ListaTareas implements Serializable{
     }  
     
      // Método para comparar tareas basado en prioridad y descripción (útil para el árbol AVL)
-    @Override
-    public int compareTo(ListaTareas other) {
+    public int compareTo(Tarea other) {
         if (this.priority == other.priority) {
             return this.descripcion.compareTo(other.descripcion);
         }
