@@ -14,6 +14,7 @@ import Classes.Cultivo.Ornamental;
 import Classes.Cultivo.Oleaginosa;
 import Classes.Cultivo.Raiz_y_Tuberculo;
 import Classes.Product.Producto;
+import Classes.Pendientes;
 import Classes.Tarea;
 import Classes.User.Campesino;
 import Classes.User.Usuario;
@@ -22,6 +23,7 @@ import Funcionalidades.GestorComprasQuaHeap;
 import Funcionalidades.GestorProductos;
 import Funcionalidades.GestorTareas;
 import Funcionalidades.GestorCultivos;
+import Funcionalidades.GestorPendientes;
 import Funcionalidades.GestorUsuarios;
 import static Funcionalidades.GestorUsuarios.listaUsuarios;
 import Structures.DynamicArrayList;
@@ -56,6 +58,8 @@ public class UNCampesino {
     public static GestorTareas gestorTareas = new GestorTareas();
     public static GestorUsuarios gestorUsuarios = new GestorUsuarios();
     public static GestorComprasQuaHeap gestorCompras = new GestorComprasQuaHeap();
+    public static GestorPendientes gestorPendiente = new GestorPendientes();
+    
     
     public UNCampesino(){}
     public static UNCampesino UNCampesino = new UNCampesino();
@@ -721,25 +725,25 @@ public class UNCampesino {
         }
         public static void menuTareas(Scanner scanner){
             System.out.println("\n Tareas Varias || Elija una opción:");
-            System.out.println("1) Tareas");
-            System.out.println("2) Necesidades Cultivos");
-            System.out.println("3) Necesidades Ganado");
-            System.out.println("4) Regresar al menú principal");
-            System.out.println("5) Salir");
+            System.out.println("1) CRUD Tareas");
+            System.out.println("2) Gestión Tareas");
+            System.out.println("3) Necesidades Cultivos");
+            System.out.println("4) Necesidades Ganado");
+            System.out.println("5) Regresar al menú principal");
+            System.out.println("6) Salir");
             int opcion = scanner.nextInt();
             
             switch (opcion) {
-                case 1: CRUDtarea("Gestión Tareas", scanner);                   break;
-                case 2: CRUDnecesidad("Cultivo", scanner);         break;
-                case 3: CRUDnecesidad("Ganado", scanner);           break;
-                case 4: mainMenu(scanner);                                      break;
-                case 5: return;
+                case 1: CRUDtarea("Tareas", scanner);                   break;
+                case 2: menuGestionTarea(scanner);                   break;
+                case 3: CRUDnecesidad("Cultivo", scanner);         break;
+                case 4: CRUDnecesidad("Ganado", scanner);           break;
+                case 5: mainMenu(scanner);                                      break;
+                case 6: return;
                 default:
                     System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
                     menuTareas(scanner);
             }
-            
-            
         }
             public static void CRUDtarea(String tarea, Scanner scanner){            
                 Tarea curr = new Tarea(null,null);
@@ -793,6 +797,83 @@ public class UNCampesino {
                     default:
                         System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
                         CRUDtarea(tarea,scanner);
+                }
+            }
+            public static void menuGestionTarea(Scanner scanner){
+                int prioridad; String descripcion;
+                
+                System.out.println("\n Elija una opción:");
+                System.out.println("1) Agregar Pendiente");
+                System.out.println("2) Completar Pendiente");
+                System.out.println("3) Eliminar Pendiente");
+                System.out.println("4) Buscar Pendiente por Prioridad Exacta");
+                System.out.println("5) Busqueda por Mayor o Menor Prioridad ");
+                System.out.println("6) Lista de Pendientes");
+                System.out.println("7) Regresar al menú principal");
+                System.out.println("8) Salir");
+                int opcion = scanner.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        System.out.println("\n Ingrese la información del pendiente:");
+                        System.out.println("Prioridad: ");
+                        prioridad = scanner.nextInt();
+                        System.out.println("Descripción: ");
+                        descripcion = scanner.nextLine();
+                        
+                        gestorPendiente.agregarPendiente(prioridad, descripcion);
+                        menuGestionTarea(scanner);
+                        
+                        break;
+                    case 2:
+                        System.out.println("\n Ingrese la información del pendiente:");
+                        System.out.println("Prioridad: ");
+                        prioridad = scanner.nextInt();
+                        System.out.println("Descripción: ");
+                        descripcion = scanner.nextLine();
+                        
+                        Pendientes pendiente = new Pendientes(prioridad, descripcion, false);
+                        
+                        gestorPendiente.marcarCompletada(pendiente);
+                        menuGestionTarea(scanner);
+                        break;
+                    case 3:
+                        System.out.println("\n Ingrese la información del pendiente:");
+                        System.out.println("Prioridad: ");
+                        prioridad = scanner.nextInt();
+                        System.out.println("Descripción: ");
+                        descripcion = scanner.nextLine();
+                        
+                        gestorPendiente.eliminarPendiente(prioridad, descripcion);
+                        menuGestionTarea(scanner);
+                        break;
+                    case 4: 
+                        System.out.println("\n Ingrese la información de busqueda:");
+                        System.out.println("Prioridad: ");
+                        prioridad = scanner.nextInt();
+                        
+                        gestorPendiente.buscarPorPrioridadExacta(prioridad);
+                        menuGestionTarea(scanner);
+                        break;
+                    case 5: 
+                        System.out.println("\n Ingrese la información de busqueda:");
+                        System.out.println("Prioridad: ");
+                        prioridad = scanner.nextInt();
+                        
+                        gestorPendiente.buscarPorPrioridad(prioridad);
+                        menuGestionTarea(scanner);
+                        break;
+                    case 6: 
+                        System.out.println("\n Lista de Pendientes:");
+                        
+                        gestorPendiente.mostrarPendientesOrdenadas();
+                        menuGestionTarea(scanner);
+                        break;
+                    case 7: menuTareas(scanner);                                      break;
+                    case 8: return;
+                    default:
+                        System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                        menuGestionTarea(scanner);
                 }
             }
             public static void CRUDnecesidad(String necesidad, Scanner scanner){            

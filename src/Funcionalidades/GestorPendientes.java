@@ -16,11 +16,7 @@ import java.util.List;
 
 public class GestorPendientes {
 
-    private AVL<Pendientes> avlTree;
-
-    public GestorPendientes() {
-        avlTree = new AVL<>();
-    }
+    private final AVL<Pendientes> avlTree = new AVL<>();
 
     // Método para agregar una nueva pendiente al gestor
     public void agregarPendiente(int prioridad, String descripcion) {
