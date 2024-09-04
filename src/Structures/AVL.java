@@ -27,21 +27,13 @@ public class AVL<T extends Comparable<T>> {
     
 
 
-class Node<T extends Comparable<T>> {
+public class Node<T extends Comparable<T>> {
     T value;         // Valor del nodo
     int bf;          // Factor de balance (balance factor)
     int height;      // Altura del nodo
     int frequency;   // Frecuencia del valor en el nodo
     Node<T> left;    // Hijo izquierdo
     Node<T> right;   // Hijo derecho
-
-    // Constructor por defecto
-    Node() {
-        left = right = null;
-        bf = 0;
-        height = 1;
-        frequency = 1;
-    }
 
     // Constructor con valor
     Node(T el) {
@@ -198,7 +190,7 @@ class Node<T extends Comparable<T>> {
     }
 
     // Removes a value from the AVL tree
-    Node<T> remove(Node<T> node, T elem) {
+    public Node<T> remove(Node<T> node, T elem) {
         // Explore left
         if (node.value.compareTo(elem) > 0) {
             node.left = remove(node.left, elem);
@@ -239,7 +231,7 @@ class Node<T extends Comparable<T>> {
         return balance(node);
     }
 
-    boolean remove(T value) {
+    public boolean remove(T value) {
         Node<T> u = find(root, value);
 
         if (u != null) {
