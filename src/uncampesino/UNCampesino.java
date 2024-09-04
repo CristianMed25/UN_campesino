@@ -49,7 +49,6 @@ public class UNCampesino {
     public static final Raiz_y_Tuberculo raiz_y_tuberculo = new Raiz_y_Tuberculo();
     
     public static final Producto producto = new Producto();
-    
     public static final Tarea tarea = new Tarea();   
       
     public static GestorAnimales gestorAnimales = new GestorAnimales();
@@ -61,13 +60,12 @@ public class UNCampesino {
     public static GestorPendientes gestorPendiente = new GestorPendientes();
     
     
-    public UNCampesino(){}
-    public static UNCampesino UNCampesino = new UNCampesino();
+    public UNCampesino(){}     public static UNCampesino UNCampesino = new UNCampesino();
     
 
     public static void main(String[] args) {
-    System.out.println("\n¡¡Bienvenido a UN Campesino!!\n A continuación seleccione una opicón de nuestro menú:\n");
-    UNCampesino.Menu();  
+        System.out.println("\n¡¡Bienvenido a UN Campesino!!\n A continuación seleccione una opicón de nuestro menú:\n");
+        UNCampesino.Menu();  
     }
     
     public static void Menu(){

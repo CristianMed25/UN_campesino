@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Tests;
 
 /**
@@ -14,37 +9,6 @@ import Structures.ComparadorTiempos;
 import Classes.Pendientes;
 import Structures.BST;
 import Structures.AVL;
-import java.util.List;
-
-//public class TestAVLBST {
-//    
-//    
-//
-//public static AVL<Pendientes> avl = new AVL<>();
-//public static BST<Pendientes> bst = new BST<>();
-//
-//    public static void main(String[] args) {
-//        
-//
-//        // Generar tareas aleatorias
-//       Pendientes[] tareas = GeneradorTareas.generarPendientes(1000); // Genera 1000 tareas
-//
-//        // Insertar las tareas en ambos árboles
-//        ComparadorTiempos.medirInsercion(avl, bst, tareas);
-//
-//        // Buscar tareas con prioridad >= 4
-//        int prioridadBuscada = 4;
-//        List<Pendientes> tareasConAltaPrioridadAVL = avl.buscarPorPrioridad(prioridadBuscada);
-//        List<Pendientes> tareasConAltaPrioridadBST = bst.buscarPorPrioridad(prioridadBuscada);
-//
-//        System.out.println("Tareas con prioridad >= " + prioridadBuscada + " en AVL: " + tareasConAltaPrioridadAVL.size());
-//        System.out.println("Tareas con prioridad >= " + prioridadBuscada + " en BST: " + tareasConAltaPrioridadBST.size());
-//
-//        // Imprimir las tareas encontradas si lo deseas
-//        System.out.println("Tareas en AVL: " + tareasConAltaPrioridadAVL);
-//        System.out.println("Tareas en BST: " + tareasConAltaPrioridadBST);
-//    }
-//}
 import java.util.List;
 
 public class TestAVLBST {
