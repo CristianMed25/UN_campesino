@@ -10,6 +10,9 @@ import Structures.QuaPriorityQueueProductos;
  */
 public class GestorComprasQuaHeap {
     private QuaPriorityQueueProductos Queue;
+    public GestorComprasQuaHeap(){
+        this(25);
+    } 
     public GestorComprasQuaHeap(int Tamaño){
         this.Queue= new QuaPriorityQueueProductos(Tamaño);
     }

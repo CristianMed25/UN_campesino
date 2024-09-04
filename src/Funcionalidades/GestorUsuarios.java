@@ -24,7 +24,7 @@ public class GestorUsuarios {
     public static final ControlDeAccesoVerDos controlVerDos = new ControlDeAccesoVerDos();
     
     public static final List<Usuario> listaUsuarios = campesino.leer();
-    private static final List<Rol> listaRoles = rol.leer();
+    public static final List<Rol> listaRoles = rol.leer();
      
 //    Para creación de archivos
 //    private static List<Usuario> listaUsuarios;

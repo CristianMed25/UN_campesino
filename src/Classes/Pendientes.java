@@ -51,7 +51,7 @@ public class Pendientes implements Serializable, Comparable<Pendientes>{
         this.completada = completada;
     }  
     
-     // Método para comparar tareas basado en prioridad y descripción (útil para el árbol AVL)
+    // Método para comparar tareas basado en prioridad y descripción (útil para el árbol AVL)
     @Override
     public int compareTo(Pendientes other) {
         if (this.priority == other.priority) {

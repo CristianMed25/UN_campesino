@@ -21,7 +21,7 @@ import java.util.List;
 public class ControlDeAccesoVerDos {
     public static final Usuario usuario = new Campesino();
     
-    private static DisjointSetWithHeuristics disjointSet = usuario.leerSetH();   
+    private static final DisjointSetWithHeuristics disjointSet = usuario.leerSetH();   
 //    private static List<Usuario> listaUsuarios = usuario.leer();
 
 //Para creación de archivos
@@ -40,11 +40,11 @@ public class ControlDeAccesoVerDos {
     }
 
     public void asignarRol(int usuarioId, Rol rol) {
-        Usuario usuario = buscarUsuarioPorId(usuarioId);
-        if (usuario != null) {
+        Usuario usuario_local = buscarUsuarioPorId(usuarioId);
+        if (usuario_local != null) {
             // Unión del conjunto del usuario con el conjunto del rol
             disjointSet.union(usuarioId, rol.getId());
-            usuario.escribirSetH(disjointSet); 
+            usuario_local.escribirSetH(disjointSet); 
         }else{
             System.out.println("Usuario no existe");
         }       
