@@ -15,10 +15,14 @@ import Classes.Cultivo.Oleaginosa;
 import Classes.Cultivo.Raiz_y_Tuberculo;
 import Classes.Product.Producto;
 import Classes.Tarea;
+import Classes.User.Campesino;
+import Classes.User.Usuario;
 import Funcionalidades.GestorAnimales;
 import Funcionalidades.GestorProductos;
 import Funcionalidades.GestorTareas;
 import Funcionalidades.GestorCultivos;
+import Funcionalidades.GestorUsuarios;
+import static Funcionalidades.GestorUsuarios.listaUsuarios;
 import Structures.DynamicArrayList;
 import java.util.Scanner;
 
@@ -48,6 +52,7 @@ public class UNCampesino {
     public static GestorCultivos gestorCultivos = new GestorCultivos();
     public static GestorProductos gestorProductos = new GestorProductos();
     public static GestorTareas gestorTareas = new GestorTareas();
+    public static GestorUsuarios gestorUsuarios = new GestorUsuarios();
     
     public UNCampesino(){}
     public static UNCampesino UNCampesino = new UNCampesino();
@@ -60,8 +65,175 @@ public class UNCampesino {
     
     public static void Menu(){
         Scanner scanner = new Scanner(System.in);
-        mainMenu(scanner);
+        loggeo(scanner);
     }
+    
+    public static void loggeo(Scanner scanner){
+        System.out.println("\n Bienvenido a UN Campesino:");
+        System.out.println("1) Ingreso");
+        System.out.println("2) Registro");
+        System.out.println("3) Cerrar Programa");
+
+        System.out.println("\n   Ejemplo: para seleccionar 1) Ingreso --> Escriba '1' \n");
+        int opcion = scanner.nextInt();
+
+        switch (opcion) {
+            case 1: menuIngreso(scanner);  break;
+            case 2: menuRegistro(scanner);  break;
+            case 3: return;
+            default:
+                System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                loggeo(scanner);
+        }
+    }
+    
+    public static void menuIngreso(Scanner scanner){
+        String user, contraseña;
+        Boolean registered;
+        List<Usuario> listaUsuarios = usuario.leer();
+        Usuario usuario = new Campesino();
+        
+        System.out.println("¿Desea regresar al menú anterior?");
+        System.out.println("1) Si");
+        System.out.println("2) No");
+
+        int opcion = scanner.nextInt();
+
+        switch (opcion) {
+            case 1:
+                loggeo(scanner);  break;
+            case 2:
+                System.out.println("Por favor ingrese la información de su cuenta.");
+                System.out.println("Usuario:");
+                user =  scanner.next();
+                usuario.setUser(user);
+                System.out.println("Contraseña:");
+                contraseña =  scanner.next();
+                usuario.setPasword(contraseña);
+                
+                registered = gestorUsuarios.listaUsuarios.contains(usuario);
+                
+                break;
+            default:
+                System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                registroCampesino(scanner);
+        }
+    }
+    
+    public static void menuRegistro(Scanner scanner){
+        System.out.println("Ingrese el tipo de usuario que desea registrar");
+        System.out.println("1) Campesino");
+        System.out.println("2) Consultor");
+        System.out.println("3) Consultor");
+        System.out.println("4) Regresar");
+        System.out.println("5) Salir");
+
+        int opcion = scanner.nextInt();
+
+        switch (opcion) {
+            case 1: registroCampesino(scanner);  break;
+            case 2: registroTrabajador(scanner);  break;
+            case 3: registroConsultor(scanner);  break;
+            case 4: loggeo(scanner);  break;
+            case 5: return;
+            default:
+                System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                loggeo(scanner);
+        }
+    }
+    
+    public static void registroCampesino(Scanner scanner){
+        String nombre, user, contraseña;
+        
+        System.out.println("¿Desea regresar al menú anterior?");
+        System.out.println("1) Si");
+        System.out.println("2) No");
+
+        int opcion = scanner.nextInt();
+
+        switch (opcion) {
+            case 1:
+                menuRegistro(scanner);  break;
+            case 2:
+                System.out.println("Bienvenido. Por favor ingrese la información de su nuevo Campesino");
+                System.out.println("Nombre:");
+                nombre =  scanner.next();
+                System.out.println("Usuario:");
+                user =  scanner.next();
+                System.out.println("Contraseña:");
+                contraseña =  scanner.next();
+                
+                gestorUsuarios.crearUsuarioCampesino(nombre,user,contraseña);
+                mainMenu(scanner);
+                
+                break;
+            default:
+                System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                registroCampesino(scanner);
+        }
+    }
+    public static void registroTrabajador(Scanner scanner){
+        String nombre, user, contraseña;
+        
+        System.out.println("¿Desea regresar al menú anterior?");
+        System.out.println("1) Si");
+        System.out.println("2) No");
+
+        int opcion = scanner.nextInt();
+
+        switch (opcion) {
+            case 1:
+                menuRegistro(scanner);  break;
+            case 2:
+                System.out.println("Bienvenido. Por favor ingrese la información de su nuevo Trabajador");
+                System.out.println("Nombre:");
+                nombre =  scanner.next();
+                System.out.println("Usuario:");
+                user =  scanner.next();
+                System.out.println("Contraseña:");
+                contraseña =  scanner.next();
+                
+                gestorUsuarios.crearUsuarioTrabajador(nombre,user,contraseña);
+                loggeo(scanner);
+                
+                break;
+            default:
+                System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                registroTrabajador(scanner);
+        }
+    }
+    public static void registroConsultor(Scanner scanner){
+        String nombre, user, contraseña;
+        
+        System.out.println("¿Desea regresar al menú anterior?");
+        System.out.println("1) Si");
+        System.out.println("2) No");
+
+        int opcion = scanner.nextInt();
+
+        switch (opcion) {
+            case 1:
+                menuRegistro(scanner);  break;
+            case 2:
+                System.out.println("Bienvenido. Por favor ingrese la información de su nuevo Consultor");
+                System.out.println("Nombre:");
+                nombre =  scanner.next();
+                System.out.println("Usuario:");
+                user =  scanner.next();
+                System.out.println("Contraseña:");
+                contraseña =  scanner.next();
+                
+                gestorUsuarios.crearUsuarioConsultor(nombre,user,contraseña);
+                loggeo(scanner);
+                
+                break;
+            default:
+                System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
+                registroConsultor(scanner);
+        }
+    }
+    
+
     public static void mainMenu(Scanner scanner){
             System.out.println("\n Menú Principal:");
             System.out.println("1) Animales");
@@ -69,8 +241,7 @@ public class UNCampesino {
             System.out.println("3) Productos");
             System.out.println("4) Tareas");
             System.out.println("5) Salir");
-            
-            System.out.println("\n   Ejemplo: para seleccionar 1) Animales --> Escriba '1' \n");
+
             int opcion = scanner.nextInt();
             
             switch (opcion) {
@@ -104,7 +275,7 @@ public class UNCampesino {
                 case 4: CRUDanimal("Ovino", scanner);   break;
                 case 5: CRUDanimal("Pez", scanner);     break;
                 case 6: CRUDanimal("Porcino", scanner); break;
-                case 7: mainMenu(scanner);          break;
+                case 7: mainMenu(scanner);              break;
                 case 8: return;
                 default:
                     System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
@@ -266,8 +437,7 @@ public class UNCampesino {
                     System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
                     CRUDanimalActualizar(animal,scanner,id);
             }
-        }
-        
+        }      
         public static void menuCultivos(Scanner scanner){
             System.out.println("\n Cultivos || Elija una opción:");
             System.out.println("1) Cereal");
@@ -436,7 +606,6 @@ public class UNCampesino {
                     CRUDcultivoActualizar(cultivo,scanner,id);
             }
         }
-        
         public static void menuTareas(Scanner scanner){
             System.out.println("\n Tareas Varias || Elija una opción:");
             System.out.println("1) Tareas");
@@ -592,8 +761,7 @@ public class UNCampesino {
                     System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
                     CRUDnecesidad(necesidad,scanner);
             }
-        }
-        
+        }   
         public static void menuProductos(Scanner scanner){
             String id, nombre;
             double precio;
@@ -704,8 +872,7 @@ public class UNCampesino {
             }
             
             
-        }
-        
+        }  
         public static void CRUDproductoActualizar(Scanner scanner, String id){
             System.out.println("\n CRUD Producto ACTUALIZAR || Elija una opción:");
             System.out.println("1) Nombre");
@@ -753,3 +920,4 @@ public class UNCampesino {
             }
         }
 }
+

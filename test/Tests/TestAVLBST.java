@@ -16,7 +16,7 @@ import Structures.BST;
 import Structures.AVL;
 import java.util.List;
 
-//public class Main {
+//public class TestAVLBST {
 //    
 //    
 //
@@ -47,7 +47,7 @@ import java.util.List;
 //}
 import java.util.List;
 
-public class Main {
+public class TestAVLBST {
     public static void main(String[] args) {
         // Inicialización de los árboles
         AVL<Pendientes> avl = new AVL<>();

@@ -12,7 +12,7 @@ import java.util.List;
 /**
  *
  * @author CristianM
- */
+ */ 
 public class GestorRoles {
     public static final Rol rol = new Rol();
     public static final ControlDeAccesoVerDos controlVerDos = new ControlDeAccesoVerDos();
