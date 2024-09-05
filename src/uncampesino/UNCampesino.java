@@ -96,7 +96,7 @@ public class UNCampesino {
             String user, contraseña;
             Boolean registered = false;
 
-            System.out.println("¿Desea regresar al menú anterior?");
+            System.out.println("\n¿Desea regresar al menú anterior?");
             System.out.println("1) Si");
             System.out.println("2) No");
 
@@ -106,7 +106,7 @@ public class UNCampesino {
                 case 1:
                     loggeo(scanner);  break;
                 case 2:
-                    System.out.println("Por favor ingrese la información de su cuenta.");
+                    System.out.println("\nPor favor ingrese la información de su cuenta.");
                     System.out.println("Usuario:");
                     user =  scanner.next();
                     System.out.println("Contraseña:");
@@ -125,7 +125,7 @@ public class UNCampesino {
                     }
 
                     if (!registered) {
-                        System.out.println("Usuario o contraseña incorrectos. Inténtelo de nuevo.");
+                        System.out.println("\nUsuario o contraseña incorrectos. Inténtelo de nuevo.");
                         loggeo(scanner); 
                     }
                     break;
@@ -135,7 +135,7 @@ public class UNCampesino {
             }
         }
         public static void menuRegistro(Scanner scanner){
-        System.out.println("Ingrese el tipo de usuario que desea registrar");
+        System.out.println("\nIngrese el tipo de usuario que desea registrar");
         System.out.println("1) Campesino");
         System.out.println("2) Trabajador");
         System.out.println("3) Consultor");
@@ -147,7 +147,7 @@ public class UNCampesino {
         switch (opcion) {
             case 1: registroCampesino(scanner);  break;
             case 2: 
-                System.out.println("Para el registro de trabajadores es necesario comunicarse con un Administrador (CAMPESINO)");
+                System.out.println("\nPara el registro de trabajadores es necesario comunicarse con un Administrador (CAMPESINO)");
                 loggeo(scanner);
                 break;
             case 3: registroConsultor(scanner);  break;
@@ -161,7 +161,7 @@ public class UNCampesino {
             public static void registroCampesino(Scanner scanner){
                 String nombre, user, contraseña;
 
-                System.out.println("Si desea ingresar al menú anterior ingrese 0, en caso contrario, ingrese la clave de administración:");
+                System.out.println("\n Si desea ingresar al menú anterior ingrese 0, en caso contrario, ingrese la clave de administración:");
                 int adminCode = scanner.nextInt();
 
                 switch (adminCode) {
@@ -169,12 +169,14 @@ public class UNCampesino {
                         menuRegistro(scanner);
                         break;
                     case 123456789:
-                        System.out.println("Bienvenido. Por favor ingrese la información de su nuevo Campesino");
-                        System.out.println("Nombre:");
+                        System.out.println("\nBienvenido. Por favor ingrese la información de su nuevo Campesino");
+                        System.out.println("     Nombre:");
                         nombre =  scanner.next();
-                        System.out.println("Usuario:");
+                        
+                        System.out.println("     Usuario:");
                         user =  scanner.next();
-                        System.out.println("Contraseña:");
+                        
+                        System.out.println("     Contraseña:");
                         contraseña =  scanner.next();
                         gestorUsuarios.crearUsuarioCampesino(nombre,user,contraseña);
                         System.out.println("Cuenta creada exitosamente. Usuario y Contraseña registrados.");
@@ -189,7 +191,7 @@ public class UNCampesino {
             public static void registroConsultor(Scanner scanner){
         String nombre, user, contraseña;
         
-        System.out.println("¿Está seguro de su elección?");
+        System.out.println("\n¿Está seguro de su elección?");
         System.out.println("1) Si");
         System.out.println("2) No");
 
@@ -197,7 +199,7 @@ public class UNCampesino {
 
         switch (opcion) {
             case 1:
-                System.out.println("Bienvenido. Por favor ingrese la información de su nuevo Consultor");
+                System.out.println("\nBienvenido. Por favor ingrese la información de su nuevo Consultor");
                 
                 System.out.println("Nombre:");
                 nombre =  scanner.next();
@@ -209,7 +211,7 @@ public class UNCampesino {
                 contraseña =  scanner.next();
                 
                 gestorUsuarios.crearUsuarioConsultor(nombre,user,contraseña);
-                System.out.println("Cuenta creada exitosamente. Usuario y Contraseña registrados.");
+                System.out.println("\nCuenta creada exitosamente. Usuario y Contraseña registrados.");
                 
                 loggeo(scanner);
                 
@@ -236,7 +238,7 @@ public class UNCampesino {
             case 3: return;
             default:
                 System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
-                mainMenu(scanner);
+                menuCampesino(scanner);
         }
     }
         public static void menuGestionUsuarios (Scanner scanner){
@@ -261,7 +263,7 @@ public class UNCampesino {
         public static void registroTrabajador(Scanner scanner){
             String nombre, user, contraseña;
 
-            System.out.println("¿Está seguro de su elección?");
+            System.out.println("\n¿Está seguro de su elección?");
             System.out.println("1) Si");
             System.out.println("2) No");
 
@@ -269,7 +271,7 @@ public class UNCampesino {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Bienvenido. Por favor ingrese la información de su nuevo Trabajador");
+                    System.out.println("\nBienvenido. Por favor ingrese la información de su nuevo Trabajador");
                     System.out.println("Nombre:");
                     nombre =  scanner.next();
                     System.out.println("Usuario:");
@@ -278,7 +280,7 @@ public class UNCampesino {
                     contraseña =  scanner.next();
 
                     gestorUsuarios.crearUsuarioTrabajador(nombre,user,contraseña);
-                    System.out.println("Cuenta creada exitosamente. Usuario y Contraseña registrados.");
+                    System.out.println("\nCuenta creada exitosamente. Usuario y Contraseña registrados.");
                     menuGestionUsuarios(scanner);
 
                     break;
@@ -292,7 +294,7 @@ public class UNCampesino {
         String nombre, user;
         Boolean registered = false;
         
-        System.out.println("Tipo de busqueda:");
+        System.out.println("\nTipo de busqueda:");
         System.out.println("1) Nombre");
         System.out.println("2) User");
         System.out.println("Otras opciones:");
@@ -303,7 +305,7 @@ public class UNCampesino {
 
         switch (opcion) {
             case 1:
-                System.out.println("Por favor ingrese el nombre del usuario.");
+                System.out.println("\nPor favor ingrese el nombre del usuario.");
                 System.out.println("Nombre:");
                 nombre =  scanner.next();
                 
@@ -312,16 +314,18 @@ public class UNCampesino {
                         System.out.println("Usuario encontrado: ");
                         System.out.println("Nombre: " + usuario.getNombre() + "   Usuario: " + usuario.getUser() + "   Rol: " + usuario.getRol());
                         registered = true;
+                        gestionUsuarios(scanner); 
+                        
                         break;
                     }
                 }
 
                 if (!registered) {
-                    System.out.println("Usuario o Nombre incorrectos. Inténtelo de nuevo.");
+                    System.out.println("\nUsuario o Nombre incorrectos. Inténtelo de nuevo.");
                     gestionUsuarios(scanner); 
                 }
             case 2:
-                System.out.println("Por favor ingrese el usuario.");
+                System.out.println("\nPor favor ingrese el usuario.");
                 System.out.println("Usuario:");
                 user =  scanner.next();
                 
@@ -330,12 +334,14 @@ public class UNCampesino {
                         System.out.println("Usuario encontrado: ");
                         System.out.println("Nombre: " + usuario.getNombre() + "   Usuario: " + usuario.getUser() + "   Rol: " + usuario.getRol());
                         registered = true;
+                        gestionUsuarios(scanner);
+                        
                         break;
                     }
                 }
 
                 if (!registered) {
-                    System.out.println("Usuario o Nombre incorrectos. Inténtelo de nuevo.");
+                    System.out.println("\nUsuario o Nombre incorrectos. Inténtelo de nuevo.");
                     gestionUsuarios(scanner); 
                 }
                 break;
@@ -813,11 +819,12 @@ public class UNCampesino {
 
                 switch (opcion) {
                     case 1:
-                        System.out.println("\n Ingrese la información del pendiente:");
+                        System.out.println("\nIngrese la información del pendiente:");
                         System.out.println("Prioridad: ");
                         prioridad = scanner.nextInt();
+                        
                         System.out.println("Descripción: ");
-                        descripcion = scanner.nextLine();
+                        descripcion = scanner.next();
                         
                         gestorPendiente.agregarPendiente(prioridad, descripcion);
                         menuGestionTarea(scanner);
@@ -828,7 +835,7 @@ public class UNCampesino {
                         System.out.println("Prioridad: ");
                         prioridad = scanner.nextInt();
                         System.out.println("Descripción: ");
-                        descripcion = scanner.nextLine();
+                        descripcion = scanner.next();
                         
                         Pendientes pendiente = new Pendientes(prioridad, descripcion, false);
                         
@@ -840,7 +847,7 @@ public class UNCampesino {
                         System.out.println("Prioridad: ");
                         prioridad = scanner.nextInt();
                         System.out.println("Descripción: ");
-                        descripcion = scanner.nextLine();
+                        descripcion = scanner.next();
                         
                         gestorPendiente.eliminarPendiente(prioridad, descripcion);
                         menuGestionTarea(scanner);
@@ -1192,7 +1199,7 @@ public class UNCampesino {
                     gestorProductos.editarCantidadUltimoApartado(cantidad);
                 break;
                 
-                case 6: mainMenu(scanner);                          break;
+                case 6: menuConsultores(scanner);                          break;
                 case 7: return;
                 default:
                     System.out.println("\n ----    Opción no válida || Intentando nuevamente    ----\n");
