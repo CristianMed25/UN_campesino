@@ -58,15 +58,15 @@ public class GestorArchivos {
     
     public static final Tarea tarea = new Tarea();   
     
-    public static final Rol rol = new Rol();
-    public static final Usuario usuario = new Campesino();
- 
+//    public static final Rol rol = new Rol();
+//    public static final Usuario usuario = new Campesino();
+// 
     public static GestorAnimales gestorAnimales = new GestorAnimales();
     public static GestorCultivos gestorCultivos = new GestorCultivos();
     public static GestorProductos gestorProductos = new GestorProductos();
     public static GestorTareas gestorTareas = new GestorTareas();
-    public static GestorRoles gestorRoles = new GestorRoles();
-    public static GestorUsuarios gestorUsuarios = new GestorUsuarios(); 
+//    public static GestorRoles gestorRoles = new GestorRoles();
+//    public static GestorUsuarios gestorUsuarios = new GestorUsuarios(); 
     
     
     public static void main(String[] args) {
@@ -74,16 +74,16 @@ public class GestorArchivos {
 //        Tarea tarea = new Tarea("1", "A");
 //        DynamicArrayList<Tarea> necesidades = new DynamicArrayList<>();
 //        necesidades.pushBack(tarea);
-//        
-//        gestorRoles.guardarRol(1, "Admin", "ADM", "A");
-//        gestorRoles.guardarRol(2, "Trabajador", "TRA", "T");
-//        gestorRoles.guardarRol(3, "Consultor", "CON", "C");
-//        
-//        gestorUsuarios.crearUsuarioCampesino("PruebaCAM", "Admin", "Admin");
-//        gestorUsuarios.crearUsuarioConsultor("PruebaCON2", "Consultor", "Consultor");
-
-//        
+////        
+////        gestorRoles.guardarRol(1, "Admin", "ADM", "A");
+////        gestorRoles.guardarRol(2, "Trabajador", "TRA", "T");
+////        gestorRoles.guardarRol(3, "Consultor", "CON", "C");
+////        
+////        gestorUsuarios.crearUsuarioCampesino("PruebaCAM", "Admin", "Admin");
+////        gestorUsuarios.crearUsuarioConsultor("PruebaCON2", "Consultor", "Consultor");
 //
+////        
+////
 //        gestorAnimales.agregarGanado("1", ave, necesidades);
 //        gestorAnimales.agregarGanado("2", bovino, necesidades);
 //        gestorAnimales.agregarGanado("3", caballo, necesidades);
@@ -168,15 +168,15 @@ public class GestorArchivos {
 //        ganado.leerNecesidad().print();
 //        tarea.leerNecesidad().print();
 
-        System.out.println(usuario.leerSetH().isConnected(4, 1)); //true
-        System.out.println(usuario.leerSetH().isConnected(4, 2));
-        System.out.println(usuario.leerSetH().isConnected(4, 3));
-        System.out.println(usuario.leerSetH().isConnected(5, 1));
-        System.out.println(usuario.leerSetH().isConnected(5, 2));
-        System.out.println(usuario.leerSetH().isConnected(5, 3)); //true
-        System.out.println(usuario.leerSetH().isConnected(6, 1)); 
-        System.out.println(usuario.leerSetH().isConnected(6, 2)); 
-        System.out.println(usuario.leerSetH().isConnected(6, 3)); //true
+//        System.out.println(usuario.leerSetH().isConnected(4, 1)); //true
+//        System.out.println(usuario.leerSetH().isConnected(4, 2));
+//        System.out.println(usuario.leerSetH().isConnected(4, 3));
+//        System.out.println(usuario.leerSetH().isConnected(5, 1));
+//        System.out.println(usuario.leerSetH().isConnected(5, 2));
+//        System.out.println(usuario.leerSetH().isConnected(5, 3)); //true
+//        System.out.println(usuario.leerSetH().isConnected(6, 1)); 
+//        System.out.println(usuario.leerSetH().isConnected(6, 2)); 
+//        System.out.println(usuario.leerSetH().isConnected(6, 3)); //true
 
         
 //        for (int i = 0; i < rol.leer().size(); i++){
