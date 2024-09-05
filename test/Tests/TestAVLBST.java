@@ -12,7 +12,7 @@ import Structures.AVL;
 import java.util.List;
 
 public class TestAVLBST {
-    public static void main(String[] args) {
+    public static void test() {
         // Inicialización de los árboles
         AVL<Pendientes> avl = new AVL<>();
         BST<Pendientes> bst = new BST<>();
