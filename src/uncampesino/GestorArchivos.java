@@ -58,15 +58,15 @@ public class GestorArchivos {
     
     public static final Tarea tarea = new Tarea();   
     
-//    public static final Rol rol = new Rol();
-//    public static final Usuario usuario = new Campesino();
+    public static final Rol rol = new Rol();
+    public static final Usuario usuario = new Campesino();
 // 
     public static GestorAnimales gestorAnimales = new GestorAnimales();
     public static GestorCultivos gestorCultivos = new GestorCultivos();
     public static GestorProductos gestorProductos = new GestorProductos();
     public static GestorTareas gestorTareas = new GestorTareas();
-//    public static GestorRoles gestorRoles = new GestorRoles();
-//    public static GestorUsuarios gestorUsuarios = new GestorUsuarios(); 
+    public static GestorRoles gestorRoles = new GestorRoles();
+    public static GestorUsuarios gestorUsuarios = new GestorUsuarios(); 
     
     
     public static void main(String[] args) {
@@ -75,9 +75,9 @@ public class GestorArchivos {
 //        DynamicArrayList<Tarea> necesidades = new DynamicArrayList<>();
 //        necesidades.pushBack(tarea);
 ////        
-////        gestorRoles.guardarRol(1, "Admin", "ADM", "A");
-////        gestorRoles.guardarRol(2, "Trabajador", "TRA", "T");
-////        gestorRoles.guardarRol(3, "Consultor", "CON", "C");
+//        gestorRoles.guardarRol(1, "Admin", "ADM", "A");
+//        gestorRoles.guardarRol(2, "Trabajador", "TRA", "T");
+//        gestorRoles.guardarRol(3, "Consultor", "CON", "C");
 ////        
 ////        gestorUsuarios.crearUsuarioCampesino("PruebaCAM", "Admin", "Admin");
 ////        gestorUsuarios.crearUsuarioConsultor("PruebaCON2", "Consultor", "Consultor");
