@@ -19,14 +19,18 @@ import static uncampesino.UNCampesino.menuConsultores;
  * @author yesid
  */
 public class PagPrincipal extends javax.swing.JFrame {
-    
+    public boolean ingresado =false;
     /**
      * Creates new form GUI
      */
     public PagPrincipal() {
         initComponents();
         setTitle("UNCampesino");
-        Login login=new Login();
+        bgestion.setEnabled(false);
+        bproductos.setEnabled(false);
+        banimales.setEnabled(false);
+        btareas.setEnabled(false);
+        bcultivos.setEnabled(false);
     }
         private void cambiarPagina(JPanel p){
         p.setSize(780,640);
@@ -48,8 +52,12 @@ public class PagPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Menu = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        bgestion = new javax.swing.JToggleButton();
+        bproductos = new javax.swing.JToggleButton();
+        banimales = new javax.swing.JToggleButton();
+        btareas = new javax.swing.JToggleButton();
+        bcultivos = new javax.swing.JToggleButton();
         contenido = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -66,29 +74,101 @@ public class PagPrincipal extends javax.swing.JFrame {
         Menu.setBackground(new java.awt.Color(128, 151, 143));
         Menu.setPreferredSize(new java.awt.Dimension(240, 640));
 
-        jButton1.setBackground(new java.awt.Color(128, 151, 143));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/user.png"))); // NOI18N
-        jButton1.setText("Ingreso/registro");
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/flor.png"))); // NOI18N
+
+        bgestion.setBackground(new java.awt.Color(128, 151, 143));
+        bgestion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bgestion.setForeground(new java.awt.Color(1, 1, 1));
+        bgestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bgestion.setText("Gestión");
+        bgestion.setBorderPainted(false);
+        bgestion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bgestion.setIconTextGap(20);
+        bgestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bgestionActionPerformed(evt);
             }
         });
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/flor.png"))); // NOI18N
+        bproductos.setBackground(new java.awt.Color(128, 151, 143));
+        bproductos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bproductos.setForeground(new java.awt.Color(1, 1, 1));
+        bproductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bproductos.setText("Productos");
+        bproductos.setBorderPainted(false);
+        bproductos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bproductos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        bproductos.setIconTextGap(20);
+        bproductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bproductosActionPerformed(evt);
+            }
+        });
+
+        banimales.setBackground(new java.awt.Color(128, 151, 143));
+        banimales.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        banimales.setForeground(new java.awt.Color(1, 1, 1));
+        banimales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        banimales.setText("Animales");
+        banimales.setBorderPainted(false);
+        banimales.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        banimales.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        banimales.setIconTextGap(20);
+        banimales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                banimalesActionPerformed(evt);
+            }
+        });
+
+        btareas.setBackground(new java.awt.Color(128, 151, 143));
+        btareas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btareas.setForeground(new java.awt.Color(1, 1, 1));
+        btareas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        btareas.setText("Tareas");
+        btareas.setBorderPainted(false);
+        btareas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btareas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btareas.setIconTextGap(20);
+        btareas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btareasActionPerformed(evt);
+            }
+        });
+
+        bcultivos.setBackground(new java.awt.Color(128, 151, 143));
+        bcultivos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bcultivos.setForeground(new java.awt.Color(1, 1, 1));
+        bcultivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bcultivos.setText("Cultivos");
+        bcultivos.setBorderPainted(false);
+        bcultivos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bcultivos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        bcultivos.setIconTextGap(20);
+        bcultivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bcultivosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(banimales, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bgestion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(12, 12, 12))
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bproductos, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btareas, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bcultivos, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
@@ -96,8 +176,16 @@ public class PagPrincipal extends javax.swing.JFrame {
             .addGroup(MenuLayout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(386, Short.MAX_VALUE))
+                .addComponent(bgestion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(banimales, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bcultivos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bproductos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btareas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jButton2.setText("Ingreso");
@@ -144,9 +232,9 @@ public class PagPrincipal extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel4))
                             .addGap(18, 18, 18)
-                            .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                                .addComponent(contraseña)))))
                 .addContainerGap(208, Short.MAX_VALUE))
         );
         contenidoLayout.setVerticalGroup(
@@ -197,10 +285,6 @@ public class PagPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String u=usuario.getText();
         String c=contraseña.getText();
@@ -212,15 +296,43 @@ public class PagPrincipal extends javax.swing.JFrame {
                         }
                     }
         if (registered){
+            ingresado=true;
+            bgestion.setEnabled(true);
+            bproductos.setEnabled(true);
+            banimales.setEnabled(true);
+            btareas.setEnabled(true);
+            bcultivos.setEnabled(true);
             JOptionPane.showMessageDialog(this, "Ingreso exitoso!");
+            
         }else{
             JOptionPane.showMessageDialog(this, "Ingreso fallido");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_usuarioActionPerformed
+
+    private void bgestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bgestionActionPerformed
+        Registro registro=new Registro();
+        cambiarPagina(registro);        // TODO add your handling code here:
+    }//GEN-LAST:event_bgestionActionPerformed
+
+    private void bproductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bproductosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bproductosActionPerformed
+
+    private void banimalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_banimalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_banimalesActionPerformed
+
+    private void btareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btareasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btareasActionPerformed
+
+    private void bcultivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcultivosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bcultivosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,9 +372,13 @@ public class PagPrincipal extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Menu;
+    private javax.swing.JToggleButton banimales;
+    private javax.swing.JToggleButton bcultivos;
+    private javax.swing.JToggleButton bgestion;
+    private javax.swing.JToggleButton bproductos;
+    private javax.swing.JToggleButton btareas;
     private javax.swing.JPanel contenido;
     private javax.swing.JPasswordField contraseña;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
