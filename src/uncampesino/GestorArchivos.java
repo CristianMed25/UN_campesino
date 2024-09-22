@@ -82,7 +82,7 @@ public class GestorArchivos {
 ////        gestorUsuarios.crearUsuarioCampesino("PruebaCAM", "Admin", "Admin");
 ////        gestorUsuarios.crearUsuarioConsultor("PruebaCON2", "Consultor", "Consultor");
 //
-////        
+////
 ////
 //        gestorAnimales.agregarGanado("1", ave, necesidades);
 //        gestorAnimales.agregarGanado("2", bovino, necesidades);
@@ -112,7 +112,6 @@ public class GestorArchivos {
 //        gestorTareas.encolarTarea(tarea);
 //        gestorTareas.agregarNecesidadAnimal(tarea);
 //        gestorTareas.agregarNecesidadCultivo(tarea);
-
 // LIMPIAR ARCHIVOS
 //        gestorAnimales.eliminarBovino("ABV0");
 //        gestorAnimales.eliminarAve("AA0");
@@ -135,7 +134,6 @@ public class GestorArchivos {
 //        gestorTareas.desencolarTarea();
 //        gestorTareas.eliminarNecesidadAnimalReciente();
 //        gestorTareas.eliminarNecesidadCultivoReciente();
-
 // CASO APARTE
 //        gestorAnimales.eliminarGanado("G1");
 //        gestorAnimales.eliminarGanado("G2");
@@ -143,7 +141,6 @@ public class GestorArchivos {
 //        gestorAnimales.eliminarGanado("G4");
 //        gestorAnimales.eliminarGanado("G5");
 //        gestorAnimales.eliminarGanado("G6");
-
 // COMPROBAR ARCHIVOS
 //        ganado.leer().print();
 //        bovino.leer().print();
@@ -167,18 +164,15 @@ public class GestorArchivos {
 //        tarea.leer().output();
 //        ganado.leerNecesidad().print();
 //        tarea.leerNecesidad().print();
-
 //        System.out.println(usuario.leerSetH().isConnected(4, 1)); //true
 //        System.out.println(usuario.leerSetH().isConnected(4, 2));
 //        System.out.println(usuario.leerSetH().isConnected(4, 3));
 //        System.out.println(usuario.leerSetH().isConnected(5, 1));
 //        System.out.println(usuario.leerSetH().isConnected(5, 2));
 //        System.out.println(usuario.leerSetH().isConnected(5, 3)); //true
-//        System.out.println(usuario.leerSetH().isConnected(6, 1)); 
+//        System.out.println(usuario.leerSetH().isConnected(6, 1));
 //        System.out.println(usuario.leerSetH().isConnected(6, 2)); 
 //        System.out.println(usuario.leerSetH().isConnected(6, 3)); //true
-
-        
 //        for (int i = 0; i < rol.leer().size(); i++){
 //            System.out.println(rol.leer().get(i));
 //        }
@@ -187,5 +181,8 @@ public class GestorArchivos {
 //            System.out.println(usuario.leer().get(i));
 //        }
 //        usuario.leerSetH().printSets();
+    usuario.leer().forEach((usuarioFor) -> {
+        System.out.println(usuarioFor);
+        });
     }
 }

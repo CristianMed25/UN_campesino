@@ -4,10 +4,10 @@
  */
 
 package GUI;
+import Classes.User.Campesino;
 import Classes.User.TemaUNCampesino;
 import Classes.User.Usuario;
 import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
-import java.awt.Color;
 import javax.swing.*;
 import java.awt.*;
 import static uncampesino.UNCampesino.gestorUsuarios;
@@ -20,17 +20,27 @@ import static uncampesino.UNCampesino.menuConsultores;
  */
 public class PagPrincipal extends javax.swing.JFrame {
     public boolean ingresado =false;
+    public static final Usuario USUARIO = new Campesino();
+    static Usuario userFound = null;
+    
     /**
      * Creates new form GUI
      */
     public PagPrincipal() {
         initComponents();
         setTitle("UNCampesino");
-        bgestion.setEnabled(false);
-        bproductos.setEnabled(false);
-        banimales.setEnabled(false);
-        btareas.setEnabled(false);
-        bcultivos.setEnabled(false);
+        bgestion.setVisible(false);
+        bproductos.setVisible(false);
+        banimales.setVisible(false);
+        btareas.setVisible(false);
+        bcultivos.setVisible(false);
+        bProductos.setVisible(false);
+        bGestorCompras.setVisible(false);
+        bProductosTrabajador.setVisible(false);
+        bAnimalesTrabajador.setVisible(false);
+        bTareasTrabajador.setVisible(false);
+        bCultivosTrabajador.setVisible(false);
+        bCerrarSesion.setVisible(false);
     }
         private void cambiarPagina(JPanel p){
         p.setSize(780,640);
@@ -50,46 +60,109 @@ public class PagPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        Menu = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        panelPrincipal = new javax.swing.JPanel();
+        logo = new javax.swing.JPanel();
+        logoIcon = new javax.swing.JLabel();
+        cerrarSesion = new javax.swing.JPanel();
+        bCerrarSesion = new javax.swing.JToggleButton();
+        menuCampesino = new javax.swing.JPanel();
         bgestion = new javax.swing.JToggleButton();
         bproductos = new javax.swing.JToggleButton();
         banimales = new javax.swing.JToggleButton();
         btareas = new javax.swing.JToggleButton();
         bcultivos = new javax.swing.JToggleButton();
+        menuConsultor = new javax.swing.JPanel();
+        bProductos = new javax.swing.JToggleButton();
+        bGestorCompras = new javax.swing.JToggleButton();
+        menuTrabajador = new javax.swing.JPanel();
+        bProductosTrabajador = new javax.swing.JToggleButton();
+        bAnimalesTrabajador = new javax.swing.JToggleButton();
+        bCultivosTrabajador = new javax.swing.JToggleButton();
+        bTareasTrabajador = new javax.swing.JToggleButton();
         contenido = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        bIngreso = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         usuario = new javax.swing.JTextField();
         contraseña = new javax.swing.JPasswordField();
+        bRegistro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(1300, 700));
+        panelPrincipal.setPreferredSize(new java.awt.Dimension(1300, 700));
+        panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Menu.setBackground(new java.awt.Color(128, 151, 143));
-        Menu.setPreferredSize(new java.awt.Dimension(240, 640));
+        logo.setBackground(new java.awt.Color(128, 151, 143));
+        logo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/flor.png"))); // NOI18N
+        logoIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/flor.png"))); // NOI18N
+        logo.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 230));
+
+        panelPrincipal.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 230));
+
+        cerrarSesion.setBackground(new java.awt.Color(128, 151, 143));
+        cerrarSesion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bCerrarSesion.setBackground(new java.awt.Color(128, 151, 143));
+        bCerrarSesion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bCerrarSesion.setForeground(new java.awt.Color(1, 1, 1));
+        bCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bCerrarSesion.setText("Cerrar Sesión");
+        bCerrarSesion.setBorderPainted(false);
+        bCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bCerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        bCerrarSesion.setIconTextGap(20);
+        bCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bCerrarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bCerrarSesionMouseExited(evt);
+            }
+        });
+        bCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCerrarSesionActionPerformed(evt);
+            }
+        });
+        cerrarSesion.add(bCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 240, 50));
+
+        panelPrincipal.add(cerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 240, 70));
+
+        menuCampesino.setBackground(new java.awt.Color(128, 151, 143));
+        menuCampesino.setPreferredSize(new java.awt.Dimension(240, 640));
+        menuCampesino.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bgestion.setBackground(new java.awt.Color(128, 151, 143));
         bgestion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bgestion.setForeground(new java.awt.Color(1, 1, 1));
         bgestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
-        bgestion.setText("Gestión");
+        bgestion.setText("Gestión de usuarios");
         bgestion.setBorderPainted(false);
+        bgestion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bgestion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bgestion.setIconTextGap(20);
+        bgestion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bgestionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bgestionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bgestionMouseExited(evt);
+            }
+        });
         bgestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bgestionActionPerformed(evt);
             }
         });
+        menuCampesino.add(bgestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, 240, 50));
 
         bproductos.setBackground(new java.awt.Color(128, 151, 143));
         bproductos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -97,14 +170,24 @@ public class PagPrincipal extends javax.swing.JFrame {
         bproductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
         bproductos.setText("Productos");
         bproductos.setBorderPainted(false);
+        bproductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bproductos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bproductos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         bproductos.setIconTextGap(20);
+        bproductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bproductosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bproductosMouseExited(evt);
+            }
+        });
         bproductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bproductosActionPerformed(evt);
             }
         });
+        menuCampesino.add(bproductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 174, 240, 50));
 
         banimales.setBackground(new java.awt.Color(128, 151, 143));
         banimales.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -112,14 +195,24 @@ public class PagPrincipal extends javax.swing.JFrame {
         banimales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
         banimales.setText("Animales");
         banimales.setBorderPainted(false);
+        banimales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         banimales.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         banimales.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         banimales.setIconTextGap(20);
+        banimales.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                banimalesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                banimalesMouseExited(evt);
+            }
+        });
         banimales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 banimalesActionPerformed(evt);
             }
         });
+        menuCampesino.add(banimales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 240, 50));
 
         btareas.setBackground(new java.awt.Color(128, 151, 143));
         btareas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -127,14 +220,24 @@ public class PagPrincipal extends javax.swing.JFrame {
         btareas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
         btareas.setText("Tareas");
         btareas.setBorderPainted(false);
+        btareas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btareas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btareas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btareas.setIconTextGap(20);
+        btareas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btareasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btareasMouseExited(evt);
+            }
+        });
         btareas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btareasActionPerformed(evt);
             }
         });
+        menuCampesino.add(btareas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 240, 50));
 
         bcultivos.setBackground(new java.awt.Color(128, 151, 143));
         bcultivos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -142,56 +245,194 @@ public class PagPrincipal extends javax.swing.JFrame {
         bcultivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
         bcultivos.setText("Cultivos");
         bcultivos.setBorderPainted(false);
+        bcultivos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bcultivos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bcultivos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         bcultivos.setIconTextGap(20);
+        bcultivos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bcultivosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bcultivosMouseExited(evt);
+            }
+        });
         bcultivos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bcultivosActionPerformed(evt);
             }
         });
+        menuCampesino.add(bcultivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 118, 240, 50));
 
-        javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
-        Menu.setLayout(MenuLayout);
-        MenuLayout.setHorizontalGroup(
-            MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(banimales, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(MenuLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bgestion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(12, 12, 12))
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bproductos, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btareas, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bcultivos, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        MenuLayout.setVerticalGroup(
-            MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bgestion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(banimales, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bcultivos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bproductos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btareas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        panelPrincipal.add(menuCampesino, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 240, 340));
 
-        jButton2.setText("Ingreso");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        menuConsultor.setBackground(new java.awt.Color(128, 151, 143));
+        menuConsultor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bProductos.setBackground(new java.awt.Color(128, 151, 143));
+        bProductos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bProductos.setForeground(new java.awt.Color(1, 1, 1));
+        bProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bProductos.setText("Productos");
+        bProductos.setBorderPainted(false);
+        bProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bProductos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bProductos.setIconTextGap(20);
+        bProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bProductosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bProductosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bProductosMouseExited(evt);
+            }
+        });
+        bProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                bProductosActionPerformed(evt);
+            }
+        });
+        menuConsultor.add(bProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, 240, 50));
+
+        bGestorCompras.setBackground(new java.awt.Color(128, 151, 143));
+        bGestorCompras.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bGestorCompras.setForeground(new java.awt.Color(1, 1, 1));
+        bGestorCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bGestorCompras.setText("Gestor de compras");
+        bGestorCompras.setBorderPainted(false);
+        bGestorCompras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bGestorCompras.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bGestorCompras.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        bGestorCompras.setIconTextGap(20);
+        bGestorCompras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bGestorComprasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bGestorComprasMouseExited(evt);
+            }
+        });
+        bGestorCompras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGestorComprasActionPerformed(evt);
+            }
+        });
+        menuConsultor.add(bGestorCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 240, 50));
+
+        panelPrincipal.add(menuConsultor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 240, 340));
+
+        menuTrabajador.setBackground(new java.awt.Color(128, 151, 143));
+        menuTrabajador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bProductosTrabajador.setBackground(new java.awt.Color(128, 151, 143));
+        bProductosTrabajador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bProductosTrabajador.setForeground(new java.awt.Color(1, 1, 1));
+        bProductosTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bProductosTrabajador.setText("Productos");
+        bProductosTrabajador.setBorderPainted(false);
+        bProductosTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bProductosTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bProductosTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        bProductosTrabajador.setIconTextGap(20);
+        bProductosTrabajador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bProductosTrabajadorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bProductosTrabajadorMouseExited(evt);
+            }
+        });
+        bProductosTrabajador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bProductosTrabajadorActionPerformed(evt);
+            }
+        });
+        menuTrabajador.add(bProductosTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 240, 50));
+
+        bAnimalesTrabajador.setBackground(new java.awt.Color(128, 151, 143));
+        bAnimalesTrabajador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bAnimalesTrabajador.setForeground(new java.awt.Color(1, 1, 1));
+        bAnimalesTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bAnimalesTrabajador.setText("Animales");
+        bAnimalesTrabajador.setBorderPainted(false);
+        bAnimalesTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAnimalesTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bAnimalesTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        bAnimalesTrabajador.setIconTextGap(20);
+        bAnimalesTrabajador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bAnimalesTrabajadorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bAnimalesTrabajadorMouseExited(evt);
+            }
+        });
+        bAnimalesTrabajador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAnimalesTrabajadorActionPerformed(evt);
+            }
+        });
+        menuTrabajador.add(bAnimalesTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 240, 50));
+
+        bCultivosTrabajador.setBackground(new java.awt.Color(128, 151, 143));
+        bCultivosTrabajador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bCultivosTrabajador.setForeground(new java.awt.Color(1, 1, 1));
+        bCultivosTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bCultivosTrabajador.setText("Cultivos");
+        bCultivosTrabajador.setBorderPainted(false);
+        bCultivosTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bCultivosTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bCultivosTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        bCultivosTrabajador.setIconTextGap(20);
+        bCultivosTrabajador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bCultivosTrabajadorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bCultivosTrabajadorMouseExited(evt);
+            }
+        });
+        bCultivosTrabajador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCultivosTrabajadorActionPerformed(evt);
+            }
+        });
+        menuTrabajador.add(bCultivosTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 240, 50));
+
+        bTareasTrabajador.setBackground(new java.awt.Color(128, 151, 143));
+        bTareasTrabajador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bTareasTrabajador.setForeground(new java.awt.Color(1, 1, 1));
+        bTareasTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bTareasTrabajador.setText("Tareas");
+        bTareasTrabajador.setBorderPainted(false);
+        bTareasTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bTareasTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bTareasTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        bTareasTrabajador.setIconTextGap(20);
+        bTareasTrabajador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bTareasTrabajadorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bTareasTrabajadorMouseExited(evt);
+            }
+        });
+        bTareasTrabajador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTareasTrabajadorActionPerformed(evt);
+            }
+        });
+        menuTrabajador.add(bTareasTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 240, 50));
+
+        panelPrincipal.add(menuTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 240, 340));
+
+        bIngreso.setText("Ingreso");
+        bIngreso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bIngreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bIngresoActionPerformed(evt);
             }
         });
 
@@ -215,27 +456,39 @@ public class PagPrincipal extends javax.swing.JFrame {
 
         contraseña.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
+        bRegistro.setText("Registro");
+        bRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
         contenidoLayout.setHorizontalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
-                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contenidoLayout.createSequentialGroup()
-                            .addGap(340, 340, 340)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(contenidoLayout.createSequentialGroup()
-                            .addGap(254, 254, 254)
-                            .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4))
-                            .addGap(18, 18, 18)
-                            .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                                .addComponent(contraseña)))))
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(283, 283, 283)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(254, 254, 254)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(306, 306, 306)
+                        .addComponent(bIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(208, 208, 208))
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,71 +496,90 @@ public class PagPrincipal extends javax.swing.JFrame {
                 .addGap(83, 83, 83)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
-                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel3))
                     .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel4))
                     .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(170, 170, 170))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        panelPrincipal.add(contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 780, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1020, Short.MAX_VALUE)
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 1020, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void bIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIngresoActionPerformed
         String u=usuario.getText();
         String c=contraseña.getText();
+        
         boolean registered=false;
-        for (Usuario usuario : gestorUsuarios.listaUsuarios) {
-                        if (usuario.getUser().equals(u) && usuario.getPasword().equals(c)) {
+             
+        for (Usuario usuarioFor : USUARIO.leer()) {
+                        if (usuarioFor.getUser().equals(u) && usuarioFor.getPasword().equals(c)) {
+                            userFound = usuarioFor;
                             registered = true;
                             break; 
                         }
                     }
         if (registered){
-            ingresado=true;
-            bgestion.setEnabled(true);
-            bproductos.setEnabled(true);
-            banimales.setEnabled(true);
-            btareas.setEnabled(true);
-            bcultivos.setEnabled(true);
-            JOptionPane.showMessageDialog(this, "Ingreso exitoso!");
-            
+             if (gestorUsuarios.controlVerDos.isConnected(userFound.getId(), gestorUsuarios.rol.leer().get(0).getId())){
+                 bgestion.setVisible(true);
+                 bproductos.setVisible(true);
+                 banimales.setVisible(true);
+                 btareas.setVisible(true);
+                 bcultivos.setVisible(true);
+                 bCerrarSesion.setVisible(true);
+                
+                 InicioCampesino inicioCampesino = new InicioCampesino();
+                 cambiarPagina(inicioCampesino);
+             }
+             if (gestorUsuarios.controlVerDos.isConnected(userFound.getId(), gestorUsuarios.rol.leer().get(1).getId())){
+                 bProductosTrabajador.setVisible(true);
+                 bAnimalesTrabajador.setVisible(true);
+                 bTareasTrabajador.setVisible(true);
+                 bCultivosTrabajador.setVisible(true);
+                 bCerrarSesion.setVisible(true);
+                 
+                 InicioTrabajador inicioTrabajador = new InicioTrabajador();
+                 cambiarPagina(inicioTrabajador);
+             }
+             if (gestorUsuarios.controlVerDos.isConnected(userFound.getId(), gestorUsuarios.rol.leer().get(2).getId())){
+                 bProductos.setVisible(true);
+                 bGestorCompras.setVisible(true);
+                 bCerrarSesion.setVisible(true);
+                 
+                 InicioConsultor inicioConsultor = new InicioConsultor();
+                 cambiarPagina(inicioConsultor);
+             } 
+            JOptionPane.showMessageDialog(this, "Ingreso exitoso!");            
         }else{
-            JOptionPane.showMessageDialog(this, "Ingreso fallido");
+            JOptionPane.showMessageDialog(this, "Ingreso fallido!\n"
+                                                                         + "El usuario no existe.");
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_bIngresoActionPerformed
 
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
         
@@ -333,6 +605,145 @@ public class PagPrincipal extends javax.swing.JFrame {
     private void bcultivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcultivosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bcultivosActionPerformed
+
+    private void bgestionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgestionMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bgestionMouseClicked
+
+    private void bgestionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgestionMouseEntered
+        bgestion.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bgestionMouseEntered
+
+    private void bgestionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgestionMouseExited
+        bgestion.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bgestionMouseExited
+
+    private void banimalesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_banimalesMouseEntered
+        banimales.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_banimalesMouseEntered
+
+    private void banimalesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_banimalesMouseExited
+        banimales.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_banimalesMouseExited
+
+    private void bcultivosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcultivosMouseEntered
+        bcultivos.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bcultivosMouseEntered
+
+    private void bcultivosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcultivosMouseExited
+        bcultivos.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bcultivosMouseExited
+
+    private void bproductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bproductosMouseEntered
+        bproductos.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bproductosMouseEntered
+
+    private void bproductosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bproductosMouseExited
+        bproductos.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bproductosMouseExited
+
+    private void btareasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btareasMouseEntered
+        btareas.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_btareasMouseEntered
+
+    private void btareasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btareasMouseExited
+        btareas.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_btareasMouseExited
+
+    private void bProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bProductosMouseClicked
+
+    private void bProductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosMouseEntered
+        bProductos.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bProductosMouseEntered
+
+    private void bProductosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosMouseExited
+        bProductos.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bProductosMouseExited
+
+    private void bProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProductosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bProductosActionPerformed
+
+    private void bGestorComprasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGestorComprasMouseEntered
+        bGestorCompras.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bGestorComprasMouseEntered
+
+    private void bGestorComprasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGestorComprasMouseExited
+        bGestorCompras.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bGestorComprasMouseExited
+
+    private void bGestorComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGestorComprasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bGestorComprasActionPerformed
+
+    private void bProductosTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosTrabajadorMouseEntered
+        bProductosTrabajador.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bProductosTrabajadorMouseEntered
+
+    private void bProductosTrabajadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosTrabajadorMouseExited
+        bProductosTrabajador.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bProductosTrabajadorMouseExited
+
+    private void bProductosTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProductosTrabajadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bProductosTrabajadorActionPerformed
+
+    private void bAnimalesTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAnimalesTrabajadorMouseEntered
+        bAnimalesTrabajador.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bAnimalesTrabajadorMouseEntered
+
+    private void bAnimalesTrabajadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAnimalesTrabajadorMouseExited
+        bAnimalesTrabajador.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bAnimalesTrabajadorMouseExited
+
+    private void bAnimalesTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnimalesTrabajadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bAnimalesTrabajadorActionPerformed
+
+    private void bCultivosTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCultivosTrabajadorMouseEntered
+        bCultivosTrabajador.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bCultivosTrabajadorMouseEntered
+
+    private void bCultivosTrabajadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCultivosTrabajadorMouseExited
+        bCultivosTrabajador.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bCultivosTrabajadorMouseExited
+
+    private void bCultivosTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCultivosTrabajadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bCultivosTrabajadorActionPerformed
+
+    private void bTareasTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bTareasTrabajadorMouseEntered
+        bTareasTrabajador.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bTareasTrabajadorMouseEntered
+
+    private void bTareasTrabajadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bTareasTrabajadorMouseExited
+        bTareasTrabajador.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bTareasTrabajadorMouseExited
+
+    private void bTareasTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTareasTrabajadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bTareasTrabajadorActionPerformed
+
+    private void bCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCerrarSesionMouseEntered
+        bCerrarSesion.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bCerrarSesionMouseEntered
+
+    private void bCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCerrarSesionMouseExited
+        bCerrarSesion.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bCerrarSesionMouseExited
+
+    private void bCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCerrarSesionActionPerformed
+        dispose();
+        PagPrincipal reinicio = new PagPrincipal(); 
+        reinicio.setVisible(true);
+    }//GEN-LAST:event_bCerrarSesionActionPerformed
+
+    private void bRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistroActionPerformed
+        RegistroConsultor registroConsultor = new RegistroConsultor();
+        cambiarPagina(registroConsultor);
+    }//GEN-LAST:event_bRegistroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -371,20 +782,32 @@ public class PagPrincipal extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Menu;
+    private javax.swing.JToggleButton bAnimalesTrabajador;
+    private javax.swing.JToggleButton bCerrarSesion;
+    private javax.swing.JToggleButton bCultivosTrabajador;
+    private javax.swing.JToggleButton bGestorCompras;
+    private javax.swing.JButton bIngreso;
+    private javax.swing.JToggleButton bProductos;
+    private javax.swing.JToggleButton bProductosTrabajador;
+    private javax.swing.JButton bRegistro;
+    private javax.swing.JToggleButton bTareasTrabajador;
     private javax.swing.JToggleButton banimales;
     private javax.swing.JToggleButton bcultivos;
     private javax.swing.JToggleButton bgestion;
     private javax.swing.JToggleButton bproductos;
     private javax.swing.JToggleButton btareas;
+    private javax.swing.JPanel cerrarSesion;
     private javax.swing.JPanel contenido;
     private javax.swing.JPasswordField contraseña;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel logo;
+    private javax.swing.JLabel logoIcon;
+    private javax.swing.JPanel menuCampesino;
+    private javax.swing.JPanel menuConsultor;
+    private javax.swing.JPanel menuTrabajador;
+    private javax.swing.JPanel panelPrincipal;
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 }
