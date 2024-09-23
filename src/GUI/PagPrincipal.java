@@ -13,6 +13,7 @@ import Classes.User.TemaUNCampesino;
 import Classes.User.Usuario;
 import GUI.MenuCultivos.MenuCultivos;
 import GUI.MenuProductos.productosCRUD;
+import GUI.MenuTareas.MenuTareas;
 import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
 import javax.swing.*;
 import java.awt.*;
@@ -607,7 +608,8 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_banimalesActionPerformed
 
     private void btareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btareasActionPerformed
-        // TODO add your handling code here:
+        MenuTareas menuTareas = new MenuTareas();
+        cambiarPagina(menuTareas);
     }//GEN-LAST:event_btareasActionPerformed
 
     private void bcultivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcultivosActionPerformed
@@ -735,7 +737,8 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bTareasTrabajadorMouseExited
 
     private void bTareasTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTareasTrabajadorActionPerformed
-        // TODO add your handling code here:
+        MenuTareas menuTareas = new MenuTareas();
+        cambiarPagina(menuTareas);
     }//GEN-LAST:event_bTareasTrabajadorActionPerformed
 
     private void bCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCerrarSesionMouseEntered

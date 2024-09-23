@@ -233,7 +233,7 @@ public class UnLinkedList<T> implements Serializable{
         StringBuilder sb = new StringBuilder();
         Node<T> current = head;
         while (current != null) {
-            sb.append(current.getData());
+            sb.append(current.getData()).append("\n");
             current = current.getNext();
         }
         return sb.toString();
