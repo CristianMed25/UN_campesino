@@ -4,9 +4,15 @@
  */
 
 package GUI;
+import GUI.MenuAnimales.MenuAnimales;
+import GUI.Presentaciones.InicioTrabajador;
+import GUI.Presentaciones.InicioConsultor;
+import GUI.Presentaciones.InicioCampesino;
 import Classes.User.Campesino;
 import Classes.User.TemaUNCampesino;
 import Classes.User.Usuario;
+import GUI.MenuCultivos.MenuCultivos;
+import GUI.MenuProductos.productosCRUD;
 import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
 import javax.swing.*;
 import java.awt.*;
@@ -349,7 +355,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                 bProductosTrabajadorActionPerformed(evt);
             }
         });
-        menuTrabajador.add(bProductosTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 240, 50));
+        menuTrabajador.add(bProductosTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 240, 50));
 
         bAnimalesTrabajador.setBackground(new java.awt.Color(128, 151, 143));
         bAnimalesTrabajador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -374,7 +380,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                 bAnimalesTrabajadorActionPerformed(evt);
             }
         });
-        menuTrabajador.add(bAnimalesTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 240, 50));
+        menuTrabajador.add(bAnimalesTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 240, 50));
 
         bCultivosTrabajador.setBackground(new java.awt.Color(128, 151, 143));
         bCultivosTrabajador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -399,7 +405,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                 bCultivosTrabajadorActionPerformed(evt);
             }
         });
-        menuTrabajador.add(bCultivosTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 240, 50));
+        menuTrabajador.add(bCultivosTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 240, 50));
 
         bTareasTrabajador.setBackground(new java.awt.Color(128, 151, 143));
         bTareasTrabajador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -591,11 +597,13 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bgestionActionPerformed
 
     private void bproductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bproductosActionPerformed
-        // TODO add your handling code here:
+        productosCRUD productosCRUD = new productosCRUD();
+        cambiarPagina(productosCRUD);
     }//GEN-LAST:event_bproductosActionPerformed
 
     private void banimalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_banimalesActionPerformed
-        // TODO add your handling code here:
+        MenuAnimales menuAnimales = new MenuAnimales();
+        cambiarPagina(menuAnimales);
     }//GEN-LAST:event_banimalesActionPerformed
 
     private void btareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btareasActionPerformed
@@ -603,7 +611,8 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btareasActionPerformed
 
     private void bcultivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcultivosActionPerformed
-        // TODO add your handling code here:
+       MenuCultivos menuCultivos = new MenuCultivos();
+        cambiarPagina(menuCultivos);
     }//GEN-LAST:event_bcultivosActionPerformed
 
     private void bgestionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgestionMouseClicked
@@ -687,7 +696,8 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bProductosTrabajadorMouseExited
 
     private void bProductosTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProductosTrabajadorActionPerformed
-        // TODO add your handling code here:
+        productosCRUD productosCRUD = new productosCRUD();
+        cambiarPagina(productosCRUD);
     }//GEN-LAST:event_bProductosTrabajadorActionPerformed
 
     private void bAnimalesTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAnimalesTrabajadorMouseEntered
@@ -699,7 +709,8 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bAnimalesTrabajadorMouseExited
 
     private void bAnimalesTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnimalesTrabajadorActionPerformed
-        // TODO add your handling code here:
+        MenuAnimales menuAnimales = new MenuAnimales();
+        cambiarPagina(menuAnimales);
     }//GEN-LAST:event_bAnimalesTrabajadorActionPerformed
 
     private void bCultivosTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCultivosTrabajadorMouseEntered
@@ -711,7 +722,8 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bCultivosTrabajadorMouseExited
 
     private void bCultivosTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCultivosTrabajadorActionPerformed
-        // TODO add your handling code here:
+        MenuCultivos menuCultivos = new MenuCultivos();
+        cambiarPagina(menuCultivos);
     }//GEN-LAST:event_bCultivosTrabajadorActionPerformed
 
     private void bTareasTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bTareasTrabajadorMouseEntered

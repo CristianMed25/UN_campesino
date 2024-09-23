@@ -22,9 +22,9 @@ public class GestorTareas {
     public static final Ganado ganado= new Ganado();
     
     
-    private static Queue <Tarea> colaTareas = tarea.leer();
-    private static DynamicArrayList<Tarea>  necesidadesAnimales = ganado.leerNecesidad();
-    private static DynamicArrayList<Tarea>  necesidadesCultivos = tarea.leerNecesidad();
+    public static Queue <Tarea> colaTareas = tarea.leer();
+    public static DynamicArrayList<Tarea>  necesidadesAnimales = ganado.leerNecesidad();
+    public static DynamicArrayList<Tarea>  necesidadesCultivos = tarea.leerNecesidad();
 //Para creación de archivos
 //    private static Queue <Tarea> colaTareas;
 //    private static DynamicArrayList<Tarea>  necesidadesAnimales;

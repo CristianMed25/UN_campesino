@@ -72,8 +72,12 @@ public class GestorArchivos {
     public static void main(String[] args) {
 // CREAR ARCHIVOS
 //        Tarea tarea = new Tarea("1", "A");
+//        Tarea tareaDos = new Tarea("2", "B");
+//        Tarea tareaTres = new Tarea("3", "C");
 //        DynamicArrayList<Tarea> necesidades = new DynamicArrayList<>();
 //        necesidades.pushBack(tarea);
+ //       necesidades.pushBack(tareaDos);
+//        necesidades.pushBack(tareaTres);
 ////        
 //        gestorRoles.guardarRol(1, "Admin", "ADM", "A");
 //        gestorRoles.guardarRol(2, "Trabajador", "TRA", "T");
@@ -150,7 +154,7 @@ public class GestorArchivos {
 //        pez.leer().print();
 //        porcino.leer().print();
 //
-//        cereal.leer().print();
+        cereal.leer().print();
 //        frutal.leer().print();
 //        hortaliza.leer().print();
 //        leguminosa.leer().print();
@@ -163,7 +167,7 @@ public class GestorArchivos {
 //
 //        tarea.leer().output();
 //        ganado.leerNecesidad().print();
-//        tarea.leerNecesidad().print();
+        tarea.leerNecesidad().print();
 //        System.out.println(usuario.leerSetH().isConnected(4, 1)); //true
 //        System.out.println(usuario.leerSetH().isConnected(4, 2));
 //        System.out.println(usuario.leerSetH().isConnected(4, 3));
@@ -181,8 +185,8 @@ public class GestorArchivos {
 //            System.out.println(usuario.leer().get(i));
 //        }
 //        usuario.leerSetH().printSets();
-    usuario.leer().forEach((usuarioFor) -> {
-        System.out.println(usuarioFor);
-        });
+//    usuario.leer().forEach((usuarioFor) -> {
+//        System.out.println(usuarioFor);
+//        });
     }
 }
