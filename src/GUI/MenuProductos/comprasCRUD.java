@@ -7,9 +7,8 @@ package GUI.MenuProductos;
 
 import Classes.Product.Producto;
 import Funcionalidades.GestorProductos;
-import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
 /**
  *
  * @author CristianM
@@ -22,14 +21,7 @@ public class productosCRUD extends javax.swing.JPanel {
     public productosCRUD() {
         initComponents();
     }
-    private void cambiarPagina(JPanel p){
-        p.setSize(780,640);
-        p.setLocation(0,0);
-        cont.removeAll();
-        cont.add(p,BorderLayout.CENTER);
-        cont.revalidate();
-        cont.repaint();
-    } 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +31,6 @@ public class productosCRUD extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cont = new javax.swing.JPanel();
         jtIdProducto = new javax.swing.JTextField();
         bBuscarProducto = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -54,12 +45,9 @@ public class productosCRUD extends javax.swing.JPanel {
         bActualizarProducto = new javax.swing.JButton();
         bEliminarProducto = new javax.swing.JButton();
         bLimpiar = new javax.swing.JButton();
-        gestorcompras = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        cont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        cont.add(jtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 22, 590, -1));
+        add(jtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 22, 590, -1));
 
         bBuscarProducto.setText("Buscar");
         bBuscarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -67,23 +55,23 @@ public class productosCRUD extends javax.swing.JPanel {
                 bBuscarProductoActionPerformed(evt);
             }
         });
-        cont.add(bBuscarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, -1, -1));
+        add(bBuscarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, -1, -1));
 
         jLabel1.setText("id");
-        cont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-        cont.add(jtIdCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 220, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        add(jtIdCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 220, -1));
 
         jLabel2.setText("nombre");
-        cont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
-        cont.add(jtNombreCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 220, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        add(jtNombreCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 220, -1));
 
         jLabel3.setText("precio");
-        cont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
-        cont.add(jtCantidadCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 220, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        add(jtCantidadCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 220, -1));
 
         jLabel4.setText("cantidad");
-        cont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
-        cont.add(jtPrecioCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 220, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        add(jtPrecioCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 220, -1));
 
         bAgregarProducto.setText("Agregar Producto");
         bAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +79,7 @@ public class productosCRUD extends javax.swing.JPanel {
                 bAgregarProductoActionPerformed(evt);
             }
         });
-        cont.add(bAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
+        add(bAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
 
         bActualizarProducto.setText("Actualizar Producto");
         bActualizarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +87,7 @@ public class productosCRUD extends javax.swing.JPanel {
                 bActualizarProductoActionPerformed(evt);
             }
         });
-        cont.add(bActualizarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
+        add(bActualizarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
 
         bEliminarProducto.setText("Eliminar Producto");
         bEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +95,7 @@ public class productosCRUD extends javax.swing.JPanel {
                 bEliminarProductoActionPerformed(evt);
             }
         });
-        cont.add(bEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, -1, -1));
+        add(bEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, -1, -1));
 
         bLimpiar.setText("Limpiar Campos");
         bLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,17 +103,7 @@ public class productosCRUD extends javax.swing.JPanel {
                 bLimpiarActionPerformed(evt);
             }
         });
-        cont.add(bLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
-
-        gestorcompras.setText("Gestor de compras");
-        gestorcompras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gestorcomprasActionPerformed(evt);
-            }
-        });
-        cont.add(gestorcompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
-
-        add(cont, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 640));
+        add(bLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void bBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarProductoActionPerformed
@@ -189,12 +167,6 @@ public class productosCRUD extends javax.swing.JPanel {
         }  
     }//GEN-LAST:event_bEliminarProductoActionPerformed
 
-    private void gestorcomprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestorcomprasActionPerformed
-        ComprasCRUD comprasCRUD=new ComprasCRUD();
-        cambiarPagina(comprasCRUD);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gestorcomprasActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bActualizarProducto;
@@ -202,8 +174,6 @@ public class productosCRUD extends javax.swing.JPanel {
     private javax.swing.JButton bBuscarProducto;
     private javax.swing.JButton bEliminarProducto;
     private javax.swing.JButton bLimpiar;
-    private javax.swing.JPanel cont;
-    private javax.swing.JButton gestorcompras;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

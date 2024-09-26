@@ -37,7 +37,7 @@ public class QuaPriorityQueueProductos {
     }
 
     // Obtiene el tamaño de la cola de prioridad
-    public int size() {
+    public int getSize() {
         return heap.size();
     }
     

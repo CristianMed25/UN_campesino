@@ -4,6 +4,7 @@
  */
 package Funcionalidades;
 import Structures.QuaPriorityQueueProductos;
+import Classes.Product.Producto;
 /**
  *
  * @author yesid
@@ -20,14 +21,13 @@ public class GestorComprasQuaHeap {
     public void Insertar(double Precio, String Nombre){
         Queue.Insert(Precio, Nombre);
     }
-    public String ExtraerDato(){
-        return Queue.getMin().getNombre();
+    public Producto ExtraerDato(){
+        return Queue.getMin();
     }
-    public String ExtraerDatos(){
-        String a="";
-        int tamaño=Queue.size();
-        for(int i=0;i<tamaño;i++){
-            a=a+" " + Queue.getMin().getNombre();
+    public Producto[] ExtraerDatos(){
+        Producto[] a= new Producto[Queue.getSize()];
+        for(int i=0;i<Queue.getSize();i++){
+            a[i]=Queue.getMin();
             
         }
         
