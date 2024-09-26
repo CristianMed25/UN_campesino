@@ -131,7 +131,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Gestor de aves"/>
+        <Property name="text" type="java.lang.String" value="Gestor de Ovinos"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -141,7 +141,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="bAgregarAve">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Agregar Ave"/>
+        <Property name="text" type="java.lang.String" value="Agregar Ovino"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAgregarAveActionPerformed"/>
@@ -154,7 +154,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="bActualizarAve">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Actualizar Ave"/>
+        <Property name="text" type="java.lang.String" value="Actualizar Ovino"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bActualizarAveActionPerformed"/>
@@ -167,7 +167,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="bBorrarAve">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Borrar Ave"/>
+        <Property name="text" type="java.lang.String" value="Borrar Ovino"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bBorrarAveActionPerformed"/>

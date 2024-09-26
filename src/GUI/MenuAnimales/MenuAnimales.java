@@ -55,7 +55,7 @@ public class MenuAnimales extends javax.swing.JPanel {
         presentacion.setText("Seleccione el tipo de animal que desea modificar");
 
         bAveCRUD.setText("Ave");
-        bAveCRUD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAveCRUD.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bAveCRUD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAveCRUDActionPerformed(evt);
@@ -63,19 +63,39 @@ public class MenuAnimales extends javax.swing.JPanel {
         });
 
         bBovinoCRUD.setText("Bovino");
-        bBovinoCRUD.setEnabled(false);
+        bBovinoCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBovinoCRUDActionPerformed(evt);
+            }
+        });
 
         bCaballoCRUD.setText("Caballo");
-        bCaballoCRUD.setEnabled(false);
+        bCaballoCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCaballoCRUDActionPerformed(evt);
+            }
+        });
 
         bOvinoCRUD.setText("Ovino");
-        bOvinoCRUD.setEnabled(false);
+        bOvinoCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bOvinoCRUDActionPerformed(evt);
+            }
+        });
 
         bPezCRUD.setText("Pez");
-        bPezCRUD.setEnabled(false);
+        bPezCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPezCRUDActionPerformed(evt);
+            }
+        });
 
         bPorcinoCRUD.setText("Porcino");
-        bPorcinoCRUD.setEnabled(false);
+        bPorcinoCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPorcinoCRUDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
@@ -122,6 +142,36 @@ public class MenuAnimales extends javax.swing.JPanel {
         AveCRUD aveCRUD = new AveCRUD();
         cambiarPagina(aveCRUD);
     }//GEN-LAST:event_bAveCRUDActionPerformed
+
+    private void bBovinoCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBovinoCRUDActionPerformed
+        // TODO add your handling code here:
+        BovinoCRUD bovinoCRUD = new BovinoCRUD();
+        cambiarPagina(bovinoCRUD);
+    }//GEN-LAST:event_bBovinoCRUDActionPerformed
+
+    private void bCaballoCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCaballoCRUDActionPerformed
+        // TODO add your handling code here:
+        CaballoCRUD caballoCRUD = new CaballoCRUD();
+        cambiarPagina(caballoCRUD);
+    }//GEN-LAST:event_bCaballoCRUDActionPerformed
+
+    private void bOvinoCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOvinoCRUDActionPerformed
+        // TODO add your handling code here:
+        OvinoCRUD ovinoCRUD = new OvinoCRUD();
+        cambiarPagina(ovinoCRUD);
+    }//GEN-LAST:event_bOvinoCRUDActionPerformed
+
+    private void bPezCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPezCRUDActionPerformed
+        // TODO add your handling code here:
+        PezCRUD pezCRUD = new PezCRUD();
+        cambiarPagina(pezCRUD);
+    }//GEN-LAST:event_bPezCRUDActionPerformed
+
+    private void bPorcinoCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPorcinoCRUDActionPerformed
+        // TODO add your handling code here:
+        PorcinoCRUD porcinoCRUD = new PorcinoCRUD();
+        cambiarPagina(porcinoCRUD);
+    }//GEN-LAST:event_bPorcinoCRUDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

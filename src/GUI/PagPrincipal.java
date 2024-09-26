@@ -17,6 +17,8 @@ import GUI.MenuTareas.MenuTareas;
 import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import static uncampesino.UNCampesino.gestorUsuarios;
 import static uncampesino.UNCampesino.mainMenu;
 import static uncampesino.UNCampesino.menuCampesino;
@@ -29,12 +31,18 @@ public class PagPrincipal extends javax.swing.JFrame {
     public boolean ingresado =false;
     public static final Usuario USUARIO = new Campesino();
     static Usuario userFound = null;
-    
+    public String u;
     /**
      * Creates new form GUI
      */
     public PagPrincipal() {
         initComponents();
+                try {
+            Image logo = ImageIO.read(PagPrincipal.class.getResource("/Classes/User/Recursos/minilogo2.png"));
+            setIconImage(logo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         setTitle("UNCampesino");
         bgestion.setVisible(false);
         bproductos.setVisible(false);
@@ -49,7 +57,15 @@ public class PagPrincipal extends javax.swing.JFrame {
         bCultivosTrabajador.setVisible(false);
         bCerrarSesion.setVisible(false);
     }
-        private void cambiarPagina(JPanel p){
+    private void centrarBoton(JToggleButton b,JToggleButton... buttons){
+            for (JToggleButton button : buttons) {
+        if (button != b) {
+            button.setSelected(false);
+        }
+    }
+    b.setSelected(true); // Asegura que el botón pasado como argumento esté seleccionado
+    }
+    private void cambiarPagina(JPanel p){
         p.setSize(780,640);
         p.setLocation(0,0);
         contenido.removeAll();
@@ -116,10 +132,10 @@ public class PagPrincipal extends javax.swing.JFrame {
         bCerrarSesion.setBackground(new java.awt.Color(128, 151, 143));
         bCerrarSesion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bCerrarSesion.setForeground(new java.awt.Color(1, 1, 1));
-        bCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/user.png"))); // NOI18N
         bCerrarSesion.setText("Cerrar Sesión");
         bCerrarSesion.setBorderPainted(false);
-        bCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bCerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         bCerrarSesion.setIconTextGap(20);
@@ -147,10 +163,10 @@ public class PagPrincipal extends javax.swing.JFrame {
         bgestion.setBackground(new java.awt.Color(128, 151, 143));
         bgestion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bgestion.setForeground(new java.awt.Color(1, 1, 1));
-        bgestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bgestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/user.png"))); // NOI18N
         bgestion.setText("Gestión de usuarios");
         bgestion.setBorderPainted(false);
-        bgestion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bgestion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bgestion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bgestion.setIconTextGap(20);
         bgestion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -174,10 +190,10 @@ public class PagPrincipal extends javax.swing.JFrame {
         bproductos.setBackground(new java.awt.Color(128, 151, 143));
         bproductos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bproductos.setForeground(new java.awt.Color(1, 1, 1));
-        bproductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bproductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/producto.png"))); // NOI18N
         bproductos.setText("Productos");
         bproductos.setBorderPainted(false);
-        bproductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bproductos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bproductos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bproductos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         bproductos.setIconTextGap(20);
@@ -199,10 +215,10 @@ public class PagPrincipal extends javax.swing.JFrame {
         banimales.setBackground(new java.awt.Color(128, 151, 143));
         banimales.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         banimales.setForeground(new java.awt.Color(1, 1, 1));
-        banimales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        banimales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/animalesicon.png"))); // NOI18N
         banimales.setText("Animales");
         banimales.setBorderPainted(false);
-        banimales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        banimales.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         banimales.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         banimales.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         banimales.setIconTextGap(20);
@@ -224,10 +240,10 @@ public class PagPrincipal extends javax.swing.JFrame {
         btareas.setBackground(new java.awt.Color(128, 151, 143));
         btareas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btareas.setForeground(new java.awt.Color(1, 1, 1));
-        btareas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        btareas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/tarea.png"))); // NOI18N
         btareas.setText("Tareas");
         btareas.setBorderPainted(false);
-        btareas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btareas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btareas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btareas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btareas.setIconTextGap(20);
@@ -249,10 +265,10 @@ public class PagPrincipal extends javax.swing.JFrame {
         bcultivos.setBackground(new java.awt.Color(128, 151, 143));
         bcultivos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bcultivos.setForeground(new java.awt.Color(1, 1, 1));
-        bcultivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bcultivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/trigo.png"))); // NOI18N
         bcultivos.setText("Cultivos");
         bcultivos.setBorderPainted(false);
-        bcultivos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bcultivos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bcultivos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bcultivos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         bcultivos.setIconTextGap(20);
@@ -279,10 +295,10 @@ public class PagPrincipal extends javax.swing.JFrame {
         bProductos.setBackground(new java.awt.Color(128, 151, 143));
         bProductos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bProductos.setForeground(new java.awt.Color(1, 1, 1));
-        bProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/producto.png"))); // NOI18N
         bProductos.setText("Productos");
         bProductos.setBorderPainted(false);
-        bProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bProductos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bProductos.setIconTextGap(20);
         bProductos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -306,10 +322,10 @@ public class PagPrincipal extends javax.swing.JFrame {
         bGestorCompras.setBackground(new java.awt.Color(128, 151, 143));
         bGestorCompras.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bGestorCompras.setForeground(new java.awt.Color(1, 1, 1));
-        bGestorCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bGestorCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/tarea.png"))); // NOI18N
         bGestorCompras.setText("Gestor de compras");
         bGestorCompras.setBorderPainted(false);
-        bGestorCompras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bGestorCompras.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bGestorCompras.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bGestorCompras.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         bGestorCompras.setIconTextGap(20);
@@ -336,10 +352,10 @@ public class PagPrincipal extends javax.swing.JFrame {
         bProductosTrabajador.setBackground(new java.awt.Color(128, 151, 143));
         bProductosTrabajador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bProductosTrabajador.setForeground(new java.awt.Color(1, 1, 1));
-        bProductosTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bProductosTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/producto.png"))); // NOI18N
         bProductosTrabajador.setText("Productos");
         bProductosTrabajador.setBorderPainted(false);
-        bProductosTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bProductosTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bProductosTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bProductosTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         bProductosTrabajador.setIconTextGap(20);
@@ -361,10 +377,10 @@ public class PagPrincipal extends javax.swing.JFrame {
         bAnimalesTrabajador.setBackground(new java.awt.Color(128, 151, 143));
         bAnimalesTrabajador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bAnimalesTrabajador.setForeground(new java.awt.Color(1, 1, 1));
-        bAnimalesTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bAnimalesTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/animalesicon.png"))); // NOI18N
         bAnimalesTrabajador.setText("Animales");
         bAnimalesTrabajador.setBorderPainted(false);
-        bAnimalesTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAnimalesTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bAnimalesTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bAnimalesTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         bAnimalesTrabajador.setIconTextGap(20);
@@ -386,10 +402,10 @@ public class PagPrincipal extends javax.swing.JFrame {
         bCultivosTrabajador.setBackground(new java.awt.Color(128, 151, 143));
         bCultivosTrabajador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bCultivosTrabajador.setForeground(new java.awt.Color(1, 1, 1));
-        bCultivosTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bCultivosTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/trigo.png"))); // NOI18N
         bCultivosTrabajador.setText("Cultivos");
         bCultivosTrabajador.setBorderPainted(false);
-        bCultivosTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bCultivosTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bCultivosTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bCultivosTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         bCultivosTrabajador.setIconTextGap(20);
@@ -411,10 +427,10 @@ public class PagPrincipal extends javax.swing.JFrame {
         bTareasTrabajador.setBackground(new java.awt.Color(128, 151, 143));
         bTareasTrabajador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bTareasTrabajador.setForeground(new java.awt.Color(1, 1, 1));
-        bTareasTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/gestion.png"))); // NOI18N
+        bTareasTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/tarea.png"))); // NOI18N
         bTareasTrabajador.setText("Tareas");
         bTareasTrabajador.setBorderPainted(false);
-        bTareasTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bTareasTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bTareasTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bTareasTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         bTareasTrabajador.setIconTextGap(20);
@@ -436,7 +452,7 @@ public class PagPrincipal extends javax.swing.JFrame {
         panelPrincipal.add(menuTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 240, 340));
 
         bIngreso.setText("Ingreso");
-        bIngreso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bIngreso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bIngreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bIngresoActionPerformed(evt);
@@ -464,7 +480,7 @@ public class PagPrincipal extends javax.swing.JFrame {
         contraseña.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         bRegistro.setText("Registro");
-        bRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bRegistroActionPerformed(evt);
@@ -531,15 +547,15 @@ public class PagPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 638, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void bIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIngresoActionPerformed
-        String u=usuario.getText();
+        u=usuario.getText();
         String c=contraseña.getText();
         
         boolean registered=false;
@@ -560,7 +576,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                  bcultivos.setVisible(true);
                  bCerrarSesion.setVisible(true);
                 
-                 InicioCampesino inicioCampesino = new InicioCampesino();
+                 InicioCampesino inicioCampesino = new InicioCampesino(u);
                  cambiarPagina(inicioCampesino);
              }
              if (gestorUsuarios.controlVerDos.isConnected(userFound.getId(), gestorUsuarios.rol.leer().get(1).getId())){
@@ -570,7 +586,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                  bCultivosTrabajador.setVisible(true);
                  bCerrarSesion.setVisible(true);
                  
-                 InicioTrabajador inicioTrabajador = new InicioTrabajador();
+                 InicioTrabajador inicioTrabajador = new InicioTrabajador(u);
                  cambiarPagina(inicioTrabajador);
              }
              if (gestorUsuarios.controlVerDos.isConnected(userFound.getId(), gestorUsuarios.rol.leer().get(2).getId())){
@@ -578,7 +594,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                  bGestorCompras.setVisible(true);
                  bCerrarSesion.setVisible(true);
                  
-                 InicioConsultor inicioConsultor = new InicioConsultor();
+                 InicioConsultor inicioConsultor = new InicioConsultor(u);
                  cambiarPagina(inicioConsultor);
              } 
             JOptionPane.showMessageDialog(this, "Ingreso exitoso!");            
@@ -593,27 +609,32 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_usuarioActionPerformed
 
     private void bgestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bgestionActionPerformed
+        centrarBoton(bgestion,bproductos,banimales,btareas,bcultivos);
         Registro registro=new Registro();
         cambiarPagina(registro);        // TODO add your handling code here:
     }//GEN-LAST:event_bgestionActionPerformed
 
     private void bproductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bproductosActionPerformed
+        centrarBoton(bproductos,bgestion,banimales,btareas,bcultivos);
         productosCRUD productosCRUD = new productosCRUD();
         cambiarPagina(productosCRUD);
     }//GEN-LAST:event_bproductosActionPerformed
 
     private void banimalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_banimalesActionPerformed
+        centrarBoton(banimales,bproductos,bgestion,btareas,bcultivos);
         MenuAnimales menuAnimales = new MenuAnimales();
         cambiarPagina(menuAnimales);
     }//GEN-LAST:event_banimalesActionPerformed
 
     private void btareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btareasActionPerformed
+        centrarBoton(btareas,bproductos,banimales,bgestion,bcultivos);
         MenuTareas menuTareas = new MenuTareas();
         cambiarPagina(menuTareas);
     }//GEN-LAST:event_btareasActionPerformed
 
     private void bcultivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcultivosActionPerformed
-       MenuCultivos menuCultivos = new MenuCultivos();
+        centrarBoton(bcultivos,bproductos,banimales,btareas,bgestion);
+        MenuCultivos menuCultivos = new MenuCultivos();
         cambiarPagina(menuCultivos);
     }//GEN-LAST:event_bcultivosActionPerformed
 
@@ -661,86 +682,6 @@ public class PagPrincipal extends javax.swing.JFrame {
         btareas.setBackground(new Color(128,151,143));
     }//GEN-LAST:event_btareasMouseExited
 
-    private void bProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bProductosMouseClicked
-
-    private void bProductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosMouseEntered
-        bProductos.setBackground(new Color(153,181,171));
-    }//GEN-LAST:event_bProductosMouseEntered
-
-    private void bProductosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosMouseExited
-        bProductos.setBackground(new Color(128,151,143));
-    }//GEN-LAST:event_bProductosMouseExited
-
-    private void bProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProductosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bProductosActionPerformed
-
-    private void bGestorComprasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGestorComprasMouseEntered
-        bGestorCompras.setBackground(new Color(153,181,171));
-    }//GEN-LAST:event_bGestorComprasMouseEntered
-
-    private void bGestorComprasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGestorComprasMouseExited
-        bGestorCompras.setBackground(new Color(128,151,143));
-    }//GEN-LAST:event_bGestorComprasMouseExited
-
-    private void bGestorComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGestorComprasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bGestorComprasActionPerformed
-
-    private void bProductosTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosTrabajadorMouseEntered
-        bProductosTrabajador.setBackground(new Color(153,181,171));
-    }//GEN-LAST:event_bProductosTrabajadorMouseEntered
-
-    private void bProductosTrabajadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosTrabajadorMouseExited
-        bProductosTrabajador.setBackground(new Color(128,151,143));
-    }//GEN-LAST:event_bProductosTrabajadorMouseExited
-
-    private void bProductosTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProductosTrabajadorActionPerformed
-        productosCRUD productosCRUD = new productosCRUD();
-        cambiarPagina(productosCRUD);
-    }//GEN-LAST:event_bProductosTrabajadorActionPerformed
-
-    private void bAnimalesTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAnimalesTrabajadorMouseEntered
-        bAnimalesTrabajador.setBackground(new Color(153,181,171));
-    }//GEN-LAST:event_bAnimalesTrabajadorMouseEntered
-
-    private void bAnimalesTrabajadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAnimalesTrabajadorMouseExited
-        bAnimalesTrabajador.setBackground(new Color(128,151,143));
-    }//GEN-LAST:event_bAnimalesTrabajadorMouseExited
-
-    private void bAnimalesTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnimalesTrabajadorActionPerformed
-        MenuAnimales menuAnimales = new MenuAnimales();
-        cambiarPagina(menuAnimales);
-    }//GEN-LAST:event_bAnimalesTrabajadorActionPerformed
-
-    private void bCultivosTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCultivosTrabajadorMouseEntered
-        bCultivosTrabajador.setBackground(new Color(153,181,171));
-    }//GEN-LAST:event_bCultivosTrabajadorMouseEntered
-
-    private void bCultivosTrabajadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCultivosTrabajadorMouseExited
-        bCultivosTrabajador.setBackground(new Color(128,151,143));
-    }//GEN-LAST:event_bCultivosTrabajadorMouseExited
-
-    private void bCultivosTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCultivosTrabajadorActionPerformed
-        MenuCultivos menuCultivos = new MenuCultivos();
-        cambiarPagina(menuCultivos);
-    }//GEN-LAST:event_bCultivosTrabajadorActionPerformed
-
-    private void bTareasTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bTareasTrabajadorMouseEntered
-        bTareasTrabajador.setBackground(new Color(153,181,171));
-    }//GEN-LAST:event_bTareasTrabajadorMouseEntered
-
-    private void bTareasTrabajadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bTareasTrabajadorMouseExited
-        bTareasTrabajador.setBackground(new Color(128,151,143));
-    }//GEN-LAST:event_bTareasTrabajadorMouseExited
-
-    private void bTareasTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTareasTrabajadorActionPerformed
-        MenuTareas menuTareas = new MenuTareas();
-        cambiarPagina(menuTareas);
-    }//GEN-LAST:event_bTareasTrabajadorActionPerformed
-
     private void bCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCerrarSesionMouseEntered
         bCerrarSesion.setBackground(new Color(153,181,171));
     }//GEN-LAST:event_bCerrarSesionMouseEntered
@@ -759,6 +700,90 @@ public class PagPrincipal extends javax.swing.JFrame {
         RegistroConsultor registroConsultor = new RegistroConsultor();
         cambiarPagina(registroConsultor);
     }//GEN-LAST:event_bRegistroActionPerformed
+
+    private void bTareasTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTareasTrabajadorActionPerformed
+        centrarBoton(bTareasTrabajador,bAnimalesTrabajador, bCultivosTrabajador,bProductosTrabajador);
+        MenuTareas menuTareas = new MenuTareas();
+        cambiarPagina(menuTareas);
+    }//GEN-LAST:event_bTareasTrabajadorActionPerformed
+
+    private void bTareasTrabajadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bTareasTrabajadorMouseExited
+        bTareasTrabajador.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bTareasTrabajadorMouseExited
+
+    private void bTareasTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bTareasTrabajadorMouseEntered
+        bTareasTrabajador.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bTareasTrabajadorMouseEntered
+
+    private void bCultivosTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCultivosTrabajadorActionPerformed
+        centrarBoton(bCultivosTrabajador,bAnimalesTrabajador,bTareasTrabajador,bProductosTrabajador);
+        MenuCultivos menuCultivos = new MenuCultivos();
+        cambiarPagina(menuCultivos);
+    }//GEN-LAST:event_bCultivosTrabajadorActionPerformed
+
+    private void bCultivosTrabajadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCultivosTrabajadorMouseExited
+        bCultivosTrabajador.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bCultivosTrabajadorMouseExited
+
+    private void bCultivosTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCultivosTrabajadorMouseEntered
+        bCultivosTrabajador.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bCultivosTrabajadorMouseEntered
+
+    private void bAnimalesTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnimalesTrabajadorActionPerformed
+        centrarBoton(bAnimalesTrabajador, bCultivosTrabajador,bTareasTrabajador,bProductosTrabajador);
+        MenuAnimales menuAnimales = new MenuAnimales();
+        cambiarPagina(menuAnimales);
+    }//GEN-LAST:event_bAnimalesTrabajadorActionPerformed
+
+    private void bAnimalesTrabajadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAnimalesTrabajadorMouseExited
+        bAnimalesTrabajador.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bAnimalesTrabajadorMouseExited
+
+    private void bAnimalesTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAnimalesTrabajadorMouseEntered
+        bAnimalesTrabajador.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bAnimalesTrabajadorMouseEntered
+
+    private void bProductosTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProductosTrabajadorActionPerformed
+        centrarBoton(bProductosTrabajador,bAnimalesTrabajador, bCultivosTrabajador,bTareasTrabajador);
+        productosCRUD productosCRUD = new productosCRUD();
+        cambiarPagina(productosCRUD);
+    }//GEN-LAST:event_bProductosTrabajadorActionPerformed
+
+    private void bProductosTrabajadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosTrabajadorMouseExited
+        bProductosTrabajador.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bProductosTrabajadorMouseExited
+
+    private void bProductosTrabajadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosTrabajadorMouseEntered
+        bProductosTrabajador.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bProductosTrabajadorMouseEntered
+
+    private void bGestorComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGestorComprasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bGestorComprasActionPerformed
+
+    private void bGestorComprasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGestorComprasMouseExited
+        bGestorCompras.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bGestorComprasMouseExited
+
+    private void bGestorComprasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGestorComprasMouseEntered
+        bGestorCompras.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bGestorComprasMouseEntered
+
+    private void bProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProductosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bProductosActionPerformed
+
+    private void bProductosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosMouseExited
+        bProductos.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bProductosMouseExited
+
+    private void bProductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosMouseEntered
+        bProductos.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bProductosMouseEntered
+
+    private void bProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bProductosMouseClicked
 
     /**
      * @param args the command line arguments

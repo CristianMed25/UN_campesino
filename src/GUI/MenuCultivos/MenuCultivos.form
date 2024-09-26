@@ -99,7 +99,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cereal"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor de Mano"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -109,38 +109,50 @@
         <Component class="javax.swing.JButton" name="bFrutalCRUD">
           <Properties>
             <Property name="text" type="java.lang.String" value="Frutal"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bFrutalCRUDActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bHortalizaCRUD">
           <Properties>
             <Property name="text" type="java.lang.String" value="Hortaliza"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bHortalizaCRUDActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bLeguminosaCRUD">
           <Properties>
             <Property name="text" type="java.lang.String" value="Leguminosa"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bLeguminosaCRUDActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bOleaginosaCRUD">
           <Properties>
             <Property name="text" type="java.lang.String" value="Oleaginosa"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bOleaginosaCRUDActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bOrnamentalCRUD">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ornamental"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bOrnamentalCRUDActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bRaicesTuberculosCRUD">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ra&#xed;ces y tuberculos"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bRaicesTuberculosCRUDActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

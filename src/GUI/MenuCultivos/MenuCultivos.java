@@ -57,7 +57,7 @@ public class MenuCultivos extends javax.swing.JPanel {
         presentacion.setText("Seleccione el tipo de cultivo que desea modificar");
 
         bCerealCRUD.setText("Cereal");
-        bCerealCRUD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bCerealCRUD.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bCerealCRUD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bCerealCRUDActionPerformed(evt);
@@ -65,22 +65,46 @@ public class MenuCultivos extends javax.swing.JPanel {
         });
 
         bFrutalCRUD.setText("Frutal");
-        bFrutalCRUD.setEnabled(false);
+        bFrutalCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bFrutalCRUDActionPerformed(evt);
+            }
+        });
 
         bHortalizaCRUD.setText("Hortaliza");
-        bHortalizaCRUD.setEnabled(false);
+        bHortalizaCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bHortalizaCRUDActionPerformed(evt);
+            }
+        });
 
         bLeguminosaCRUD.setText("Leguminosa");
-        bLeguminosaCRUD.setEnabled(false);
+        bLeguminosaCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bLeguminosaCRUDActionPerformed(evt);
+            }
+        });
 
         bOleaginosaCRUD.setText("Oleaginosa");
-        bOleaginosaCRUD.setEnabled(false);
+        bOleaginosaCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bOleaginosaCRUDActionPerformed(evt);
+            }
+        });
 
         bOrnamentalCRUD.setText("Ornamental");
-        bOrnamentalCRUD.setEnabled(false);
+        bOrnamentalCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bOrnamentalCRUDActionPerformed(evt);
+            }
+        });
 
         bRaicesTuberculosCRUD.setText("Raíces y tuberculos");
-        bRaicesTuberculosCRUD.setEnabled(false);
+        bRaicesTuberculosCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRaicesTuberculosCRUDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
@@ -135,6 +159,42 @@ public class MenuCultivos extends javax.swing.JPanel {
         CerealCRUD cerealCRUD = new CerealCRUD();
         cambiarPagina(cerealCRUD);
     }//GEN-LAST:event_bCerealCRUDActionPerformed
+
+    private void bFrutalCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFrutalCRUDActionPerformed
+        FrutalCRUD frutalCRUD = new FrutalCRUD();
+        cambiarPagina(frutalCRUD);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bFrutalCRUDActionPerformed
+
+    private void bHortalizaCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHortalizaCRUDActionPerformed
+        HortalizaCRUD hortalizaCRUD = new HortalizaCRUD();
+        cambiarPagina(hortalizaCRUD);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bHortalizaCRUDActionPerformed
+
+    private void bLeguminosaCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLeguminosaCRUDActionPerformed
+        LeguminosaCRUD leguminosaCRUD = new LeguminosaCRUD();
+        cambiarPagina(leguminosaCRUD);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bLeguminosaCRUDActionPerformed
+
+    private void bOleaginosaCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOleaginosaCRUDActionPerformed
+        OleaginosaCRUD oleaginosaCRUD = new OleaginosaCRUD();
+        cambiarPagina(oleaginosaCRUD);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bOleaginosaCRUDActionPerformed
+
+    private void bOrnamentalCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOrnamentalCRUDActionPerformed
+        OrnamentalCRUD ornamentalCRUD = new OrnamentalCRUD();
+        cambiarPagina(ornamentalCRUD);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bOrnamentalCRUDActionPerformed
+
+    private void bRaicesTuberculosCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRaicesTuberculosCRUDActionPerformed
+        Raiz_Y_TuberculoCRUD raiz_Y_TuberculoCRUD = new Raiz_Y_TuberculoCRUD();
+        cambiarPagina(raiz_Y_TuberculoCRUD);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bRaicesTuberculosCRUDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

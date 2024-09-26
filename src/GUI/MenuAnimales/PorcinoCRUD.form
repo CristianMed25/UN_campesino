@@ -131,7 +131,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Gestor de aves"/>
+        <Property name="text" type="java.lang.String" value="Gestor de Porcinos"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -141,20 +141,20 @@
     </Component>
     <Component class="javax.swing.JButton" name="bAgregarAve">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Agregar Ave"/>
+        <Property name="text" type="java.lang.String" value="Agregar Porcino"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAgregarAveActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="340" y="110" width="-1" height="-1"/>
+          <AbsoluteConstraints x="330" y="110" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="bActualizarAve">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Actualizar Ave"/>
+        <Property name="text" type="java.lang.String" value="Actualizar Porcino"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bActualizarAveActionPerformed"/>
@@ -167,14 +167,14 @@
     </Component>
     <Component class="javax.swing.JButton" name="bBorrarAve">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Borrar Ave"/>
+        <Property name="text" type="java.lang.String" value="Borrar Porcino"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bBorrarAveActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="590" y="110" width="-1" height="-1"/>
+          <AbsoluteConstraints x="600" y="110" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
