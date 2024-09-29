@@ -56,6 +56,7 @@ public class PagPrincipal extends javax.swing.JFrame {
         bTareasTrabajador.setVisible(false);
         bCultivosTrabajador.setVisible(false);
         bCerrarSesion.setVisible(false);
+        bIniciarSesion.setVisible(false);
     }
     private void centrarBoton(JToggleButton b,JToggleButton... buttons){
             for (JToggleButton button : buttons) {
@@ -88,6 +89,8 @@ public class PagPrincipal extends javax.swing.JFrame {
         logoIcon = new javax.swing.JLabel();
         cerrarSesion = new javax.swing.JPanel();
         bCerrarSesion = new javax.swing.JToggleButton();
+        iniciarSesion = new javax.swing.JPanel();
+        bIniciarSesion = new javax.swing.JToggleButton();
         menuCampesino = new javax.swing.JPanel();
         bgestion = new javax.swing.JToggleButton();
         bproductos = new javax.swing.JToggleButton();
@@ -155,6 +158,37 @@ public class PagPrincipal extends javax.swing.JFrame {
         cerrarSesion.add(bCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 240, 50));
 
         panelPrincipal.add(cerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 240, 70));
+
+        iniciarSesion.setBackground(new java.awt.Color(128, 151, 143));
+        iniciarSesion.setPreferredSize(new java.awt.Dimension(240, 60));
+        iniciarSesion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bIniciarSesion.setBackground(new java.awt.Color(128, 151, 143));
+        bIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bIniciarSesion.setForeground(new java.awt.Color(1, 1, 1));
+        bIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Classes/User/Recursos/user.png"))); // NOI18N
+        bIniciarSesion.setText("Iniciar Sesión");
+        bIniciarSesion.setBorderPainted(false);
+        bIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        bIniciarSesion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bIniciarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        bIniciarSesion.setIconTextGap(20);
+        bIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bIniciarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bIniciarSesionMouseExited(evt);
+            }
+        });
+        bIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bIniciarSesionActionPerformed(evt);
+            }
+        });
+        iniciarSesion.add(bIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 240, 50));
+
+        panelPrincipal.add(iniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, -1, -1));
 
         menuCampesino.setBackground(new java.awt.Color(128, 151, 143));
         menuCampesino.setPreferredSize(new java.awt.Dimension(240, 640));
@@ -287,7 +321,7 @@ public class PagPrincipal extends javax.swing.JFrame {
         });
         menuCampesino.add(bcultivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 118, 240, 50));
 
-        panelPrincipal.add(menuCampesino, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 240, 340));
+        panelPrincipal.add(menuCampesino, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 240, 280));
 
         menuConsultor.setBackground(new java.awt.Color(128, 151, 143));
         menuConsultor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -344,7 +378,7 @@ public class PagPrincipal extends javax.swing.JFrame {
         });
         menuConsultor.add(bGestorCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 240, 50));
 
-        panelPrincipal.add(menuConsultor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 240, 340));
+        panelPrincipal.add(menuConsultor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 240, 280));
 
         menuTrabajador.setBackground(new java.awt.Color(128, 151, 143));
         menuTrabajador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -449,7 +483,7 @@ public class PagPrincipal extends javax.swing.JFrame {
         });
         menuTrabajador.add(bTareasTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 240, 50));
 
-        panelPrincipal.add(menuTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 240, 340));
+        panelPrincipal.add(menuTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 240, 280));
 
         bIngreso.setText("Ingreso");
         bIngreso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -610,7 +644,7 @@ public class PagPrincipal extends javax.swing.JFrame {
 
     private void bgestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bgestionActionPerformed
         centrarBoton(bgestion,bproductos,banimales,btareas,bcultivos);
-        Registro registro=new Registro();
+        RegistroTrabajador registro=new RegistroTrabajador();
         cambiarPagina(registro);        // TODO add your handling code here:
     }//GEN-LAST:event_bgestionActionPerformed
 
@@ -697,6 +731,7 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bCerrarSesionActionPerformed
 
     private void bRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistroActionPerformed
+        bIniciarSesion.setVisible(true);
         RegistroConsultor registroConsultor = new RegistroConsultor();
         cambiarPagina(registroConsultor);
     }//GEN-LAST:event_bRegistroActionPerformed
@@ -785,6 +820,20 @@ public class PagPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bProductosMouseClicked
 
+    private void bIniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bIniciarSesionMouseEntered
+        bIniciarSesion.setBackground(new Color(153,181,171));
+    }//GEN-LAST:event_bIniciarSesionMouseEntered
+
+    private void bIniciarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bIniciarSesionMouseExited
+        bIniciarSesion.setBackground(new Color(128,151,143));
+    }//GEN-LAST:event_bIniciarSesionMouseExited
+
+    private void bIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIniciarSesionActionPerformed
+        dispose();
+        PagPrincipal reinicio = new PagPrincipal(); 
+        reinicio.setVisible(true);
+    }//GEN-LAST:event_bIniciarSesionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -827,6 +876,7 @@ public class PagPrincipal extends javax.swing.JFrame {
     private javax.swing.JToggleButton bCultivosTrabajador;
     private javax.swing.JToggleButton bGestorCompras;
     private javax.swing.JButton bIngreso;
+    private javax.swing.JToggleButton bIniciarSesion;
     private javax.swing.JToggleButton bProductos;
     private javax.swing.JToggleButton bProductosTrabajador;
     private javax.swing.JButton bRegistro;
@@ -839,6 +889,7 @@ public class PagPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel cerrarSesion;
     private javax.swing.JPanel contenido;
     private javax.swing.JPasswordField contraseña;
+    private javax.swing.JPanel iniciarSesion;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

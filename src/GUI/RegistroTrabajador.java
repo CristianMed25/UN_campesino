@@ -14,14 +14,14 @@ import javax.swing.JPanel;
  *
  * @author CristianM
  */
-public class RegistroConsultor extends javax.swing.JPanel {
+public class RegistroTrabajador extends javax.swing.JPanel {
     public static GestorUsuarios gestorUsuarios = new GestorUsuarios();
     /**
      * Creates new form RegistroConsultor
      */
-    public RegistroConsultor() {
+    public RegistroTrabajador() {
         initComponents();
-    }
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,7 +49,7 @@ public class RegistroConsultor extends javax.swing.JPanel {
         contenido.setPreferredSize(new java.awt.Dimension(780, 640));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("Registro de usuario");
+        jLabel1.setText("Registro de trabajador");
 
         jLabel2.setText("Nombre");
 
@@ -71,42 +71,45 @@ public class RegistroConsultor extends javax.swing.JPanel {
         contenidoLayout.setHorizontalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(270, 270, 270)
-                .addComponent(jLabel1))
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(jLabel2))
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(jtNombreRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(jLabel3))
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(jtUsuarioRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(jLabel4))
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(jtContraseñaRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(jLabel5))
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(jtContraseñaConRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(230, 230, 230)
-                .addComponent(bRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jLabel2))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jtNombreRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jLabel3))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jtUsuarioRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jLabel4))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jtContraseñaRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jLabel5))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jtContraseñaConRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(bRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(261, 261, 261)
+                        .addComponent(jLabel1)))
+                .addGap(210, 210, 210))
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel1)
-                .addGap(38, 38, 38)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel2)
                 .addGap(14, 14, 14)
                 .addComponent(jtNombreRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,13 +136,12 @@ public class RegistroConsultor extends javax.swing.JPanel {
          if("".equals(jtContraseñaRegistro.getText()) || "".equals(jtContraseñaConRegistro.getText()) || "".equals(jtNombreRegistro.getText()) || "".equals(jtUsuarioRegistro.getText())){
             JOptionPane.showMessageDialog(this, "Por favor rellene los campos faltantes."); 
         }else if(jtContraseñaRegistro.getText().equals(jtContraseñaConRegistro.getText())){
-            gestorUsuarios.crearUsuarioConsultor(jtNombreRegistro.getText(), jtUsuarioRegistro.getText(), jtContraseñaRegistro.getText());
+            gestorUsuarios.crearUsuarioTrabajador(jtNombreRegistro.getText(), jtUsuarioRegistro.getText(), jtContraseñaRegistro.getText());
             jtNombreRegistro.setText("");
             jtUsuarioRegistro.setText("");
             jtContraseñaRegistro.setText("");
             jtContraseñaConRegistro.setText("");
-            JOptionPane.showMessageDialog(this, "Usuario creado exitosamente!\n"
-                                                                         + "Dale al botón de iniciar sesión");          
+            JOptionPane.showMessageDialog(this, "Usuario creado exitosamente!");          
         }else{
             JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden, vuelva a intentarlo.");    
         }      
