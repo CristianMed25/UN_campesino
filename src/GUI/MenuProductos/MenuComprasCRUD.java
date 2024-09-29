@@ -16,23 +16,15 @@ import Funcionalidades.GestorComprasQuaHeap;
  *
  * @author CristianM
  */
-public class ComprasCRUD extends javax.swing.JPanel {
+public class MenuComprasCRUD extends javax.swing.JPanel {
     public static GestorProductos gestorProductos = new GestorProductos();
     /**
      * Creates new form productosCRUD
      */
     public GestorComprasQuaHeap listaQ= new GestorComprasQuaHeap();
-    public ComprasCRUD() {
+    public MenuComprasCRUD() {
         initComponents();
     }
-    private void cambiarPagina(JPanel p){
-        p.setSize(780,640);
-        p.setLocation(0,0);
-        cont.removeAll();
-        cont.add(p,BorderLayout.CENTER);
-        cont.revalidate();
-        cont.repaint();
-    } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,26 +43,18 @@ public class ComprasCRUD extends javax.swing.JPanel {
         bMostrarProducto = new javax.swing.JButton();
         bMostrarProductos = new javax.swing.JButton();
         bLimpiar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scroll = new javax.swing.JScrollPane();
         texto = new javax.swing.JTextArea();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        cont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel2.setText("nombre");
-        cont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         jtNombreCRUD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtNombreCRUDActionPerformed(evt);
             }
         });
-        cont.add(jtNombreCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 220, -1));
 
         jLabel3.setText("precio");
-        cont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
-        cont.add(jtPrecioCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 220, -1));
 
         bAgregarProducto.setText("Agregar Prod. a la cola");
         bAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +62,6 @@ public class ComprasCRUD extends javax.swing.JPanel {
                 bAgregarProductoActionPerformed(evt);
             }
         });
-        cont.add(bAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, -1, -1));
 
         bMostrarProducto.setText("Mostrar un producto");
         bMostrarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +69,6 @@ public class ComprasCRUD extends javax.swing.JPanel {
                 bMostrarProductoActionPerformed(evt);
             }
         });
-        cont.add(bMostrarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
 
         bMostrarProductos.setText("Mostrar todos los productos");
         bMostrarProductos.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +76,6 @@ public class ComprasCRUD extends javax.swing.JPanel {
                 bMostrarProductosActionPerformed(evt);
             }
         });
-        cont.add(bMostrarProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
 
         bLimpiar.setText("Limpiar Campos");
         bLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,15 +83,75 @@ public class ComprasCRUD extends javax.swing.JPanel {
                 bLimpiarActionPerformed(evt);
             }
         });
-        cont.add(bLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, -1));
 
         texto.setColumns(20);
         texto.setRows(5);
-        jScrollPane1.setViewportView(texto);
+        scroll.setViewportView(texto);
 
-        cont.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 220, 410));
+        javax.swing.GroupLayout contLayout = new javax.swing.GroupLayout(cont);
+        cont.setLayout(contLayout);
+        contLayout.setHorizontalGroup(
+            contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(contLayout.createSequentialGroup()
+                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtNombreCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jtPrecioCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(53, 53, 53)
+                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bAgregarProducto)
+                            .addComponent(bLimpiar))
+                        .addGap(18, 18, 18)
+                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bMostrarProducto)
+                            .addComponent(bMostrarProductos))))
+                .addContainerGap(131, Short.MAX_VALUE))
+        );
+        contLayout.setVerticalGroup(
+            contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contLayout.createSequentialGroup()
+                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel2)
+                        .addGap(4, 4, 4)
+                        .addComponent(jtNombreCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel3))
+                    .addGroup(contLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(contLayout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(jtPrecioCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(contLayout.createSequentialGroup()
+                                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(bMostrarProducto)
+                                    .addComponent(bAgregarProducto))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(bLimpiar)
+                                    .addComponent(bMostrarProductos))))))
+                .addGap(18, 18, 18)
+                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
 
-        add(cont, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 640));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(cont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(cont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         getAccessibleContext().setAccessibleName("");
         getAccessibleContext().setAccessibleDescription("");
@@ -120,6 +161,7 @@ public class ComprasCRUD extends javax.swing.JPanel {
 
         jtNombreCRUD.setText("");
         jtPrecioCRUD.setText("");
+        texto.setText("");
     }//GEN-LAST:event_bLimpiarActionPerformed
 
     private void bMostrarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrarProductosActionPerformed
@@ -140,7 +182,7 @@ public class ComprasCRUD extends javax.swing.JPanel {
     private void bMostrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrarProductoActionPerformed
         StringBuilder sb = new StringBuilder();
         Producto dato=listaQ.ExtraerDato();
-        if(listaQ.ExtraerDato() != null){
+        if(dato != null){
             sb.append("Nombre: ").append(dato.getNombre()).append("\n");
             sb.append("Precio: ").append(Double.toString(dato.getPrecio())).append("\n");
             sb.append("\n");
@@ -167,9 +209,9 @@ public class ComprasCRUD extends javax.swing.JPanel {
     private javax.swing.JPanel cont;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jtNombreCRUD;
     private javax.swing.JTextField jtPrecioCRUD;
+    private javax.swing.JScrollPane scroll;
     private javax.swing.JTextArea texto;
     // End of variables declaration//GEN-END:variables
 }

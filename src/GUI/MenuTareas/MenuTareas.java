@@ -66,6 +66,11 @@ public class MenuTareas extends javax.swing.JPanel {
         });
 
         bListaPendientes.setText("Gestion de pendientes");
+        bListaPendientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bListaPendientesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
@@ -108,6 +113,12 @@ public class MenuTareas extends javax.swing.JPanel {
         NecesidadesCultivo necesidadesCultivo = new NecesidadesCultivo();
         cambiarPagina(necesidadesCultivo);
     }//GEN-LAST:event_bNecCultivosActionPerformed
+
+    private void bListaPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bListaPendientesActionPerformed
+        // TODO add your handling code here:
+        MenuPendientes menupendientes=new MenuPendientes();
+        cambiarPagina(menupendientes);
+    }//GEN-LAST:event_bListaPendientesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
