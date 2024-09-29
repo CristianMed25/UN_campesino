@@ -13,7 +13,7 @@ import Classes.User.TemaUNCampesino;
 import Classes.User.Usuario;
 import GUI.MenuCultivos.MenuCultivos;
 import GUI.MenuProductos.productosCRUD;
-import GUI.MenuProductos.ComprasCRUD;
+import GUI.MenuProductos.comprasCRUD;
 import GUI.MenuTareas.MenuTareas;
 import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
 import javax.swing.*;

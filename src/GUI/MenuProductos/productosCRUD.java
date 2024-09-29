@@ -190,7 +190,7 @@ public class productosCRUD extends javax.swing.JPanel {
     }//GEN-LAST:event_bEliminarProductoActionPerformed
 
     private void gestorcomprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestorcomprasActionPerformed
-        ComprasCRUD comprasCRUD=new ComprasCRUD();
+        comprasCRUD comprasCRUD=new comprasCRUD();
         cambiarPagina(comprasCRUD);
         // TODO add your handling code here:
     }//GEN-LAST:event_gestorcomprasActionPerformed
