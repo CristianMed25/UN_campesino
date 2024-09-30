@@ -54,15 +54,21 @@ public class MenuPendientes extends javax.swing.JPanel {
         bBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        cont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel2.setText("Descripción");
+        cont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         tDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tDescripcionActionPerformed(evt);
             }
         });
+        cont.add(tDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 350, -1));
 
         jLabel3.setText("Prioridad");
+        cont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        cont.add(tPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 94, 220, -1));
 
         bAgregarPendiente.setText("Agregar Pendiente");
         bAgregarPendiente.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +76,7 @@ public class MenuPendientes extends javax.swing.JPanel {
                 bAgregarPendienteActionPerformed(evt);
             }
         });
+        cont.add(bAgregarPendiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, -1, -1));
 
         bEliminarPendiente.setText("Eliminar pendiente");
         bEliminarPendiente.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +84,7 @@ public class MenuPendientes extends javax.swing.JPanel {
                 bEliminarPendienteActionPerformed(evt);
             }
         });
+        cont.add(bEliminarPendiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
         bMostrar.setText("Mostrar todos los pendientes");
         bMostrar.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +92,7 @@ public class MenuPendientes extends javax.swing.JPanel {
                 bMostrarActionPerformed(evt);
             }
         });
+        cont.add(bMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
 
         bLimpiar.setText("Limpiar Campos");
         bLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,10 +100,13 @@ public class MenuPendientes extends javax.swing.JPanel {
                 bLimpiarActionPerformed(evt);
             }
         });
+        cont.add(bLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         texto.setColumns(20);
         texto.setRows(5);
         scroll.setViewportView(texto);
+
+        cont.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 214, 264, 380));
 
         bCompletarPendiente.setText("Completar pendiente");
         bCompletarPendiente.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +114,7 @@ public class MenuPendientes extends javax.swing.JPanel {
                 bCompletarPendienteActionPerformed(evt);
             }
         });
+        cont.add(bCompletarPendiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, -1, -1));
 
         bBuscar.setText("Buscar pendiente");
         bBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,76 +122,11 @@ public class MenuPendientes extends javax.swing.JPanel {
                 bBuscarActionPerformed(evt);
             }
         });
+        cont.add(bBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Gestor de pendientes");
-
-        javax.swing.GroupLayout contLayout = new javax.swing.GroupLayout(cont);
-        cont.setLayout(contLayout);
-        contLayout.setHorizontalGroup(
-            contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contLayout.createSequentialGroup()
-                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contLayout.createSequentialGroup()
-                                .addComponent(tPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bLimpiar))
-                            .addComponent(jLabel3))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(contLayout.createSequentialGroup()
-                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(tDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(contLayout.createSequentialGroup()
-                                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(87, 87, 87)
-                                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(contLayout.createSequentialGroup()
-                                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(bEliminarPendiente)
-                                            .addComponent(bAgregarPendiente))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(bBuscar)
-                                            .addComponent(bCompletarPendiente)))
-                                    .addComponent(bMostrar))))
-                        .addGap(0, 116, Short.MAX_VALUE))))
-        );
-        contLayout.setVerticalGroup(
-            contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bLimpiar)
-                    .addComponent(tPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contLayout.createSequentialGroup()
-                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contLayout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(bEliminarPendiente)
-                                    .addComponent(bBuscar)))
-                            .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(bAgregarPendiente)
-                                .addComponent(bCompletarPendiente)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bMostrar))
-                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
+        cont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 14, 441, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

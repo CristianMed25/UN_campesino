@@ -56,6 +56,11 @@ public class productosCRUD extends javax.swing.JPanel {
         bEliminarProducto = new javax.swing.JButton();
         bLimpiar = new javax.swing.JButton();
         gestorcompras = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cont1.setPreferredSize(new java.awt.Dimension(780, 640));
 
         bBuscarProducto.setText("Buscar");
         bBuscarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -107,104 +112,90 @@ public class productosCRUD extends javax.swing.JPanel {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setText("Gestión de productos");
+
         javax.swing.GroupLayout cont1Layout = new javax.swing.GroupLayout(cont1);
         cont1.setLayout(cont1Layout);
         cont1Layout.setHorizontalGroup(
             cont1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cont1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addGroup(cont1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
                     .addGroup(cont1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addComponent(jtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
                         .addComponent(bBuscarProducto))
+                    .addComponent(jLabel1)
                     .addGroup(cont1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addComponent(jtIdCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addComponent(bAgregarProducto))
+                    .addComponent(jLabel3)
+                    .addComponent(jtPrecioCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(cont1Layout.createSequentialGroup()
+                        .addComponent(bLimpiar)
+                        .addGap(357, 357, 357)
+                        .addComponent(gestorcompras, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cont1Layout.createSequentialGroup()
                         .addGroup(cont1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jtIdCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(80, 80, 80)
-                        .addComponent(bAgregarProducto)
-                        .addGap(16, 16, 16)
-                        .addComponent(bActualizarProducto)
-                        .addGap(16, 16, 16)
-                        .addComponent(bEliminarProducto))
-                    .addGroup(cont1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel2))
-                    .addGroup(cont1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jtNombreCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(cont1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel4))
-                    .addGroup(cont1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jtCantidadCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(cont1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel3))
-                    .addGroup(cont1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jtPrecioCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(cont1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(bLimpiar))
-                    .addGroup(cont1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(gestorcompras)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jtNombreCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(jtCantidadCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(90, 90, 90)
+                        .addGroup(cont1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bActualizarProducto)
+                            .addComponent(bEliminarProducto)))))
         );
         cont1Layout.setVerticalGroup(
             cont1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cont1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel5)
+                .addGap(4, 4, 4)
                 .addGroup(cont1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cont1Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(bBuscarProducto))
-                .addGap(26, 26, 26)
-                .addGroup(cont1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cont1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(4, 4, 4)
-                        .addComponent(jtIdCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(cont1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
+                        .addComponent(jtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1)
+                .addGroup(cont1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cont1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jtIdCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bAgregarProducto))
+                .addGroup(cont1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cont1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel2)
+                        .addGap(4, 4, 4)
+                        .addComponent(jtNombreCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addGap(4, 4, 4)
+                        .addComponent(jtCantidadCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addGap(4, 4, 4)
+                        .addComponent(jtPrecioCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
                         .addGroup(cont1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bAgregarProducto)
-                            .addComponent(bActualizarProducto)
-                            .addComponent(bEliminarProducto))))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(4, 4, 4)
-                .addComponent(jtNombreCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(4, 4, 4)
-                .addComponent(jtCantidadCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(4, 4, 4)
-                .addComponent(jtPrecioCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(bLimpiar)
-                .addGap(117, 117, 117)
-                .addComponent(gestorcompras)
-                .addContainerGap(157, Short.MAX_VALUE))
+                            .addGroup(cont1Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(bLimpiar))
+                            .addComponent(gestorcompras, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(cont1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(bActualizarProducto)
+                        .addGap(18, 18, 18)
+                        .addComponent(bEliminarProducto)))
+                .addGap(0, 258, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cont1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cont1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        add(cont1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 640));
     }// </editor-fold>//GEN-END:initComponents
 
     private void bBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarProductoActionPerformed
@@ -287,6 +278,7 @@ public class productosCRUD extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jtCantidadCRUD;
     private javax.swing.JTextField jtIdCRUD;
     private javax.swing.JTextField jtIdProducto;

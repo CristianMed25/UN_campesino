@@ -12,6 +12,7 @@ import Classes.User.Campesino;
 import Classes.User.TemaUNCampesino;
 import Classes.User.Usuario;
 import GUI.MenuCultivos.MenuCultivos;
+import GUI.MenuProductos.MenuComprasCRUD;
 import GUI.MenuProductos.ProductosCompra;
 import GUI.MenuProductos.productosCRUD;
 import GUI.MenuTareas.MenuTareas;
@@ -794,7 +795,9 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bProductosTrabajadorMouseEntered
 
     private void bGestorComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGestorComprasActionPerformed
-        // TODO add your handling code here:
+        centrarBoton(bGestorCompras, bProductos);
+        MenuComprasCRUD menuCompras = new MenuComprasCRUD();
+        cambiarPagina(menuCompras);
     }//GEN-LAST:event_bGestorComprasActionPerformed
 
     private void bGestorComprasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGestorComprasMouseExited
@@ -806,7 +809,8 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bGestorComprasMouseEntered
 
     private void bProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProductosActionPerformed
-       ProductosCompra compra = new ProductosCompra();
+       centrarBoton(bProductos, bGestorCompras);
+        ProductosCompra compra = new ProductosCompra();
         cambiarPagina(compra);
     }//GEN-LAST:event_bProductosActionPerformed
 

@@ -91,6 +91,7 @@ public class CaballoCRUD extends javax.swing.JPanel {
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
         add(jtTipoCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 210, -1));
 
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("Gestor de Caballos");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
@@ -108,7 +109,7 @@ public class CaballoCRUD extends javax.swing.JPanel {
                 bActualizarAveActionPerformed(evt);
             }
         });
-        add(bActualizarAve, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
+        add(bActualizarAve, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
 
         bBorrarAve.setText("Borrar Caballo");
         bBorrarAve.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +117,7 @@ public class CaballoCRUD extends javax.swing.JPanel {
                 bBorrarAveActionPerformed(evt);
             }
         });
-        add(bBorrarAve, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, -1, -1));
+        add(bBorrarAve, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, -1, -1));
 
         bLimpiar.setText("Limpiar Campos");
         bLimpiar.addActionListener(new java.awt.event.ActionListener() {

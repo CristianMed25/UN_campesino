@@ -49,7 +49,7 @@ public class MenuTareas extends javax.swing.JPanel {
 
         contenido.setPreferredSize(new java.awt.Dimension(780, 640));
 
-        jLabel1.setText("Gestion para las tareas");
+        jLabel1.setText("Seleccione la opción que desee modificar.");
 
         bNecAnimales.setText("Necesidades Ganado");
         bNecAnimales.addActionListener(new java.awt.event.ActionListener() {
@@ -90,9 +90,9 @@ public class MenuTareas extends javax.swing.JPanel {
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel1)
-                .addGap(48, 48, 48)
+                .addGap(37, 37, 37)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bNecAnimales, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bNecCultivos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))

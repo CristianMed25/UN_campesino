@@ -51,7 +51,7 @@ public class HortalizaCRUD extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(jtIdCereal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 620, -1));
+        add(jtIdCereal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 620, -1));
 
         bBuscarCereal.setText("Buscar");
         bBuscarCereal.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +59,7 @@ public class HortalizaCRUD extends javax.swing.JPanel {
                 bBuscarCerealActionPerformed(evt);
             }
         });
-        add(bBuscarCereal, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 22, -1, 40));
+        add(bBuscarCereal, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, 40));
 
         jLabel1.setText("id");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
@@ -114,7 +114,7 @@ public class HortalizaCRUD extends javax.swing.JPanel {
                 bActualizarCerealActionPerformed(evt);
             }
         });
-        add(bActualizarCereal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, -1, -1));
+        add(bActualizarCereal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
 
         bEliminarCereal.setText("Eliminar Hortaliza");
         bEliminarCereal.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +122,7 @@ public class HortalizaCRUD extends javax.swing.JPanel {
                 bEliminarCerealActionPerformed(evt);
             }
         });
-        add(bEliminarCereal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, -1, -1));
+        add(bEliminarCereal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, -1));
 
         bLimpiar.setText("Limpiar Campos");
         bLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +132,7 @@ public class HortalizaCRUD extends javax.swing.JPanel {
         });
         add(bLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setText("Gestion de hortalizas");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents

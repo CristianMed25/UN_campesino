@@ -45,6 +45,7 @@ public class MenuComprasCRUD extends javax.swing.JPanel {
         bLimpiar = new javax.swing.JButton();
         scroll = new javax.swing.JScrollPane();
         texto = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         jLabel2.setText("nombre");
 
@@ -88,6 +89,9 @@ public class MenuComprasCRUD extends javax.swing.JPanel {
         texto.setRows(5);
         scroll.setViewportView(texto);
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setText("Organizador de compras");
+
         javax.swing.GroupLayout contLayout = new javax.swing.GroupLayout(cont);
         cont.setLayout(contLayout);
         contLayout.setHorizontalGroup(
@@ -95,6 +99,7 @@ public class MenuComprasCRUD extends javax.swing.JPanel {
             .addGroup(contLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(contLayout.createSequentialGroup()
                         .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,31 +120,29 @@ public class MenuComprasCRUD extends javax.swing.JPanel {
         contLayout.setVerticalGroup(
             contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1)
                 .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
+                        .addGap(29, 29, 29)
                         .addComponent(jLabel2)
                         .addGap(4, 4, 4)
                         .addComponent(jtNombreCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel3))
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtPrecioCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(contLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contLayout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jtPrecioCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(contLayout.createSequentialGroup()
-                                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(bMostrarProducto)
-                                    .addComponent(bAgregarProducto))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(bLimpiar)
-                                    .addComponent(bMostrarProductos))))))
-                .addGap(18, 18, 18)
-                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                        .addGap(59, 59, 59)
+                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bMostrarProducto)
+                            .addComponent(bAgregarProducto))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bLimpiar)
+                            .addComponent(bMostrarProductos)))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -207,6 +210,7 @@ public class MenuComprasCRUD extends javax.swing.JPanel {
     private javax.swing.JButton bMostrarProducto;
     private javax.swing.JButton bMostrarProductos;
     private javax.swing.JPanel cont;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jtNombreCRUD;

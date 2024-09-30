@@ -97,6 +97,7 @@ public class ProductosCompra extends javax.swing.JPanel {
         contenido.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         contenido.add(jtIdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 48, 620, -1));
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Compra de productos");
         contenido.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 14, -1, -1));
 

@@ -81,9 +81,10 @@ public class NecesidadesCultivo extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Gestión necesidades cultivo");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 26, -1, -1));
-        add(jtIdNec, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 64, 598, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        add(jtIdNec, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 64, 610, -1));
 
         bBuscarNecCultivo.setText("Buscar");
         bBuscarNecCultivo.addActionListener(new java.awt.event.ActionListener() {
