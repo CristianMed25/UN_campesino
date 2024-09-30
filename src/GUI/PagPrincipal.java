@@ -12,6 +12,7 @@ import Classes.User.Campesino;
 import Classes.User.TemaUNCampesino;
 import Classes.User.Usuario;
 import GUI.MenuCultivos.MenuCultivos;
+import GUI.MenuProductos.ProductosCompra;
 import GUI.MenuProductos.productosCRUD;
 import GUI.MenuTareas.MenuTareas;
 import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
@@ -805,7 +806,8 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bGestorComprasMouseEntered
 
     private void bProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProductosActionPerformed
-        // TODO add your handling code here:
+       ProductosCompra compra = new ProductosCompra();
+        cambiarPagina(compra);
     }//GEN-LAST:event_bProductosActionPerformed
 
     private void bProductosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bProductosMouseExited

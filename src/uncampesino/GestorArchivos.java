@@ -163,7 +163,7 @@ public class GestorArchivos {
 //        raiz_y_tuberculo.leer().print();
 //
 //        producto.leerApartado().output();
-//        producto.leer().print();
+        producto.leer().print();
 //
 //        tarea.leer().output();
 //        ganado.leerNecesidad().print();
@@ -185,8 +185,8 @@ public class GestorArchivos {
 //            System.out.println(usuario.leer().get(i));
 //        }
 //        usuario.leerSetH().printSets();
-    usuario.leer().forEach((usuarioFor) -> {
-        System.out.println(usuarioFor);
-        });
+//    usuario.leer().forEach((usuarioFor) -> {
+//        System.out.println(usuarioFor);
+//        });
     }
 }

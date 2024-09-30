@@ -14,8 +14,8 @@ import Structures.Queue;
 public class GestorProductos {
     public static Producto producto = new Producto();
     
-    private static DoublyLinkedList<Producto> listaProducto = producto.leer();
-    private static Queue<Producto> colaProducto = producto.leerApartado();
+    public static DoublyLinkedList<Producto> listaProducto = producto.leer();
+    public static Queue<Producto> colaProducto = producto.leerApartado();
     
 //Para creación de archivos
 //    private static DoublyLinkedList<Producto> listaProducto;
