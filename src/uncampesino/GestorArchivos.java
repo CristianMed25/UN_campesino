@@ -71,20 +71,21 @@ public class GestorArchivos {
     
     public static void main(String[] args) {
 // CREAR ARCHIVOS
+//          gestorUsuarios.crearUsuarioCampesino("ADMIN", "ADMIN","admin");
 //        Tarea tarea = new Tarea("1", "A");
 //        Tarea tareaDos = new Tarea("2", "B");
 //        Tarea tareaTres = new Tarea("3", "C");
 //        DynamicArrayList<Tarea> necesidades = new DynamicArrayList<>();
 //        necesidades.pushBack(tarea);
- //       necesidades.pushBack(tareaDos);
+//        necesidades.pushBack(tareaDos);
 //        necesidades.pushBack(tareaTres);
 ////        
 //        gestorRoles.guardarRol(1, "Admin", "ADM", "A");
 //        gestorRoles.guardarRol(2, "Trabajador", "TRA", "T");
 //        gestorRoles.guardarRol(3, "Consultor", "CON", "C");
-////        
-////        gestorUsuarios.crearUsuarioCampesino("PruebaCAM", "Admin", "Admin");
-////        gestorUsuarios.crearUsuarioConsultor("PruebaCON2", "Consultor", "Consultor");
+//        
+//        gestorUsuarios.crearUsuarioCampesino("PruebaCAM", "Admin", "Admin");
+//        gestorUsuarios.crearUsuarioConsultor("PruebaCON2", "Consultor", "Consultor");
 //
 ////
 ////
@@ -94,14 +95,14 @@ public class GestorArchivos {
 //        gestorAnimales.agregarGanado("4", ovino, necesidades);
 //        gestorAnimales.agregarGanado("5", pez, necesidades);
 //        gestorAnimales.agregarGanado("6", porcino, necesidades);
-//
+////
 //        gestorAnimales.agregarBovino("0", 0, "a", 1);
 //        gestorAnimales.agregarAve("0", 0, "a", 1);
 //        gestorAnimales.agregarCaballo("0", 0, "a", 1);
 //        gestorAnimales.agregarOvino("0", 0, "a", 1);
 //        gestorAnimales.agregarPez("0", 0, "a", 1);
 //        gestorAnimales.agregarPorcino("0", 0, "a", 1);
-//
+////
 //        gestorCultivos.agregarCereal("0", "X", necesidades);
 //        gestorCultivos.agregarFrutal("0", "X", necesidades);
 //        gestorCultivos.agregarHortaliza("0", "X", necesidades);
@@ -109,10 +110,10 @@ public class GestorArchivos {
 //        gestorCultivos.agregarOrnamental("0", "X", necesidades);
 //        gestorCultivos.agregarRaiz_y_Tuberculo("0", "X", necesidades);
 //        gestorCultivos.agregarOleaginosa("0", "X", necesidades);
-//
+////
 //        gestorProductos.agregarProducto("0", "prueba", 250, 1000);
 //        gestorProductos.apartarProducto(gestorProductos.buscarIdProducto("P0"), 500);
-//
+////
 //        gestorTareas.encolarTarea(tarea);
 //        gestorTareas.agregarNecesidadAnimal(tarea);
 //        gestorTareas.agregarNecesidadCultivo(tarea);
@@ -163,7 +164,7 @@ public class GestorArchivos {
 //        raiz_y_tuberculo.leer().print();
 //
 //        producto.leerApartado().output();
-        producto.leer().print();
+//        producto.leer().print();
 //
 //        tarea.leer().output();
 //        ganado.leerNecesidad().print();
@@ -179,10 +180,6 @@ public class GestorArchivos {
 //        System.out.println(usuario.leerSetH().isConnected(6, 3)); //true
 //        for (int i = 0; i < rol.leer().size(); i++){
 //            System.out.println(rol.leer().get(i));
-//        }
-//        
-//        for (int i = 0; i < usuario.leer().size(); i++){
-//            System.out.println(usuario.leer().get(i));
 //        }
 //        usuario.leerSetH().printSets();
 //    usuario.leer().forEach((usuarioFor) -> {
