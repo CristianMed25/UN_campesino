@@ -12,7 +12,10 @@ import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Funcionalidades.GestorComprasQuaHeap;
-import Funcionalidades.GestorPendientes;
+import Funcionalidades.*;
+import Classes.Pendientes;
+import Structures.*;
+import java.util.List;
 /**
  *
  * @author CristianM
@@ -49,7 +52,7 @@ public class MenuPendientes extends javax.swing.JPanel {
         texto = new javax.swing.JTextArea();
         bCompletarPendiente = new javax.swing.JButton();
         bBuscar = new javax.swing.JButton();
-        bBuscarPrio = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jLabel2.setText("Descripción");
 
@@ -101,8 +104,13 @@ public class MenuPendientes extends javax.swing.JPanel {
         });
 
         bBuscar.setText("Buscar pendiente");
+        bBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBuscarActionPerformed(evt);
+            }
+        });
 
-        bBuscarPrio.setText("Busqueda por prioridad mínima");
+        jLabel1.setText("Gestor de pendientes");
 
         javax.swing.GroupLayout contLayout = new javax.swing.GroupLayout(cont);
         cont.setLayout(contLayout);
@@ -121,17 +129,17 @@ public class MenuPendientes extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(contLayout.createSequentialGroup()
                         .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
                             .addComponent(tDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(contLayout.createSequentialGroup()
                                 .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(87, 87, 87)
                                 .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bBuscarPrio)
                                     .addGroup(contLayout.createSequentialGroup()
-                                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(bAgregarPendiente)
-                                            .addComponent(bEliminarPendiente))
+                                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(bEliminarPendiente)
+                                            .addComponent(bAgregarPendiente))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(bBuscar)
@@ -142,33 +150,34 @@ public class MenuPendientes extends javax.swing.JPanel {
         contLayout.setVerticalGroup(
             contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bLimpiar))
+                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bLimpiar)
+                    .addComponent(tPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(contLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bAgregarPendiente)
-                            .addComponent(bCompletarPendiente))
+                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(contLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(bEliminarPendiente)
+                                    .addComponent(bBuscar)))
+                            .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(bAgregarPendiente)
+                                .addComponent(bCompletarPendiente)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(contLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bEliminarPendiente)
-                            .addComponent(bBuscar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bBuscarPrio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bMostrar)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addComponent(bMostrar))
+                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -198,30 +207,36 @@ public class MenuPendientes extends javax.swing.JPanel {
     }//GEN-LAST:event_bLimpiarActionPerformed
 
     private void bMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrarActionPerformed
-        StringBuilder sb = new StringBuilder();
-        Producto[] datos=listaQ.ExtraerDatos();
 
-        for(int i = 0; i<datos.length; i++){
-            if(datos[i] != null){
-                sb.append("Nombre: ").append(datos[i].getNombre()).append("\n");
-                sb.append("Precio: ").append(Double.toString(datos[i].getPrecio())).append("\n");
-                sb.append("\n");
+            List<Pendientes> a=gestorPendiente.buscarPorPrioridad(0);
+            StringBuilder sb = new StringBuilder();
+            for (int i=0;i<a.size();i++){
+                if(a.get(i) != null){
+                    sb.append("Descripción: ").append(a.get(i).getDescription()).append("\n");
+                    sb.append("Prioridad: ").append(Integer.toString(a.get(i).getPriority())).append("\n");
+                    sb.append("\n");
+                }
             }
-        }
         String resultado = sb.toString().trim();
         texto.setText(resultado);
     }//GEN-LAST:event_bMostrarActionPerformed
 
     private void bEliminarPendienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarPendienteActionPerformed
-        StringBuilder sb = new StringBuilder();
-        Producto dato=listaQ.ExtraerDato();
-        if(dato != null){
-            sb.append("Nombre: ").append(dato.getNombre()).append("\n");
-            sb.append("Precio: ").append(Double.toString(dato.getPrecio())).append("\n");
-            sb.append("\n");
+        List<Pendientes> a=gestorPendiente.buscarPorPrioridadExacta(Integer.parseInt(tPrecio.getText()));
+        if (tDescripcion.getText().equals("")){
+            for (int i=0;i<a.size();i++){
+                gestorPendiente.eliminarPendiente(Integer.parseInt(tPrecio.getText()), a.get(i).getDescription());
+            }
+            JOptionPane.showMessageDialog(this, "Los pendientes con la prioridad "+ tPrecio.getText()+" han sido eliminados");
+        }else{
+            for (int i=0;i<a.size();i++){
+                if(a.get(i) != null&&a.get(i).getDescription().equals(tDescripcion.getText())){
+                    gestorPendiente.eliminarPendiente(Integer.parseInt(tPrecio.getText()), a.get(i).getDescription());
+                    
+                }
+            }
+            JOptionPane.showMessageDialog(this, "Los pendientes con la prioridad "+ tPrecio.getText()+" y la descripción "+ tDescripcion.getText()+" han sido eliminados");
         }
-        String resultado = sb.toString().trim();
-        texto.setText(resultado);
     }//GEN-LAST:event_bEliminarPendienteActionPerformed
 
     private void bAgregarPendienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarPendienteActionPerformed
@@ -234,19 +249,63 @@ public class MenuPendientes extends javax.swing.JPanel {
     }//GEN-LAST:event_tDescripcionActionPerformed
 
     private void bCompletarPendienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCompletarPendienteActionPerformed
-        // TODO add your handling code here:
+        Pendientes o=new Pendientes();
+        List<Pendientes> a=gestorPendiente.buscarPorPrioridadExacta(Integer.parseInt(tPrecio.getText()));
+        for (int i=0;i<a.size();i++){
+            if (a.get(i)==null){
+                break;
+            }
+            if (a.get(i).getDescription().equals(tDescripcion.getText())){
+              o=a.get(i);
+              gestorPendiente.marcarCompletada(o);
+              System.out.println(o.isCompletada());
+              JOptionPane.showMessageDialog(this, "Pendiente completado!");
+            }
+            }
+         if (o.getDescription()==null){
+            JOptionPane.showMessageDialog(this, "Pendiente no encontrado!");
+            }
     }//GEN-LAST:event_bCompletarPendienteActionPerformed
+
+    private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
+        if (tDescripcion.getText().equals("")){
+            List<Pendientes> a=gestorPendiente.buscarPorPrioridadExacta(Integer.parseInt(tPrecio.getText()));
+            StringBuilder sb = new StringBuilder();
+            for (int i=0;i<a.size();i++){
+                if(a.get(i) != null){
+                    sb.append("Descripción: ").append(a.get(i).getDescription()).append("\n");
+                    sb.append("Prioridad: ").append(Integer.toString(a.get(i).getPriority())).append("\n");
+                    sb.append("\n");
+                }
+            }
+        String resultado = sb.toString().trim();
+        texto.setText(resultado);
+        }else{
+            List<Pendientes> a=gestorPendiente.buscarPorPrioridadExacta(Integer.parseInt(tPrecio.getText()));
+            
+            StringBuilder sb = new StringBuilder();
+            for (int i=0;i<a.size();i++){
+                if(a.get(i) != null&&a.get(i).getDescription().equals(tDescripcion.getText())){
+                    sb.append("Descripción: ").append(a.get(i).getDescription()).append("\n");
+                    sb.append("Prioridad: ").append(Integer.toString(a.get(i).getPriority())).append("\n");
+                    sb.append("\n");
+                }
+            }
+        String resultado = sb.toString().trim();
+        texto.setText(resultado);
+        }
+    }//GEN-LAST:event_bBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAgregarPendiente;
     private javax.swing.JButton bBuscar;
-    private javax.swing.JButton bBuscarPrio;
     private javax.swing.JButton bCompletarPendiente;
     private javax.swing.JButton bEliminarPendiente;
     private javax.swing.JButton bLimpiar;
     private javax.swing.JButton bMostrar;
     private javax.swing.JPanel cont;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane scroll;

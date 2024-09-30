@@ -24,7 +24,8 @@ public class Pendientes implements Serializable, Comparable<Pendientes>{
         this.descripcion = descripcion;
         this.completada = false;
     }
-    public Pendientes(){}
+    public Pendientes(){
+    }
     
     public int getPriority(){
         return priority;

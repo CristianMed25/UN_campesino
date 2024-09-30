@@ -44,11 +44,6 @@ public class GestorPendientes {
     // Método para buscar pendientes con una prioridad exacta
     public List<Pendientes> buscarPorPrioridadExacta(int prioridad) {
         List<Pendientes> pendientes = avlTree.buscarPorPrioridadExacta(prioridad);
-        if (pendientes.isEmpty()) {
-            System.out.println("No se encontraron pendientes con la prioridad: " + prioridad);
-        } else {
-            System.out.println("Pendientes encontradas con la prioridad " + prioridad + ": " + pendientes);
-        }
         return pendientes;
     }
 
